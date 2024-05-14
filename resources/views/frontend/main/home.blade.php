@@ -16,9 +16,10 @@
                                         <h1 class="text-[clamp(42px,6.25vw,12rem)] font-semibold leading-[1.1] mb-[36px] md:mb-[36px] anim-text">Ex Students <span class="italic font-normal">Child Care Academy</span></h1>
 
                                         <div class="et-banner-btns flex flex-wrap items-center gap-[20px]">
-                                            <a href="#" class="et-btn bg-etBlue inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-white font-normal text-[17px] rounded-full hover:!bg-white hover:!text-etBlue">Register Now</a>
+                                            <!-- <a href="#" class="et-btn bg-etBlue inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-white font-normal text-[17px] rounded-full hover:!bg-white hover:!text-etBlue">Register Now</a> -->
 
-                                            <a href="#" class="et-btn bg-white inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-etBlue font-normal text-[17px] rounded-full">View More</a>
+                                            <a href="#" class="et-btn bg-white inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-etBlue font-normal text-[17px] rounded-full">Register Now</a>
+                                            <!-- <a href="#" class="et-btn bg-white inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-etBlue font-normal text-[17px] rounded-full">View More</a> -->
                                         </div>
                                     </div>
 
@@ -64,7 +65,7 @@
                                 </div>
 
                                 <div class="flex shrink-0 gap-[30px] items-center">
-                                    <a href="#" class="group">
+                                    <a href="{{ route('home') }}" class="group">
                                         <svg width="123" height="123" viewBox="0 0 123 123" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M89.3191 57.1702V110.277H122V1H12.7234V33.6809H65.8298L2 97.5106L25.4894 121L89.3191 57.1702Z" stroke-width="2" class="stroke-[url(#paint0_linear_6096_354)] transition duration-[400ms] group-hover:stroke-etBlue " />
                                             <defs>

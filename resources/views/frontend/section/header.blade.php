@@ -12,14 +12,7 @@
                 <div class="to-go-to-sidebar-in-mobile flex md:flex-col md:items-start items-center gap-[100px] xl:gap-[30px] md:gap-y-[15px]">
                     <!-- nav -->
                     <ul class="et-header-nav flex md:flex-col gap-x-[43px] xl:gap-x-[33px] font-kanit text-[17px] font-normal">
-                        <li class="has-sub-menu relative">
-                            <a role="button">Home</a>
-
-                            <ul class="et-header-submenu">
-                                <li><a href="{{ route('home') }}">Home</a></li>
-                                <li><a href="{{ route('home') }}">Home 02</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="about.html">About us</a></li>
                         <li class="has-sub-menu relative">
                             <a role="button">Events</a>
