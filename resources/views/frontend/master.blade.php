@@ -31,7 +31,7 @@
             <!-- heading -->
             <div class="et-sidebar-heading">
                 <div class="logo flex justify-between items-center">
-                    <a href="index.html"><img src="assets/img/logo-white.png" alt="logo"></a>
+                    <a href="{{ route('home') }}"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
 
                     <button type="button" class="et-sidebar-close-btn border border-white/50 w-[45px] aspect-square shrink-0 text-white text-[22px] rounded-full hover:text-etBlue hover:bg-white"><i class="fa-solid fa-xmark"></i></button>
                 </div>

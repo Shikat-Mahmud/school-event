@@ -68,7 +68,7 @@
                 <div class="flex md:flex-wrap xs:w-full gap-x-[65px] xxl:gap-x-[45px] xl:gap-[30px] gap-y-[25px] justify-between md:justify-center xxs:justify-start">
                     <!-- footer about -->
                     <div class="et-footer-about max-w-[295px] lg:max-w-none md:max-w-[300px] xs:max-w-full">
-                        <a href="#" class="mb-[25px] inline-block"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
+                        <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
                         <p class="font-light text-[#f2f2f2] text-[16px] mb-[25px]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus sit amet magna elemen facilisis</p>
 
                         <!-- social media -->
@@ -269,7 +269,7 @@
 
             <!-- footer bottom -->
             <div class="et-footer-bottom border-t border-white/20 py-[34px]">
-                <p class="font-light text-[#f2f2f2] text-center text-[16px]">&copy; 2024, Eventek All Rights Reserved.</p>
+                <p class="font-light text-[#f2f2f2] text-center text-[16px]">&copy; 2024, <a class="text-etBlue" href="https://eftakharmahmud.com">Saikat Mahmud</a> All Rights Reserved.</p>
             </div>
         </div>
     </footer>

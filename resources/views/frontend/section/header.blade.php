@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center">
             <!-- logo -->
             <div class="logo shrink-0">
-                <a href="index.html">
+                <a href="{{ route('home') }}">
                     <img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo">
                 </a>
             </div>
@@ -16,8 +16,8 @@
                             <a role="button">Home</a>
 
                             <ul class="et-header-submenu">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
+                                <li><a href="{{ route('home') }}">Home</a></li>
+                                <li><a href="{{ route('home') }}">Home 02</a></li>
                             </ul>
                         </li>
                         <li><a href="about.html">About us</a></li>
