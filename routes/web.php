@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
     return view('frontend.main.home');
-})->name('welcome');
+})->name('home');
 
 // Route::get('/home', function () {
 //     return view('welcome');
