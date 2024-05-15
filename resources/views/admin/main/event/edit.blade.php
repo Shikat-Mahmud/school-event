@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Add Event')
+@section('title', 'Edit Event')
 @section('content')
 <section class="pc-container">
     <div class="pc-content">
@@ -8,7 +8,8 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div>
-                            <h4>Add Event</h4>
+                            <h4>Edit Event</h4>
+
                         </div>
                         <div>
                             <a href="{{ route('events') }}" class="btn btn-primary btn-sm"><i
@@ -17,13 +18,14 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="{{ route('store.event') }}" method="post">
+                        <form action="{{ route('update.event',  $event->id) }}" method="post">
                             @csrf
                             <div class="row mt-3">
-                                <label for="" class="col-md-4">Event Name <span class="text-danger">*</span></label>
+                                <label for="" class="col-md-4" required>Event Name <span
+                                        class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="name" class="form-control" placeholder="Event Name"
-                                        value="{{ old('name') }}" required />
+                                    <input type="text" name="name" value="{{ $event->name }}"
+                                        class="form-control" />
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -32,20 +34,18 @@
                                     <input type="datetime-local" name="datetime" class="form-control" required />
                                 </div>
                             </div>
+
                             <div class="row mt-3">
                                 <label for="" class="col-md-4"></label>
-                                <div class="col-md-4">
-                                    <input type="submit" value="Create" class="btn btn-success">
+                                <div class="col-md-4 ">
+                                    <input type="submit" value="Update" class="btn btn-success">
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
 </section>
 @endsection

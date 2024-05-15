@@ -62,7 +62,10 @@ Route::resource('products', ProductController::class);
 
 Route::get('/event-date', [EventController::class, 'getEventDate']);
 Route::get('/events', [EventController::class, 'index'])->name('events');
-Route::get('/add-event-date', [EventController::class, 'create'])->name('create.event');
-Route::post('/add-event-date', [EventController::class, 'store'])->name('store.event');
+Route::get('/add-event', [EventController::class, 'create'])->name('create.event');
+Route::post('/add-event', [EventController::class, 'store'])->name('store.event');
+Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.event');
+Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
+Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
 
 
