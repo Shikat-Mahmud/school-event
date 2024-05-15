@@ -1,12 +1,13 @@
 
     <!-- FOOTER SECTION START -->
-    <footer class="et-footer bg-etBlack relative z-[1] before:absolute before:-z-[1] before:inset-0 before:bg-[url('{{asset('/')}}frontend/img/footer-1-bg.jpg')] before:opacity-30 before:mix-blend-overlay text-white">
+    <footer class="et-footer bg-etBlack relative z-[1] before:absolute before:-z-[1] before:inset-0 before:opacity-30 before:mix-blend-overlay text-white" style="background-color: #3F3F3F;">
         <div class="container mx-auto max-w-[calc(100%-37.1vw)] xxxl:max-w-[calc(100%-350px)] xl:max-w-[calc(100%-170px)] px-[12px] lg:max-w-full">
 
             <!-- footer top -->
             <div class="et-footer-top pt-[130px] xl:pt-[80px] pb-[60px]">
                 <!-- contact infos -->
-                <div class="bg-etBlue py-[35px] px-[40px] xl:px-[30px] rounded-[20px] mb-[60px] overflow-hidden relative z-[1] flex lg:flex-wrap justify-between lg:justify-center xs:justify-start items-center gap-[20px] before:absolute before:-z-[1] before:inset-0 before:bg-[url('{{asset('/')}}frontend/img/contact-info-bg.jpg')] before:bg-cover before:bg-no-repeat before:bg-center before:opacity-40 before:mix-blend-multiply">
+                <div class="bg-etBlue py-[35px] px-[40px] xl:px-[30px] rounded-[20px] mb-[60px] overflow-hidden relative z-[1] flex lg:flex-wrap justify-between lg:justify-center xs:justify-start items-center gap-[20px] before:absolute before:-z-[1] before:inset-0 before:opacity-40 before:mix-blend-multiply"
+                style="background-image: url('{{asset('/')}}frontend/img/et-counter-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <!-- single info -->
                     <div class="flex xxs:flex-col items-center xxs:items-start gap-[15px] xxs:gap-[10px]">
                         <!-- icon -->
