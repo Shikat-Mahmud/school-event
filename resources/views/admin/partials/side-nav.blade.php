@@ -96,6 +96,9 @@
                             <a class="pc-link" href="{{ route('products.index') }}">Product</a>
                         </li>
                         @endif
+                        <li class="pc-item">
+                            <a class="pc-link" href="{{ route('events') }}">Events</a>
+                        </li>
                     </ul>
                 </li>
                 @endif

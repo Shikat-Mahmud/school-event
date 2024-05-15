@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingsController;
@@ -58,4 +59,10 @@ Route::get('application-cache-clear', [SettingsController::class, 'cacheClear'])
 
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
+
+Route::get('/event-date', [EventController::class, 'getEventDate']);
+Route::get('/events', [EventController::class, 'index'])->name('events');
+Route::get('/add-event-date', [EventController::class, 'create'])->name('create.event');
+Route::post('/add-event-date', [EventController::class, 'store'])->name('store.event');
+
 
