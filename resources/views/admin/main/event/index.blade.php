@@ -31,7 +31,7 @@
                                     @foreach ($events as $item)
                                     <tr>
                                         <td>{{ $item->name }}</td>
-                                        <td>{{ $item->datetime }}</td>
+                                        <td>{{ \Carbon\Carbon::parse($item->datetime)->format('d-M-Y g:i A') }}</td>
                                         <td>
                                             <div class="d-flex">
 
