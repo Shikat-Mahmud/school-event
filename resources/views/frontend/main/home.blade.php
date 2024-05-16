@@ -77,22 +77,19 @@
                 </div>
 
                 <div class="flex shrink-0 gap-[30px] items-center">
-                    <a href="{{ route('home') }}" class="group">
-                        <svg width="123" height="123" viewBox="0 0 123 123" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M89.3191 57.1702V110.277H122V1H12.7234V33.6809H65.8298L2 97.5106L25.4894 121L89.3191 57.1702Z"
-                                stroke-width="2"
-                                class="stroke-[url(#paint0_linear_6096_354)] transition duration-[400ms] group-hover:stroke-etBlue " />
-                            <defs>
-                                <linearGradient id="paint0_linear_6096_354" x1="241.347" y1="-124.347" x2="5.74999"
-                                    y2="111.25" gradientUnits="userSpaceOnUse">
-                                    <stop offset="0" stop-color="#1872FE" />
-                                    <stop offset="1" stop-color="#1972FE" stop-opacity="0" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </a>
+                    <svg width="123" height="123" viewBox="0 0 123 123" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M89.3191 57.1702V110.277H122V1H12.7234V33.6809H65.8298L2 97.5106L25.4894 121L89.3191 57.1702Z"
+                            stroke-width="2"
+                            class="stroke-[url(#paint0_linear_6096_354)] transition duration-[400ms] group-hover:stroke-etBlue " />
+                        <defs>
+                            <linearGradient id="paint0_linear_6096_354" x1="241.347" y1="-124.347" x2="5.74999"
+                                y2="111.25" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stop-color="#1872FE" />
+                                <stop offset="1" stop-color="#1972FE" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
 
                     <div class="flex items-center gap-[15px] ">
                         <!-- video button -->
@@ -232,7 +229,7 @@
                         <img src="{{asset('/')}}frontend/img/clock.png" alt="Feature icon"
                             class="transition duration-[0.4s] group-hover:-scale-x-100">
                     </div>
-                
+
                     <!-- text -->
                     <div>
                         <h5 class="font-medium text-[20px] text-etBlack mb-[8px]"> 10:00 AM – 12.00 PM </h5>
