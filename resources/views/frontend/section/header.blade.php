@@ -13,44 +13,19 @@
                     <!-- nav -->
                     <ul class="et-header-nav flex md:flex-col gap-x-[43px] xl:gap-x-[33px] font-kanit text-[17px] font-normal">
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="about.html">About us</a></li>
-                        <li class="has-sub-menu relative">
+                        <li><a href="{{ route('home') }}">Gallery</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <!-- <li class="has-sub-menu relative">
                             <a role="button">Events</a>
 
                             <ul class="et-header-submenu">
                                 <li><a href="events.html">All Events</a></li>
                                 <li><a href="event-details.html">Events Details</a></li>
                             </ul>
-                        </li>
-                        <li class="has-sub-menu relative">
-                            <a role="button">Pages</a>
+                        </li> -->
 
-                            <ul class="et-header-submenu">
-                                <li><a href="pricing.html">Pricing Plan</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="sponsor.html">Sponsors</a></li>
-                                <li><a href="venue.html">Venue</a></li>
-                                <li><a href="404.html">Error 404</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu relative">
-                            <a role="button">Team</a>
-
-                            <ul class="et-header-submenu">
-                                <li><a href="team.html">Team Members</a></li>
-                                <li><a href="team-member-details.html">Team Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-sub-menu relative">
-                            <a role="button">News</a>
-
-                            <ul class="et-header-submenu">
-                                <li><a href="news.html">All News</a></li>
-                                <li><a href="news-details.html">News Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
 
                     <!-- button -->
