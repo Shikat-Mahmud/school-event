@@ -74,6 +74,7 @@ class EventController extends Controller
     public function update(Request $request, string $id)
     {
         try {
+            // Validate the request
             $request->validate([
                 'name' => 'required|string|max:255',
                 'datetime' => 'required|date',
@@ -81,29 +82,32 @@ class EventController extends Controller
                 'description' => 'nullable|string',
                 'location' => 'nullable|string|max:255',
             ]);
-
-            $event = Event::find($id);
-
+    
+            $event = Event::findOrFail($id);
+    
             $event->name = $request->input('name');
             $event->datetime = $request->input('datetime');
-
+            $event->location = $request->input('location');
+            $event->description = $request->input('description');
+    
             if ($request->hasFile('image')) {
-                // Delete the old image if it exists
+                // Delete old image if it exists
                 if ($event->image) {
-                    Storage::disk('public')->delete($event->image);
+                    Storage::delete('public/' . $event->image);
                 }
+    
+                // Store the new image
                 $event->image = $request->file('image')->store('events', 'public');
             }
-
-            $event->description = $request->input('description');
-            $event->location = $request->input('location');
+    
             $event->save();
-
+    
             return redirect()->route('events')->with('success', 'Event updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+    
 
     public function destroy($id)
     {

@@ -17,14 +17,16 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('update.event', $event->id) }}" method="post">
+                        <form action="{{ route('update.event', $event->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
                                 <label for="event-name" class="col-md-4">Event Name: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-md-8">
                                     <input type="text" id="event-name" name="name"
-                                        value="{{ old('name', $event->name) }}" class="form-control" placeholder="Event name" required />
+                                        value="{{ old('name', $event->name) }}" class="form-control"
+                                        placeholder="Event name" required />
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -40,15 +42,16 @@
                                 <label for="event-location" class="col-md-4">Event Location: </label>
                                 <div class="col-md-8">
                                     <input type="text" id="event-location" name="location"
-                                        value="{{ old('location', $event->location) }}" class="form-control" placeholder="Event location"/>
+                                        value="{{ old('location', $event->location) }}" class="form-control"
+                                        placeholder="Event location" />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="" class="col-md-4">Event Image: </label>
+                                <label for="event-image" class="col-md-4">Event Image: </label>
                                 <div class="col-md-8">
-                                    <input type="file" name="photo" class="form-control" />
-                                    @if($event->photo)
-                                        <img src="{{ asset('storage/' . $event->photo) }}" alt="{{ $event->name }}"
+                                    <input type="file" id="event-image" name="image" class="form-control" />
+                                    @if($event->image)
+                                        <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->name }}"
                                             width="100" />
                                     @endif
                                 </div>
@@ -56,8 +59,8 @@
                             <div class="row mt-3">
                                 <label for="event-description" class="col-md-4">Description: </label>
                                 <div class="col-md-8">
-                                    <textarea name="description" id="event-description"
-                                        class="form-control" placeholder="Event description here.">{{ $event->description }}</textarea>
+                                    <textarea name="description" id="event-description" class="form-control"
+                                        placeholder="Event description here.">{{ old('description', $event->description) }}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -67,6 +70,7 @@
                                 </div>
                             </div>
                         </form>
+
 
                     </div>
                 </div>

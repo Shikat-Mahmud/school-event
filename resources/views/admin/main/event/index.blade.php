@@ -24,6 +24,8 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Date and Time</th>
+                                        <th>Location</th>
+                                        <th>Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -32,6 +34,16 @@
                                     <tr>
                                         <td>{{ $item->name }}</td>
                                         <td>{{ \Carbon\Carbon::parse($item->datetime)->format('d-M-Y g:i A') }}</td>
+                                        <td>{{ $item->location }}</td>
+                                        <td>
+                                            @if ($item->image)
+                                            <img src="{{ asset('storage/' . $item->image) }}" alt="Event Image"
+                                                style="height: 50px; border-radius: 6px;">
+                                            @else
+                                            <img src="https://placehold.co/400" alt="Default Image"
+                                                style="height: 50px; border-radius: 6px;">
+                                            @endif
+                                        </td>
                                         <td>
                                             <div class="d-flex">
 
