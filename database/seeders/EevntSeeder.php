@@ -16,6 +16,8 @@ class EevntSeeder extends Seeder
         $event = [
             'name' => 'Ex Students CCA',
             'datetime' => '2024-07-10 08:00:00',
+            'description' => 'This is a demo description.',
+            'location' => 'Durgapur high school field, Durgapur, Begumganj, Noakhali.',
         ];
 
         DB::table('events')->insert($event);
