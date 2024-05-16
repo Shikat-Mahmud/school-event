@@ -11,7 +11,7 @@ class EventController extends Controller
     public function getEventDate()
     {
         $event = Event::first(); // Fetch the event (adjust the query as needed)
-    return response()->json(['datetime' => $event->datetime]);
+        return response()->json(['datetime' => $event->datetime]);
     }
 
     public function index()

@@ -68,8 +68,3 @@ Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.eve
 Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
 Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
 
-
-// Route::get('/get-event-datetime', function () {
-//     $event = Event::first(); // Fetch the event (adjust the query as needed)
-//     return response()->json(['datetime' => $event->datetime]);
-// });
