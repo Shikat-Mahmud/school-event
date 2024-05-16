@@ -20,16 +20,22 @@
                         <form action="{{ route('store.event') }}" method="post">
                             @csrf
                             <div class="row mt-3">
-                                <label for="" class="col-md-4">Event Name <span class="text-danger">*</span></label>
+                                <label for="name" class="col-md-4">Event Name <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="name" class="form-control" placeholder="Event Name"
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Event Name"
                                         value="{{ old('name') }}" required />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="" class="col-md-4">Date and Time <span class="text-danger">*</span></label>
+                                <label for="datetime" class="col-md-4">Date and Time <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="datetime-local" name="datetime" class="form-control" required />
+                                    <input type="datetime-local" id="datetime" name="datetime" class="form-control" required />
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label for="image" class="col-md-4">Event Image</label>
+                                <div class="col-md-8">
+                                    <input type="file" id="image" name="image" class="form-control" />
                                 </div>
                             </div>
                             <div class="row mt-3">

@@ -20,20 +20,44 @@
                         <form action="{{ route('update.event', $event->id) }}" method="post">
                             @csrf
                             <div class="row mt-3">
-                                <label for="event-name" class="col-md-4">Event Name <span
+                                <label for="event-name" class="col-md-4">Event Name: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-md-8">
                                     <input type="text" id="event-name" name="name"
-                                        value="{{ old('name', $event->name) }}" class="form-control" required />
+                                        value="{{ old('name', $event->name) }}" class="form-control" placeholder="Event name" required />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="event-datetime" class="col-md-4">Date and Time <span
+                                <label for="event-datetime" class="col-md-4">Date and Time: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-md-8">
                                     <input type="datetime-local" id="event-datetime" name="datetime"
                                         value="{{ old('datetime', \Carbon\Carbon::parse($event->datetime)->format('Y-m-d\TH:i')) }}"
                                         class="form-control" required />
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label for="event-location" class="col-md-4">Event Location: </label>
+                                <div class="col-md-8">
+                                    <input type="text" id="event-location" name="location"
+                                        value="{{ old('location', $event->location) }}" class="form-control" placeholder="Event location"/>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label for="" class="col-md-4">Event Image: </label>
+                                <div class="col-md-8">
+                                    <input type="file" name="photo" class="form-control" />
+                                    @if($event->photo)
+                                        <img src="{{ asset('storage/' . $event->photo) }}" alt="{{ $event->name }}"
+                                            width="100" />
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <label for="event-description" class="col-md-4">Description: </label>
+                                <div class="col-md-8">
+                                    <textarea name="description" id="event-description"
+                                        class="form-control" placeholder="Event description here.">{{ $event->description }}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-3">

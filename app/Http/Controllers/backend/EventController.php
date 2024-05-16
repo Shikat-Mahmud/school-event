@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EventController extends Controller
 {
@@ -39,14 +40,24 @@ class EventController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'datetime' => 'required|date',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'nullable|string',
+            'location' => 'nullable|string|max:255',
         ]);
 
         $event = new Event();
         $event->name = $request->name;
         $event->datetime = $request->datetime;
+
+        if ($request->hasFile('image')) {
+            $event->image = $request->file('image')->store('events', 'public');
+        }
+
+        $event->description = $request->description;
+        $event->location = $request->location;
         $event->save();
 
-        return redirect()->back()->with('success', 'Event created successfully.');
+        return redirect()->route('events')->with('success', 'Event created successfully.');
     }
 
     public function edit(string $id)
@@ -66,13 +77,27 @@ class EventController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'datetime' => 'required|date',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'description' => 'nullable|string',
+                'location' => 'nullable|string|max:255',
             ]);
+
             $event = Event::find($id);
 
-            $event->update([
-                'name' => $request->input('name'),
-                'datetime' => $request->input('datetime')
-            ]);
+            $event->name = $request->input('name');
+            $event->datetime = $request->input('datetime');
+
+            if ($request->hasFile('image')) {
+                // Delete the old image if it exists
+                if ($event->image) {
+                    Storage::disk('public')->delete($event->image);
+                }
+                $event->image = $request->file('image')->store('events', 'public');
+            }
+
+            $event->description = $request->input('description');
+            $event->location = $request->input('location');
+            $event->save();
 
             return redirect()->route('events')->with('success', 'Event updated successfully.');
         } catch (\Exception $e) {
@@ -80,11 +105,17 @@ class EventController extends Controller
         }
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
         if (auth()->user()->can('delete-event')) {
-            Event::find($id)->delete();
-            return redirect()->back()->with('success', 'Event deleted successfully.');
+            $event = Event::find($id);
+            // Delete the image if it exists
+            if ($event->image) {
+                Storage::disk('public')->delete($event->image);
+            }
+            $event->delete();
+
+            return redirect()->route('events.index')->with('success', 'Event deleted successfully.');
         } else {
             return redirect()->back()->with('error', 'You do not have permission to delete event.');
         }

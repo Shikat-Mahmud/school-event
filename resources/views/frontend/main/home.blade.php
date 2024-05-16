@@ -123,8 +123,8 @@
             class="flex items-center md:flex-wrap gap-x-[60px] xl:gap-x-[40px] lg:gap-x-[30px] gap-y-[40px] sm:gap-y-[40px] lg:justify-center">
             <!-- left -->
             <div class="et-about-img relative z-[1] md:w-auto shrink-0 max-w-full ml-[124px] md:mr-0 xs:mx-auto">
-                @if (isset($event->image))
-                    <img src="{{asset('storage/' . $event->image)}}" alt="image" class="shrink-0 rounded-[50px]" />
+                @if (isset($event->photo))
+                    <img src="{{asset('storage/' . $event->photo)}}" alt="image" class="shrink-0 rounded-[50px]" />
                 @else
                     <img src="{{asset('/')}}frontend/img/about-2-img.png" alt="image" class="shrink-0 rounded-[50px]" />
                 @endif

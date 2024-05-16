@@ -13,16 +13,8 @@ use App\Http\Controllers\Admin\UserController;
 
 
 
-
-
-// Route::get('/', function () {
-//     return view('frontend.main.home');
-// })->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route::get('/home', function () {
-//     return view('welcome');
-// })->middleware(['auth', 'admin.redirect'])->name('home');
 
 Route::middleware(['auth', 'permission:admin-panel'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('index');
