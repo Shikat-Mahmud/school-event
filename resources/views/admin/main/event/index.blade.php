@@ -31,33 +31,32 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($events as $item)
-                                    <tr>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($item->datetime)->format('d-M-Y g:i A') }}</td>
-                                        <td>{{ $item->location }}</td>
-                                        <td>
-                                            @if ($item->image)
-                                            <img src="{{ asset('storage/' . $item->image) }}" alt="Event Image"
-                                                style="height: 50px; border-radius: 6px;">
-                                            @else
-                                            <img src="https://placehold.co/400" alt="Default Image"
-                                                style="height: 50px; border-radius: 6px;">
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div class="d-flex">
-
-                                                <a class="btn btn-info btn-sm me-2"
-                                                    href="{{ route('edit.event', $item->id) }}">Edit</a>
-
-                                                <form class="deleteForm" action="{{ route('destroy.event', $item->id) }}" method="post">
-                                                    @csrf
-                                                    <button type="button"
-                                                        class="btn btn-danger btn-sm btnDelete">Delete</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($item->datetime)->format('d-M-Y g:i A') }}</td>
+                                            <td>{{ $item->location }}</td>
+                                            <td>
+                                                @if ($item->image)
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Event Image"
+                                                        style="height: 50px; border-radius: 6px;">
+                                                @else
+                                                    <img src="https://placehold.co/400" alt="Default Image"
+                                                        style="height: 50px; border-radius: 6px;">
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a class="btn btn-info btn-sm me-2"
+                                                        href="{{ route('edit.event', $item->id) }}">Edit</a>
+                                                    <form class="deleteForm"
+                                                        action="{{ route('destroy.event', $item->id) }}" method="post">
+                                                        @csrf
+                                                        <button type="button"
+                                                            class="btn btn-danger btn-sm btnDelete">Delete</button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>

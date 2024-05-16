@@ -51,7 +51,7 @@
                                 <div class="col-md-8">
                                     <input type="file" id="event-image" name="image" class="form-control" />
                                     @if($event->image)
-                                        <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->name }}"
+                                        <img class="p-t-10" src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->name }}"
                                             width="100" />
                                     @endif
                                 </div>
