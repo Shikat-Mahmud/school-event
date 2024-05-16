@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\EventController;
+use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingsController;
@@ -14,9 +15,10 @@ use App\Http\Controllers\Admin\UserController;
 
 
 
-Route::get('/', function () {
-    return view('frontend.main.home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('frontend.main.home');
+// })->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route::get('/home', function () {
 //     return view('welcome');

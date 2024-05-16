@@ -123,7 +123,11 @@
             class="flex items-center md:flex-wrap gap-x-[60px] xl:gap-x-[40px] lg:gap-x-[30px] gap-y-[40px] sm:gap-y-[40px] lg:justify-center">
             <!-- left -->
             <div class="et-about-img relative z-[1] md:w-auto shrink-0 max-w-full ml-[124px] md:mr-0 xs:mx-auto">
-                <img src="{{asset('/')}}frontend/img/about-2-img.png" alt="image" class="shrink-0 rounded-[50px]" />
+                @if (isset($event->image))
+                    <img src="{{asset('storage/' . $event->image)}}" alt="image" class="shrink-0 rounded-[50px]" />
+                @else
+                    <img src="{{asset('/')}}frontend/img/about-2-img.png" alt="image" class="shrink-0 rounded-[50px]" />
+                @endif
                 <img src="{{asset('/')}}frontend/img/about-2-img-2.jpg" alt="image"
                     class="et-about-floating-img absolute top-[55px] -left-[124px] shrink-0 rounded-[20px] border-white border-[10px] shadow-[0_4px_40px_0_rgba(0,0,0,0.1)] xs:hidden" />
 
@@ -138,13 +142,11 @@
 
             <!-- right -->
             <div class="et-about__txt max-w-[570px] grow">
-                <h6 class="et-section-sub-title anim-text">About Eventek</h6>
-                <h2 class="et-section-title mb-[24px] md:mb-[19px] anim-text">Personal Even and Mega Conference</h2>
+                <h6 class="et-section-sub-title anim-text">About Event</h6>
+                <h2 class="et-section-title mb-[24px] md:mb-[19px] anim-text">{{ $event->name }}</h2>
 
                 <p class="mb-[30px] text-[16px] font-light text-etGray md:mb-[30px] rev-slide-up">
-                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                    alteration in some form, by injected humour, or randomised words which don't look even slightly
-                    believable.
+                {!! $event->description !!}
                 </p>
 
                 <!-- about infos -->
@@ -172,8 +174,8 @@
 
                         <!-- txt -->
                         <div>
-                            <h6 class="font-medium text-[18px] text-black mb-[8px]">When Start</h6>
-                            <p class="text-[16px] font-light text-etGray">Tuesday – Friday 16 to 20 January, 2024</p>
+                            <h6 class="font-medium text-[18px] text-black mb-[8px]">Event Time</h6>
+                            <p class="text-[16px] font-light text-etGray">{{ \Carbon\Carbon::parse($event->datetime)->format('d M Y g:i A') }}</p>
                         </div>
                     </div>
 
@@ -193,8 +195,8 @@
 
                         <!-- txt -->
                         <div>
-                            <h6 class="font-medium text-[18px] text-black mb-[8px]">Locations</h6>
-                            <p class="text-[16px] font-light text-etGray">1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+                            <h6 class="font-medium text-[18px] text-black mb-[8px]">Location</h6>
+                            <p class="text-[16px] font-light text-etGray">{{ $event->location }}</p>
                         </div>
                     </div>
                 </div>
