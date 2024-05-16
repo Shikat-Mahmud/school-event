@@ -23,10 +23,9 @@
                     <a href="{{ route('admin.index') }}" class="pc-link"><span class="pc-micon">
                             <i class="ph ph-gauge"></i></span><span class="pc-mtext">Dashboard</span></a>
                 </li>
-
-                <li class="pc-item pc-caption">
-                    <label>Widget</label>
-                    <i class="ph ph-chart-pie"></i>
+                <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('events') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-calendar"></i></span><span class="pc-mtext">Events</span></a>
                 </li>
 
                 @if (auth()->check() && auth()->user()->hasAnyPermission(['update-general-setting',
@@ -96,9 +95,6 @@
                             <a class="pc-link" href="{{ route('products.index') }}">Product</a>
                         </li>
                         @endif
-                        <li class="pc-item">
-                            <a class="pc-link" href="{{ route('events') }}">Events</a>
-                        </li>
                     </ul>
                 </li>
                 @endif

@@ -51,12 +51,6 @@ class PermissionSeeder extends Seeder
         $adminRole = Role::where('name', 'admin')->firstOrFail();
         $adminRole->givePermissionTo([
             'admin-panel',
-            'create-category', 
-            'edit-category', 
-            'show-category',
-            'create-product', 
-            'edit-product', 
-            'show-product', 
             'create-event', 
             'edit-event', 
             'show-event',
