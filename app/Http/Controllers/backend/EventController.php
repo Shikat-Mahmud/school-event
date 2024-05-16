@@ -16,13 +16,21 @@ class EventController extends Controller
 
     public function index()
     {
-        $events = Event::all();
-        return view('admin.main.event.index', compact('events'));
+        if (auth()->check() && auth()->user()->hasAnyPermission(['create-event', 'edit-event', 'show-event', 'delete-event',])) {
+            $events = Event::all();
+            return view('admin.main.event.index', compact('events'));
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to events.');
+        }
     }
 
     public function create()
     {
-        return view('admin.main.event.create');
+        if (auth()->user()->can('create-event')) {
+            return view('admin.main.event.create');
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to add event.');
+        }
     }
 
     public function store(Request $request)
@@ -43,8 +51,12 @@ class EventController extends Controller
 
     public function edit(string $id)
     {
-        $event = Event::find($id);
-        return view('admin.main.event.edit', compact('event'));
+        if (auth()->user()->can('edit-event')) {
+            $event = Event::find($id);
+            return view('admin.main.event.edit', compact('event'));
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to edit event.');
+        }
     }
 
 
@@ -70,8 +82,11 @@ class EventController extends Controller
 
     public function destroy(string $id)
     {
-        Event::find($id)->delete();
-        return redirect()->back()->with('success', 'Event deleted successfully.');
+        if (auth()->user()->can('delete-event')) {
+            Event::find($id)->delete();
+            return redirect()->back()->with('success', 'Event deleted successfully.');
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to delete event.');
+        }
     }
-
 }

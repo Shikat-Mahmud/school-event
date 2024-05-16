@@ -35,6 +35,10 @@ class PermissionSeeder extends Seeder
             'update-email-setting', 
             'cache-clear',
             'admin-panel',
+            'create-event', 
+            'edit-event', 
+            'show-event',
+            'delete-event',
         ];
 
         foreach ($permissions as $permission) {
@@ -53,6 +57,9 @@ class PermissionSeeder extends Seeder
             'create-product', 
             'edit-product', 
             'show-product', 
+            'create-event', 
+            'edit-event', 
+            'show-event',
         ]);
 
     }
