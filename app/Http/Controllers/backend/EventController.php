@@ -10,8 +10,8 @@ class EventController extends Controller
 {
     public function getEventDate()
     {
-        $event = Event::first();
-        return response()->json(['date' => $event->date]);
+        $event = Event::first(); // Fetch the event (adjust the query as needed)
+    return response()->json(['datetime' => $event->datetime]);
     }
 
     public function index()

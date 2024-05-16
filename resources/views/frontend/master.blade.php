@@ -16,6 +16,7 @@
 
     <!-- custom css -->
     <link href="{{asset('/')}}frontend/css/style.css" rel="stylesheet" />
+    @stack('styles')
 </head>
 
 <body>
@@ -64,6 +65,7 @@
 
     <script src="{{asset('/')}}frontend/js/main.js"></script>
     <script src="{{asset('/')}}frontend/js/countdown.js"></script>
+    @stack('scripts')
 </body>
 
 

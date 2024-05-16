@@ -60,7 +60,7 @@ Route::get('application-cache-clear', [SettingsController::class, 'cacheClear'])
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
 
-Route::get('/event-date', [EventController::class, 'getEventDate']);
+Route::get('/get-event-datetime', [EventController::class, 'getEventDate']);
 Route::get('/events', [EventController::class, 'index'])->name('events');
 Route::get('/add-event', [EventController::class, 'create'])->name('create.event');
 Route::post('/add-event', [EventController::class, 'store'])->name('store.event');
@@ -69,3 +69,7 @@ Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('updat
 Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
 
 
+// Route::get('/get-event-datetime', function () {
+//     $event = Event::first(); // Fetch the event (adjust the query as needed)
+//     return response()->json(['datetime' => $event->datetime]);
+// });
