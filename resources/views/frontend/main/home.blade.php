@@ -589,6 +589,10 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div class="text-center pt-[54px]">
+                <a href="{{ route('event.review') }}" class="bg-etBlue inline-flex items-center justify-center gap-[10px] h-[56px] px-[24px] rounded-[10px] text-white text-[16px] hover:bg-etBlack">Give Your Response <span class="icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
             </div>
         </div>
     </div>

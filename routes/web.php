@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\ReviewController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingsController;
@@ -69,3 +70,5 @@ Route::post('/add-event-schedule', [EventScheduleController::class, 'store'])->n
 Route::get('/edit-event-schedule/{id}', [EventScheduleController::class, 'edit'])->name('edit.event.schedule');
 Route::post('/edit-event-schedule/{id}', [EventScheduleController::class, 'update'])->name('update.event.schedule');
 Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'destroy'])->name('destroy.event.schedule');
+
+Route::get('/event-review', [ReviewController::class, 'index'])->name('event.review');
