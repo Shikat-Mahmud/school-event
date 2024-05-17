@@ -50,7 +50,7 @@
                                 <label for="description" class="col-md-4">Description</label>
                                 <div class="col-md-8">
                                     <textarea name="description" id="description" class="form-control" cols="30"
-                                        rows="10" placeholder="Event schedule description here."></textarea>
+                                        rows="5" placeholder="Event schedule description here."></textarea>
                                 </div>
                             </div>
                             <div class="row mt-3">

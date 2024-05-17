@@ -59,7 +59,7 @@ class EventScheduleController extends Controller
     {
         if (auth()->user()->can('edit-event-schedule')) {
             $events = Event::all();
-            $event_schedule = Event::find($id);
+            $event_schedule = EventSchedule::findOrFail($id);
             return view('admin.main.event_schedule.edit', compact('events', 'event_schedule'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to edit event schedule.');

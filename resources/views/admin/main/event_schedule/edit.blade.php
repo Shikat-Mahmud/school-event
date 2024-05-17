@@ -37,25 +37,20 @@
                                 <label for="sl_no" class="col-md-4 required">Sl. No: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="number" name="sl_no" id="sl_no" class="form-control"
-                                        placeholder="Sl. no" value="{{ old('sl_no', $event_schedule->sl_no) }}" />
+                                    <input type="number" name="sl_no" id="sl_no" class="form-control" placeholder="Sl. no" value="{{ old('sl_no', $event_schedule->sl_no) }}" />
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <label for="time" class="col-md-4 required">Time: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="time" id="time" class="form-control"
-                                        placeholder="Scheduled time (eg: 10:00 AM - 12:00 AM)"
-                                        value="{{ old('time', $event_schedule->time) }}" />
+                                    <input type="text" name="time" id="time" class="form-control" placeholder="Scheduled time (eg: 10:00 AM - 12:00 AM)" value="{{ old('time', $event_schedule->time) }}" />
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <label for="description" class="col-md-4">Description: </label>
                                 <div class="col-md-8">
-                                    <textarea name="description" id="description" class="form-control" cols="30"
-                                        rows="10"
-                                        placeholder="Event schedule description here.">{{ old('description', $event_schedule->description) }}</textarea>
+                                    <textarea name="description" id="description" class="form-control" cols="30" rows="5" placeholder="Event schedule description here.">{{ old('description', $event_schedule->description) }}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-3">
