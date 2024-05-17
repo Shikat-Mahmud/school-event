@@ -223,8 +223,10 @@
         <div
             class="grid grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 gap-[30px] lg:gap-[20px] items-start">
             <!-- single card -->
+            @if (isset($event_schedule))
+            @foreach ($event_schedule as $schedule)
             <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
-                <div class="et-2-feature-card-txt bg-white p-[30px]">
+                <div class="bg-white p-[30px]">
                     <!-- icon -->
                     <div
                         class="w-[102px] aspect-square border-[10px] bg-etBlue border-[#EDF3FE] rounded-full flex items-center justify-center mb-[20px]">
@@ -234,92 +236,18 @@
 
                     <!-- text -->
                     <div>
-                        <h5 class="font-medium text-[20px] text-etBlack mb-[8px]"> 10:00 AM – 12.00 PM </h5>
-                        <p class="font-light text-etGray text-[16px]">Mauris ultrices ligula eget volutpat aliquet
-                            nullam</p>
+                        <h5 class="font-medium text-[20px] text-etBlack mb-[8px]"> {{ $schedule->time }} </h5>
+                        <p class="font-light text-etGray text-[16px]">{!! $schedule->description !!}</p>
                     </div>
                 </div>
 
                 <!-- index number -->
-                <div
-                    class="absolute top-0 right-0 z-[1] w-[60px] aspect-square rounded-full bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
-                    01</div>
-            </div>
-
-            <!-- single card -->
-            <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
-                <div class="et-2-feature-card-txt bg-white p-[30px]">
-                    <!-- icon -->
-                    <div
-                        class="w-[102px] aspect-square border-[10px] bg-etBlue border-[#EDF3FE] rounded-full flex items-center justify-center mb-[20px]">
-                        <img src="{{asset('/')}}frontend/img/feature-2.png" alt="Feature icon"
-                            class="transition duration-[0.4s] group-hover:-scale-x-100">
-                    </div>
-
-                    <!-- text -->
-                    <div>
-                        <h5 class="font-medium text-[22px] text-etBlack mb-[8px]"><a href="#"
-                                class="hover:text-etBlue">Counselling Tips</a></h5>
-                        <p class="font-light text-etGray text-[16px]">Mauris ultrices ligula eget volutpat aliquet
-                            nullam</p>
-                    </div>
+                <div style="border-bottom-left-radius: 10px;" class="absolute top-0 right-0 z-[1] w-[60px] aspect-square bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
+                    {{ $schedule->sl_no }}
                 </div>
-
-                <!-- index number -->
-                <div
-                    class="absolute top-0 right-0 z-[1] w-[60px] aspect-square rounded-full bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
-                    02</div>
             </div>
-
-            <!-- single card -->
-            <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
-                <div class="et-2-feature-card-txt bg-white p-[30px]">
-                    <!-- icon -->
-                    <div
-                        class="w-[102px] aspect-square border-[10px] bg-etBlue border-[#EDF3FE] rounded-full flex items-center justify-center mb-[20px]">
-                        <img src="{{asset('/')}}frontend/img/feature-3.png" alt="Feature icon"
-                            class="transition duration-[0.4s] group-hover:-scale-x-100">
-                    </div>
-
-                    <!-- text -->
-                    <div>
-                        <h5 class="font-medium text-[22px] text-etBlack mb-[8px]"><a href="#"
-                                class="hover:text-etBlue">Personal Guides</a></h5>
-                        <p class="font-light text-etGray text-[16px]">Mauris ultrices ligula eget volutpat aliquet
-                            nullam</p>
-                    </div>
-                </div>
-
-                <!-- index number -->
-                <div
-                    class="absolute top-0 right-0 z-[1] w-[60px] aspect-square rounded-full bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
-                    03</div>
-            </div>
-
-            <!-- single card -->
-            <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
-                <div class="et-2-feature-card-txt bg-white p-[30px]">
-                    <!-- icon -->
-                    <div
-                        class="w-[102px] aspect-square border-[10px] bg-etBlue border-[#EDF3FE] rounded-full flex items-center justify-center mb-[20px]">
-                        <img src="{{asset('/')}}frontend/img/feature-4.png" alt="Feature icon"
-                            class="transition duration-[0.4s] group-hover:-scale-x-100">
-                    </div>
-
-                    <!-- text -->
-                    <div>
-                        <h5 class="font-medium text-[22px] text-etBlack mb-[8px]"><a href="#"
-                                class="hover:text-etBlue">Networking People</a></h5>
-                        <p class="font-light text-etGray text-[16px]">Mauris ultrices ligula eget volutpat aliquet
-                            nullam</p>
-                    </div>
-                </div>
-
-                <!-- index number -->
-                <div
-                    class="absolute top-0 right-0 z-[1] w-[60px] aspect-square rounded-full bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
-                    04</div>
-            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 
