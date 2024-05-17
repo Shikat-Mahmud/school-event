@@ -44,13 +44,12 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-info btn-sm me-2"
-                                                    href="{{ route('products.edit', $item->id) }}">Edit</a>
+                                                    href="{{ route('edit.event.schedule', $item->id) }}">Edit</a>
 
                                                 <form class="deleteForm"
-                                                    action="{{ route('products.destroy', $item->id) }}"
+                                                    action="{{ route('destroy.event.schedule', $item->id) }}"
                                                     method="post">
                                                     @csrf
-                                                    @method('DELETE')
                                                     <button type="button"
                                                         class="btn btn-danger btn-sm btnDelete">Delete</button>
                                                 </form>

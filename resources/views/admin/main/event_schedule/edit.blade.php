@@ -16,7 +16,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('store.event.schedule') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('update.event.schedule', $event_schedule->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
                                 <label for="event_id" class="col-md-4 required">Event Name: <span
@@ -25,7 +26,9 @@
                                     <select name="event_id" id="event_id" class="form-control">
                                         <option value="" disabled>Select an Event</option>
                                         @foreach ($events as $event)
-                                            <option value="{{ $event->id }}" {{ old('event_id') == $event->id ? 'selected' : '' }}> {{ $event->name }} </option>
+                                            <option value="{{ $event->id }}" {{ old('event_id', $event_schedule->event_id) == $event->id ? 'selected' : '' }}>
+                                                {{ $event->name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -35,7 +38,7 @@
                                         class="text-danger">*</span></label>
                                 <div class="col-md-8">
                                     <input type="number" name="sl_no" id="sl_no" class="form-control"
-                                        placeholder="Sl. no" value="{{ old('sl_no') }}" />
+                                        placeholder="Sl. no" value="{{ old('sl_no', $event_schedule->sl_no) }}" />
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -44,20 +47,21 @@
                                 <div class="col-md-8">
                                     <input type="text" name="time" id="time" class="form-control"
                                         placeholder="Scheduled time (eg: 10:00 AM - 12:00 AM)"
-                                        value="{{ old('time') }}" />
+                                        value="{{ old('time', $event_schedule->time) }}" />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="description" class="col-md-4">Description</label>
+                                <label for="description" class="col-md-4">Description: </label>
                                 <div class="col-md-8">
                                     <textarea name="description" id="description" class="form-control" cols="30"
-                                        rows="10" placeholder="Event schedule description here.">{{ old('description') }}</textarea>
+                                        rows="10"
+                                        placeholder="Event schedule description here.">{{ old('description', $event_schedule->description) }}</textarea>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <label for="" class="col-md-4"></label>
                                 <div class="col-md-4 ">
-                                    <input type="submit" value="create" class="btn btn-success">
+                                    <input type="submit" value="Update" class="btn btn-success">
                                 </div>
                             </div>
                         </form>

@@ -66,3 +66,6 @@ Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('d
 Route::get('/event-schedule', [EventScheduleController::class, 'index'])->name('event.schedule');
 Route::get('/add-event-schedule', [EventScheduleController::class, 'create'])->name('create.event.schedule');
 Route::post('/add-event-schedule', [EventScheduleController::class, 'store'])->name('store.event.schedule');
+Route::get('/edit-event-schedule/{id}', [EventScheduleController::class, 'edit'])->name('edit.event.schedule');
+Route::post('/edit-event-schedule/{id}', [EventScheduleController::class, 'update'])->name('update.event.schedule');
+Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'destroy'])->name('destroy.event.schedule');
