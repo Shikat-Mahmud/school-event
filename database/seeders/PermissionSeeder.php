@@ -61,6 +61,8 @@ class PermissionSeeder extends Seeder
             'create-event-schedule', 
             'edit-event-schedule', 
             'show-event-schedule',
+            'update-general-setting', 
+            'cache-clear',
         ]);
 
     }
