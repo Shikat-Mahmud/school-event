@@ -72,3 +72,4 @@ Route::post('/edit-event-schedule/{id}', [EventScheduleController::class, 'updat
 Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'destroy'])->name('destroy.event.schedule');
 
 Route::get('/event-review', [ReviewController::class, 'index'])->name('event.review');
+Route::post('/event-review', [ReviewController::class, 'store'])->name('post.review');

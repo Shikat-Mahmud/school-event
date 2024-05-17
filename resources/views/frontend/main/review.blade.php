@@ -13,7 +13,20 @@
                     Talk About The Event</h2>
                 <p class="text-etGray font-light text-[16px] mb-[38px]">We're excited about our upcoming event! Please share your expectations and any suggestions to help us make it a success.</p>
 
-                <form action="#" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]">
+                @if (session('success'))
+                    <div class="alert alert-success font-light text-[16px] mb-[10px]" style="color: #009e5c;">
+                        {{ session('success') }} <i class="fa-solid fa-check"></i>
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger font-light text-[16px] mb-[10px]" style="color: #ad3c3c;">
+                        {{ session('error') }} <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                @endif
+
+                <form action="" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
+                    @csrf
                     <div>
                         <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your
                             Name*</label>
