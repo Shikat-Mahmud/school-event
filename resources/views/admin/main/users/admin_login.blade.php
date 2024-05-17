@@ -35,9 +35,16 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="mb-4">
-                            <a href="#"><img class="img-fluid logo-dark"
-                                    style="width: auto !important; height: 70px !important; padding: 5px !important; margin-top: 10px !important;"
-                                    src="{{ asset('storage/' . $general->logo) }}" alt="Logo"></a>
+                            <a href="{{route('home')}}">
+                            @php
+                            $general = generalSettings();
+                            @endphp
+                            @if (isset($general->logo))
+                            <img class="img-fluid logo-dark" style="width: auto !important; height: 70px !important; padding: 5px !important; margin-top: 10px !important;" src="{{ asset('storage/' . $general->logo) }}" alt="Logo">
+                            @else
+                            <img class="img-fluid logo-dark" style="width: auto !important; height: 70px !important; padding: 5px !important; margin-top: 10px !important;" src="{{ asset('images/demo_logo.png') }}" alt="Logo">
+                            @endif
+                            </a>
                         </div>
                         <h3 class="mb-4">Admin Login</h3>
                         <div class="mt-3">

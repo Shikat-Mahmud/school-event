@@ -13,7 +13,8 @@
     <meta name="keywords" content />
     <meta name="author" content="CodedThemes" />
 
-    <link rel="icon" href="https://codedthemes.com/demos/admin-templates/datta-able/bootstrap/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://codedthemes.com/demos/admin-templates/datta-able/bootstrap/assets/images/favicon.ico"
+        type="image/x-icon">
 
     <link rel="stylesheet" href="{{ asset('/assets/fonts/fontawesome/css/fontawesome-all.min.css') }}">
 
@@ -42,27 +43,44 @@
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="mb-4">
-                            <a href="#"><img class="img-fluid logo-dark" style="width: auto !important; height: 70px !important; padding: 5px !important; margin-top: 10px !important;" src="{{ asset('storage/' . $general->logo) }}" alt="Logo"></a>  
+                            <a href="{{route('home')}}">
+                                @php
+                                    $general = generalSettings();
+                                @endphp
+                                @if (isset($general->logo))
+                                    <img class="img-fluid logo-dark"
+                                        style="width: auto !important; height: 70px !important; padding: 5px !important; margin-top: 10px !important;"
+                                        src="{{ asset('storage/' . $general->logo) }}" alt="Logo">
+                                @else
+                                    <img class="img-fluid logo-dark"
+                                        style="width: auto !important; height: 70px !important; padding: 5px !important; margin-top: 10px !important;"
+                                        src="{{ asset('images/demo_logo.png') }}" alt="Logo">
+                                @endif
+                            </a>
                         </div>
                         <h3 class="mb-4">Login</h3>
                         <div class="mt-3">
-                            <x-text-input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Email" />
+                            <x-text-input id="email" class="form-control" type="email" name="email"
+                                :value="old('email')" required autofocus autocomplete="username" placeholder="Email" />
                             <x-input-error :messages="$errors->get('email')" class="mt-2" style="color: #FF0000;" />
                         </div>
                         <div class="mt-4">
-                            <x-text-input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="Password" />
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" style="color: #FF0000;"/>
+                            <x-text-input id="password" class="form-control" type="password" name="password" required
+                                autocomplete="current-password" placeholder="Password" />
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" style="color: #FF0000;" />
                         </div>
                         <br>
                         <button class="btn btn-primary shadow-2 mb-4">Login</button>
                         <p class="mb-2 text-muted">
                             @if (Route::has('password.request'))
-                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
-                            </a>
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    href="{{ route('password.request') }}">
+                                    {{ __('Forgot your password?') }}
+                                </a>
                             @endif
                         </p>
-                        <p class="mb-0 text-muted">Don’t have an account? <a href="{{ route('register') }}">Signup</a></p>
+                        <p class="mb-0 text-muted">Don’t have an account? <a href="{{ route('register') }}">Signup</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -72,27 +90,27 @@
     <script src="{{ asset('/assets/js/pcoded.min.js') }}" type="ac2db66612bdc379950ac657-text/javascript"></script>
 
     <!-- Toastr JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<script>
-    toastr.options = {
-        "closeButton": true,
-        "progressBar": true,
-        "timeOut": 5000, // Set duration to 500 milliseconds (0.5 seconds)
-        "extendedTimeOut": 1000, // Optional: Extend duration for longer messages
-        "positionClass": "toast-top-right",
-        "preventDuplicates": true, // Prevent duplicate messages
-        "maxOpened": 3 // Maximum number of messages to display simultaneously
-    };
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "timeOut": 5000, // Set duration to 500 milliseconds (0.5 seconds)
+            "extendedTimeOut": 1000, // Optional: Extend duration for longer messages
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true, // Prevent duplicate messages
+            "maxOpened": 3 // Maximum number of messages to display simultaneously
+        };
 
-    @if (Session::has('success'))
-        toastr.success("{{ Session::get('success') }}");
-    @elseif (Session::has('error'))
-        toastr.error("{{ Session::get('error') }}");
-    @elseif (Session::has('warning'))
-        toastr.warning("{{ Session::get('warning') }}");
-    @elseif (Session::has('info'))
-        toastr.info("{{ Session::get('info') }}");
-    @endif
-</script>
+        @if (Session::has('success'))
+            toastr.success("{{ Session::get('success') }}");
+        @elseif (Session::has('error'))
+            toastr.error("{{ Session::get('error') }}");
+        @elseif (Session::has('warning'))
+            toastr.warning("{{ Session::get('warning') }}");
+        @elseif (Session::has('info'))
+            toastr.info("{{ Session::get('info') }}");
+        @endif
+    </script>
 
 </html>
