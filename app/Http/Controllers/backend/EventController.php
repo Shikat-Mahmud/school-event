@@ -36,29 +36,34 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the request
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'datetime' => 'required|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'nullable|string',
-            'location' => 'nullable|string|max:255',
-        ]);
-
-        $event = new Event();
-        $event->name = $request->name;
-        $event->datetime = $request->datetime;
-
-        if ($request->hasFile('image')) {
-            $event->image = $request->file('image')->store('events', 'public');
+        try {
+            // Validate the request
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'datetime' => 'required|date',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'description' => 'nullable|string',
+                'location' => 'nullable|string|max:255',
+            ]);
+    
+            $event = new Event();
+            $event->name = $request->name;
+            $event->datetime = $request->datetime;
+    
+            if ($request->hasFile('image')) {
+                $event->image = $request->file('image')->store('events', 'public');
+            }
+    
+            $event->description = $request->description;
+            $event->location = $request->location;
+            $event->save();
+    
+            return redirect()->route('events')->with('success', 'Event created successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
-
-        $event->description = $request->description;
-        $event->location = $request->location;
-        $event->save();
-
-        return redirect()->route('events')->with('success', 'Event created successfully.');
     }
+    
 
     public function edit(string $id)
     {

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\EventController;
-use App\Http\Controllers\EventScheduleController;
+use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
