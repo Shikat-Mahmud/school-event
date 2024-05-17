@@ -37,18 +37,18 @@ class EventScheduleController extends Controller
             'time' => 'required|string',
             'description' => 'nullable|string',
         ]);
-    
+
         $event_schedule = new EventSchedule();
         $event_schedule->event_id = $request->event_id;
         $event_schedule->sl_no = $request->sl_no;
         $event_schedule->time = $request->time;
         $event_schedule->description = $request->description;
         $event_schedule->save();
-    
+
         return redirect()->route('event.schedule')->with('success', 'Event schedule created successfully.');
     }
 
-    
+
     public function edit(string $id)
     {
         if (auth()->user()->can('edit-event-schedule')) {
@@ -65,26 +65,26 @@ class EventScheduleController extends Controller
     {
         try {
             // Validate the request
-        $request->validate([
-            'event_id' => 'required|exists:events,id',
-            'sl_no' => 'required|integer',
-            'time' => 'required|string',
-            'description' => 'nullable|string',
-        ]);
-    
-        $event_schedule = EventSchedule::findOrFail($id);
-        $event_schedule->event_id = $request->event_id;
-        $event_schedule->sl_no = $request->sl_no;
-        $event_schedule->time = $request->time;
-        $event_schedule->description = $request->description;
-        $event_schedule->save();
-    
+            $request->validate([
+                'event_id' => 'required|exists:events,id',
+                'sl_no' => 'required|integer',
+                'time' => 'required|string',
+                'description' => 'nullable|string',
+            ]);
+
+            $event_schedule = EventSchedule::findOrFail($id);
+            $event_schedule->event_id = $request->event_id;
+            $event_schedule->sl_no = $request->sl_no;
+            $event_schedule->time = $request->time;
+            $event_schedule->description = $request->description;
+            $event_schedule->save();
+
             return redirect()->route('event.schedule')->with('success', 'Event schedule updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
-    
+
     public function destroy($id)
     {
         if (auth()->user()->can('delete-event-schedule')) {
