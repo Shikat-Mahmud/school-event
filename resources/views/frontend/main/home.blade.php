@@ -350,7 +350,7 @@
         <!-- heading -->
         <div class="et-testimonial-heading text-center mb-[46px] xl:mb-[26px] lg:mb-[16px] gap-[15px]">
             <h6 class="et-section-sub-title anim-text">Testimonials</h6>
-            <h2 class="et-section-title anim-text">See Our Clients Feedback</h2>
+            <h2 class="et-section-title anim-text">Talks About The Event</h2>
         </div>
 
         <!-- slider -->
@@ -384,14 +384,14 @@
                         </div>
 
                         <!-- rating stars -->
-                        <div
+                        <!-- <div
                             class="absolute bottom-0 left-[50%] -translate-x-[50%] translate-y-[50%] flex gap-[6px] bg-white shadow-[0_4px_25px_rgba(56,75,255,0.15)] p-[12px] rounded-full">
                             <img src="{{asset('/')}}frontend/img/star-blue.svg" alt="star">
                             <img src="{{asset('/')}}frontend/img/star-blue.svg" alt="star">
                             <img src="{{asset('/')}}frontend/img/star-blue.svg" alt="star">
                             <img src="{{asset('/')}}frontend/img/star-blue.svg" alt="star">
                             <img src="{{asset('/')}}frontend/img/star-blue.svg" alt="star" class="opacity-25">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
