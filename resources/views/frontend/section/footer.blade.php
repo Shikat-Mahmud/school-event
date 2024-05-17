@@ -23,7 +23,11 @@
                         <!-- txt -->
                         <div>
                             <span class="block font-medium text-[14px]">Event Venue</span>
-                            <h5 class="font-medium text-[20px]">4648 Rocky Road Philadelphia PA, 1920</h5>
+                            @if (isset($event))
+                                <h5 class="font-medium text-[20px]">{{ $event->location }}</h5>
+                            @else
+                                <h5 class="font-medium text-[20px]">4648 Rocky Road Philadelphia PA, 1920</h5>
+                            @endif
                         </div>
                     </div>
 
@@ -64,7 +68,10 @@
                         <!-- txt -->
                         <div>
                             <span class="block font-medium text-[14px]">Call Emergency</span>
-                            <h5 class="font-medium text-[20px]"><a href="tel:88012365499">+88 0123 654 99</a></h5>
+                            <h5 class="font-medium text-[20px]"><a href="tel:88012365499">{{ $setting->business_number }}</a></h5>
+                            @if (isset($setting->business_whatsapp))
+                                <h5 class="font-medium text-[20px]"><a href="tel:88012365499">{{ $setting->business_whatsapp }}</a></h5>
+                            @endif
                         </div>
                         @endif
                     </div>
@@ -73,7 +80,11 @@
                 <div class="flex md:flex-wrap xs:w-full gap-x-[65px] xxl:gap-x-[45px] xl:gap-[30px] gap-y-[25px] justify-between md:justify-center xxs:justify-start">
                     <!-- footer about -->
                     <div class="et-footer-about max-w-[295px] lg:max-w-none md:max-w-[300px] xs:max-w-full">
-                        <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
+                        @if (isset($setting->logo))
+                            <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('storage/' . $setting->logo )}}" alt="logo"></a>
+                        @else
+                            <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
+                        @endif
                         <p class="font-light text-[#f2f2f2] text-[16px] mb-[25px]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus sit amet magna elemen facilisis</p>
 
                         <!-- social media -->
