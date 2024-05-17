@@ -39,6 +39,10 @@ class PermissionSeeder extends Seeder
             'edit-event', 
             'show-event',
             'delete-event',
+            'create-event-schedule', 
+            'edit-event-schedule', 
+            'show-event-schedule',
+            'delete-event-schedule',
         ];
 
         foreach ($permissions as $permission) {
@@ -54,6 +58,9 @@ class PermissionSeeder extends Seeder
             'create-event', 
             'edit-event', 
             'show-event',
+            'create-event-schedule', 
+            'edit-event-schedule', 
+            'show-event-schedule',
         ]);
 
     }

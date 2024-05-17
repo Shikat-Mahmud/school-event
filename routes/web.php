@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\EventController;
+use App\Http\Controllers\EventScheduleController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -62,3 +63,4 @@ Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.eve
 Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
 Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
 
+Route::get('/event-schedule', [EventScheduleController::class, 'index'])->name('event.schedule');

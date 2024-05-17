@@ -14,4 +14,8 @@ class EventSchedule extends Model
         'time',
         'description',
     ];
+    public function event()
+    {
+        return $this->belongsTo(Event::class);
+    }
 }
