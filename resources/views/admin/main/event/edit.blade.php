@@ -59,7 +59,7 @@
                             <div class="row mt-3">
                                 <label for="event-description" class="col-md-4">Description: </label>
                                 <div class="col-md-8">
-                                    <textarea name="description" id="event-description" class="form-control"
+                                    <textarea name="description" id="event-description" class="form-control" cols="30" rows="10" 
                                         placeholder="Event description here.">{{ old('description', $event->description) }}</textarea>
                                 </div>
                             </div>

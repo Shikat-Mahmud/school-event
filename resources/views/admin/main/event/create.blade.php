@@ -47,7 +47,7 @@
                             <div class="row mt-3">
                                 <label for="description" class="col-md-4">Description: </label>
                                 <div class="col-md-8">
-                                    <textarea name="description" id="description"
+                                    <textarea name="description" id="description" cols="30" rows="10" 
                                         class="form-control" placeholder="Event description here."></textarea>
                                 </div>
                             </div>
