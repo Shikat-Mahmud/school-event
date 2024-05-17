@@ -34,7 +34,7 @@
                 @if(auth()->check() && auth()->user()->hasAnyPermission(['create-event-schedule', 'edit-event-schedule', 'show-event-schedule', 'delete-event-schedule',]))
                     <li class="pc-item pc-hasmenu">
                         <a href="{{ route('event.schedule') }}" class="pc-link"><span class="pc-micon">
-                                <i class="ph ph-calendar"></i></span><span class="pc-mtext">Event Schedules</span></a>
+                                <i class="ph ph-clock"></i></span><span class="pc-mtext">Event Schedules</span></a>
                     </li>
                 @endif
 
