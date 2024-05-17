@@ -19,12 +19,12 @@
                             Schedule List
                         </div>
                         <div>
-                            <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm">Create new schedule </a>
+                            <a href="{{ route('create.event.schedule') }}" class="btn btn-primary btn-sm">Create new schedule </a>
                         </div>
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
-                            <table class="table" id="example"  style="max-width:100%;">
+                            <table class="table" id="example" style="max-width:100%;">
                                 <thead>
                                     <tr>
                                         <th>Event Name</th>
@@ -41,12 +41,8 @@
                                         <td>{{ $item->sl_no }}</td>
                                         <td>{{ $item->time }}</td>
                                         <td class="desc-box">{{ $item->description }}</td>
-
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-secondary btn-sm me-2"
-                                                    href="{{ route('products.show', $item->id) }}">View</a>
-
                                                 <a class="btn btn-info btn-sm me-2"
                                                     href="{{ route('products.edit', $item->id) }}">Edit</a>
 

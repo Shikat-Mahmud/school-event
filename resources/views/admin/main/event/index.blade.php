@@ -1,5 +1,12 @@
 @extends('admin.layouts.master')
 @section('title', 'Events')
+@push('styles')
+    <style>
+        .desc-box {
+            max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+    </style>
+@endpush
 @section('content')
 <section class="pc-container">
     <div class="pc-content">
@@ -19,13 +26,14 @@
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
-                            <table class="table" id="example">
+                            <table class="table" id="example" style="max-width:100%;">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
                                         <th>Date and Time</th>
-                                        <th>Location</th>
                                         <th>Image</th>
+                                        <th>Location</th>
+                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -34,7 +42,6 @@
                                         <tr>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ \Carbon\Carbon::parse($item->datetime)->format('d-M-Y g:i A') }}</td>
-                                            <td>{{ $item->location }}</td>
                                             <td>
                                                 @if ($item->image)
                                                     <img src="{{ asset('storage/' . $item->image) }}" alt="Event Image"
@@ -44,6 +51,8 @@
                                                         style="height: 50px; border-radius: 6px;">
                                                 @endif
                                             </td>
+                                            <td class="desc-box">{{ $item->location }}</td>
+                                            <td class="desc-box">{{ $item->description }}</td>
                                             <td>
                                                 <div class="d-flex">
                                                     <a class="btn btn-info btn-sm me-2"

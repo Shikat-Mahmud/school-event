@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('event_id');
             $table->integer('sl_no');
             $table->string('time');
-            $table->string('descripton')->nullable();
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
