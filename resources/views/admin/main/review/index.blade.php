@@ -28,7 +28,7 @@
                                         <th>Reviewer Photo</th>
                                         <th>Reviewer Batch</th>
                                         <th>Message</th>
-                                        <th>Action</th>
+                                        <th>Show/Hide</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,11 +51,16 @@
                                             @endif
                                             <td class="desc-box">{{ $item->message }}</td>
                                             <td>
-                                                <div class="d-flex">
-                                                    <button class="btn toggle-status {{ $item->status ? 'btn-success' : 'btn-secondary' }} btn-sm me-2"
-                                                            data-id="{{ $item->id }}">
-                                                        {{ $item->status ? 'Show' : 'Hide' }}
-                                                    </button>
+                                                <div class="span2">
+                                                    @if($item->status==1)
+                                                    <a class="btn btn-success" href="{{ url('review-status/' . $item->id) }}">
+                                                    <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    @else
+                                                    <a class="btn btn-danger" href="{{ url('review-status/' . $item->id) }}">
+                                                    <i class="fa fa-eye-slash"></i>
+                                                    </a>
+                                                    @endif
                                                 </div>
                                             </td>
                                         </tr>

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $batchs = range(2000, 2024);
         return view('frontend.main.review', compact('batchs'));
     }
@@ -39,12 +40,27 @@ class ReviewController extends Controller
         }
     }
 
-    public function showReviews(){
+    public function showReviews()
+    {
         $reviews = Review::all();
         return view('admin.main.review.index', compact('reviews'));
     }
 
 
+    public function changeStatus(Review $review)
+    {
+        try {
+            $review->status = $review->status == 1 ? 0 : 1;
+            $review->save();
 
+            return redirect()->back()->with('message', 'Status Change Successfully');
+        } catch (\Exception $e) {
+            // Log the error
+            \Log::error('Error changing rev$review status: ' . $e->getMessage());
+
+            // Return an error message or handle it as needed
+            return redirect()->back()->with('error', 'Error changing review status');
+        }
+    }
 
 }
