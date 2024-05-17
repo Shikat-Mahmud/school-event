@@ -209,7 +209,7 @@
 
 
 <!-- EVENT SCHEDULE SECTION START -->
-<div class="bg-[#00339A] relative z-[1] after:absolute after:inset-0 after:bg-no-repeat after:bg-cover after:-z-[2] after:pointer-events-none after:opacity-50 pb-[130px] xl:pb-[80px] md:pb-[60px] pt-[244px] xl:pt-[194px] md:pt-[174px]"
+<div class="bg-[#00339A] relative z-[1] after:absolute after:inset-0 after:bg-no-repeat after:bg-cover after:-z-[2] after:pointer-events-none after:opacity-50 pb-[130px] xl:pb-[80px] md:pb-[60px] pt-[60px] xl:pt-[60px] md:pt-[54px]"
     style="background-image: url('{{asset('/')}}frontend/img/features-bg.jpg');">
     <div
         class="container mx-auto max-w-[calc(100%-37.1vw)] xxxl:max-w-[calc(100%-350px)] xl:max-w-[calc(100%-170px)] px-[12px] lg:max-w-full rev-slide-up">
