@@ -73,3 +73,5 @@ Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'de
 
 Route::get('/event-review', [ReviewController::class, 'index'])->name('event.review');
 Route::post('/event-review', [ReviewController::class, 'store'])->name('post.review');
+Route::get('/reviews', [ReviewController::class, 'showReviews'])->name('reviews');
+

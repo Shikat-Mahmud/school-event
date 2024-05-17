@@ -39,4 +39,12 @@ class ReviewController extends Controller
         }
     }
 
+    public function showReviews(){
+        $reviews = Review::all();
+        return view('admin.main.review.index', compact('reviews'));
+    }
+
+
+
+
 }

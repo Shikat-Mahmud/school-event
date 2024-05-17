@@ -37,6 +37,11 @@
                     </li>
                 @endif
 
+                <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('reviews') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-clock"></i></span><span class="pc-mtext">Reveiws</span></a>
+                </li>
+
                 @if (auth()->check() && auth()->user()->hasAnyPermission(['update-general-setting', 'update-email-setting', 'cache-clear']))
                     <li class="pc-item pc-hasmenu">
                         <a href="#!" class="pc-link"><span class="pc-micon">
