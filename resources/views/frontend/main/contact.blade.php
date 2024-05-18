@@ -3,7 +3,8 @@
 @section('content')
 
 <!-- BREADCRUMB SECTION START -->
-<section class="et-breadcrumb bg-[#000D83] pt-[146px] lg:pt-[146px] sm:pt-[146px] pb-[130px] lg:pb-[110px] sm:pb-[80px] relative z-[1] before:absolute before:inset-0 before:bg-[url('assets/img/breadcrumb-bg.jpg')] before:bg-no-repeat before:bg-cover before:bg-center before:-z-[1] before:opacity-30">
+<section class="et-breadcrumb bg-[#000D83] pt-[146px] lg:pt-[146px] sm:pt-[146px] pb-[130px] lg:pb-[110px] sm:pb-[80px] relative z-[1] before:absolute before:inset-0 before:-z-[1] before:opacity-30"
+style="background-image: url('{{asset('/')}}frontend/img/venue-img.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container mx-auto max-w-[1200px] px-[12px] xl:max-w-full text-center text-white">
         <h1 class="et-breadcrumb-title font-medium text-[56px] md:text-[50px] xs:text-[45px]">Contact Us</h1>
         <ul class="inline-flex items-center gap-[10px] font-medium text-[16px]">
@@ -21,50 +22,58 @@
                 <div class="grid grid-cols-2 md:grid-cols-1 gap-[60px] xl:gap-[40px] items-center">
                     <!-- left side contact infos -->
                     <div>
+
+                        @if (isset($settings))
                         <div class="bg-etBlue p-[40px] sm:p-[30px] space-y-[24px] text-[16px]">
                             <!-- single contact info -->
                             <div class="flex flex-wrap items-center gap-[20px] pb-[20px] text-white border-b border-white/30 last:border-0 last:pb-0">
                                 <span class="icon shrink-0 border border-dashed border-white rounded-full h-[62px] w-[62px] flex items-center justify-center">
-                                    <img src="assets/img/call-msg.svg" alt="icon">
+                                    <img src="{{ asset('/') }}frontend/img/call-msg.svg" alt="icon">
                                 </span>
 
                                 <div class="txt">
                                     <span class="font-light">Call Us 7/24</span>
-                                    <h4 class="font-semibold text-[24px]"><a href="tel:+208-555-0112">+208-555-0112</a></h4>
+                                    <h4 class="font-semibold text-[24px]"><a href="tel:{{ $settings->business_number }}">{{ $settings->business_number }}</a></h4>
                                 </div>
                             </div>
 
                             <!-- single contact info -->
                             <div class="flex flex-wrap items-center gap-[20px] pb-[20px] text-white border-b border-white/30 last:border-0 last:pb-0">
                                 <span class="icon shrink-0 border border-dashed border-white rounded-full h-[62px] w-[62px] flex items-center justify-center">
-                                    <img src="assets/img/mail.svg" alt="icon">
+                                    <img src="{{ asset('/') }}frontend/img/mail.svg" alt="icon">
                                 </span>
 
                                 <div class="txt">
                                     <span class="font-light">Make a Quote</span>
-                                    <h4 class="font-semibold text-[24px]"><a href="mailto:eventek@gmail.com">eventek@gmail.com</a></h4>
+                                    <h4 class="font-semibold text-[24px]"><a href="mailto:{{ $settings->business_email }}">{{ $settings->business_email }}</a></h4>
                                 </div>
                             </div>
+                            @endif
 
                             <!-- single contact info -->
                             <div class="flex flex-wrap items-center gap-[20px] pb-[20px] text-white border-b border-white/30 last:border-0 last:pb-0">
                                 <span class="icon shrink-0 border border-dashed border-white rounded-full h-[62px] w-[62px] flex items-center justify-center">
-                                    <img src="assets/img/location-dot-circle.svg" alt="icon">
+                                    <img src="{{ asset('/') }}frontend/img/location-dot-circle.svg" alt="icon">
                                 </span>
 
                                 <div class="txt">
                                     <span class="font-light">Location</span>
-                                    <h4 class="font-semibold text-[24px]">4517 Washington ave.</h4>
+                                     @if (isset($event->location))
+                                        <h4 class="font-semibold text-[24px]">{{ $event->location }}</h4>
+                                    @else
+                                        <h4 class="font-semibold text-[24px]">Durgapur, Begumganj, Noakhali.</h4>
+                                    @endif
                                 </div>
                             </div>
                         </div>
 
-                        <!-- video cover -->
+                        <!-- photo cover -->
                         <div class="relative">
-                            <img src="assets/img/contact-video-cover.jpg" alt="video cover" class="w-full">
-                            <a href="https://youtu.be/6KmuL6RcdNA?si=s1RJZZwk6XcqZAwX" data-fslightbox class="video-btn-shadow w-[58px] aspect-square rounded-full bg-white text-[18px] text-etBlue flex items-center justify-center absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]">
-                                <i class="fa-solid fa-play"></i>
-                            </a>
+                            @if (isset($event->image))
+                                <img src="{{ asset('storage/' . $event->image) }}" alt="image cover" class="w-full">
+                            @else
+                                <img src="{{ asset('/') }}frontend/img/contact-video-cover.jpg" alt="image cover" class="w-full">
+                            @endif
                         </div>
                     </div>
 
