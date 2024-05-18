@@ -40,7 +40,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                 </div>
                 @endif
 
-                <div class="p-[50px]" style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <div class="p-[50px]" style="background-image: url('{{asset('/')}}frontend/img/footer-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <!-- heading -->
                     <div class="text-center mb-[52px]">
                         <h6 class="et-section-sub-title !text-white before:!bg-white anim-text">Event Timetable</h6>
