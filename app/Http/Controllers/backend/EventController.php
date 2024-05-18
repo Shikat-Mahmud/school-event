@@ -15,6 +15,12 @@ class EventController extends Controller
         return response()->json(['datetime' => $event->datetime]);
     }
 
+    public function eventDetail()
+    {
+        $event = Event::first();
+        return view('frontend.main.event', compact('event'));
+    }
+
     public function index()
     {
         if (auth()->check() && auth()->user()->hasAnyPermission(['create-event', 'edit-event', 'show-event', 'delete-event',])) {

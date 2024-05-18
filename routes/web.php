@@ -68,6 +68,9 @@ Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.eve
 Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
 Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
 
+Route::get('/event-detail', [EventController::class, 'eventDetail'])->name('event.detail');
+
+
 
 // all event schedule route
 Route::get('/event-schedule', [EventScheduleController::class, 'index'])->name('event.schedule');
