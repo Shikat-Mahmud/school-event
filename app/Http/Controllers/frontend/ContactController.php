@@ -35,4 +35,16 @@ class ContactController extends Controller
             return redirect()->back()->withInput()->with('error', $e->getMessage());
         }
     }
+
+    public function showContact()
+    {
+        $contacts = Contact::all();
+        return view('admin.main.contact.index', compact('contacts'));
+    }
+
+    public function view(string $id)
+    {
+        $contact = Contact::findOrFail($id);
+        return view('admin.main.contact.show', compact('contact'));
+    }
 }
