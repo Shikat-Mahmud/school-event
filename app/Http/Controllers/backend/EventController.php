@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\EventSchedule;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +20,8 @@ class EventController extends Controller
     {
         $event = Event::first();
         $setting = generalSettings();
-        return view('frontend.main.event', compact('event', 'setting'));
+        $event_schedule = EventSchedule::where('event_id', 1)->get();
+        return view('frontend.main.event', compact('event', 'setting', 'event_schedule'));
     }
 
     public function index()
