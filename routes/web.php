@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
+use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ReviewController;
 use App\Http\Controllers\ProfileController;
@@ -85,3 +86,4 @@ Route::get('/review-status/{review}', [ReviewController::class, 'changeStatus'])
 
 
 // all contact route
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');

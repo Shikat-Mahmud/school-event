@@ -15,12 +15,12 @@
 </section>
 <!-- BREADCRUMB SECTION END -->
 
-<!-- CONTACT SECTION START -->
+<!-- REVIEW SECTION START -->
 <div class="py-[120px] xl:py-[80px] md:py-[60px]">
     <div class="container mx-auto max-w-[1200px] px-[12px] xl:max-w-full">
         <div class="grid grid-cols-1 justify-items-center gap-[60px] xl:gap-[40px] items-center">
 
-            <!-- right side contact form -->
+            <!-- right side review form -->
             <div>
                 <h2 class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-medium text-etBlack mb-[7px]">
                     Talk About The Event</h2>
@@ -81,5 +81,5 @@
         </div>
     </div>
 </div>
-<!-- CONTACT SECTION END -->
+<!-- REVIEW SECTION END -->
 @endsection

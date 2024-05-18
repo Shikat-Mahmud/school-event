@@ -16,7 +16,7 @@
                         <li><a href="events.html">Event</a></li>
                         <li><a href="{{ route('home') }}">Gallery</a></li>
                         <li><a href="team.html">Team</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
 
                         <!-- <li class="has-sub-menu relative">
                             <a role="button">Events</a>

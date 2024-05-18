@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    //
+    public function index(){
+        $settings = generalSettings();
+        return view('frontend.main.contact', compact('settings'));
+    }
 }
