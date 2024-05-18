@@ -25,13 +25,13 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
             <div>
                 
                 @if (session('success'))
-                    <div class="alert alert-success font-light text-[16px] mb-[10px] p-[10px]" style="color: #009e5c; background-color: #c4ffdf;">
+                    <div class="alert alert-success font-light text-[16px] mb-[10px] p-[16px]" style="color: #009e5c; background-color: #c4ffdf;">
                         {{ session('success') }} <i class="fa-solid fa-check"></i>
                     </div>
                 @endif
 
                 @if (session('error'))
-                    <div class="alert alert-danger font-light text-[16px] mb-[10px] p-[10px]" style="color: #ad3c3c; background-color: #ffd6d6;">
+                    <div class="alert alert-danger font-light text-[16px] mb-[10px] p-[16px]" style="color: #ad3c3c; background-color: #ffd6d6;">
                         {{ session('error') }} <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
                 @endif
@@ -46,7 +46,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                         <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your
                             Name*</label>
                         <input type="text" name="name" id="et-contact-name" placeholder="Your Name"
-                            class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
+                            class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
                     <div>
                         <label for="et-contact-batch" class="font-lato font-semibold text-etBlack block mb-[12px]">
@@ -70,7 +70,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                         <label for="et-contact-message"
                             class="font-lato font-semibold text-etBlack block mb-[12px]">Your Message*</label>
                         <textarea name="message" id="et-contact-message" placeholder="Your Message"
-                            class="border border-[#ECECEC] h-[145px] p-[20px] rounded-[4px] w-full focus:outline-none"></textarea>
+                            class="border border-[#ECECEC] h-[145px] p-[20px] rounded-[4px] w-full focus:outline-none" required></textarea>
                     </div>
                     <div>
                         <button type="submit"
