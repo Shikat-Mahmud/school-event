@@ -53,9 +53,12 @@ Route::post('/email-update', [SettingsController::class, 'emailUpdate'])->name('
 Route::get('application-cache-clear', [SettingsController::class, 'cacheClear'])->name('application.cache.clear');
 
 
+// product & category route
 Route::resource('categories', CategoryController::class);
 Route::resource('products', ProductController::class);
 
+
+// all event route
 Route::get('/get-event-datetime', [EventController::class, 'getEventDate']);
 Route::get('/events', [EventController::class, 'index'])->name('events');
 Route::get('/add-event', [EventController::class, 'create'])->name('create.event');
@@ -64,6 +67,8 @@ Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.eve
 Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
 Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
 
+
+// all event schedule route
 Route::get('/event-schedule', [EventScheduleController::class, 'index'])->name('event.schedule');
 Route::get('/add-event-schedule', [EventScheduleController::class, 'create'])->name('create.event.schedule');
 Route::post('/add-event-schedule', [EventScheduleController::class, 'store'])->name('store.event.schedule');
@@ -71,7 +76,12 @@ Route::get('/edit-event-schedule/{id}', [EventScheduleController::class, 'edit']
 Route::post('/edit-event-schedule/{id}', [EventScheduleController::class, 'update'])->name('update.event.schedule');
 Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'destroy'])->name('destroy.event.schedule');
 
+
+// all review route
 Route::get('/event-review', [ReviewController::class, 'index'])->name('event.review');
 Route::post('/event-review', [ReviewController::class, 'store'])->name('post.review');
 Route::get('/reviews', [ReviewController::class, 'showReviews'])->name('reviews');
 Route::get('/review-status/{review}', [ReviewController::class, 'changeStatus'])->name('change-status');
+
+
+// all contact route
