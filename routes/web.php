@@ -87,3 +87,4 @@ Route::get('/review-status/{review}', [ReviewController::class, 'changeStatus'])
 
 // all contact route
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('post.contact');

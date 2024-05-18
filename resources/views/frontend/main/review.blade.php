@@ -23,21 +23,22 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
 
             <!-- right side review form -->
             <div>
-                <h2 class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-medium text-etBlack mb-[7px]">
-                    Talk About The Event</h2>
-                <p class="text-etGray font-light text-[16px] mb-[38px]">We're excited about our upcoming event! Please share your expectations and any suggestions to help us make it a success.</p>
-
+                
                 @if (session('success'))
-                    <div class="alert alert-success font-light text-[16px] mb-[10px]" style="color: #009e5c;">
+                    <div class="alert alert-success font-light text-[16px] mb-[10px] p-[10px]" style="color: #009e5c; background-color: #c4ffdf;">
                         {{ session('success') }} <i class="fa-solid fa-check"></i>
                     </div>
                 @endif
 
                 @if (session('error'))
-                    <div class="alert alert-danger font-light text-[16px] mb-[10px]" style="color: #ad3c3c;">
+                    <div class="alert alert-danger font-light text-[16px] mb-[10px] p-[10px]" style="color: #ad3c3c; background-color: #ffd6d6;">
                         {{ session('error') }} <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
                 @endif
+
+                <h2 class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-medium text-etBlack mb-[7px]">
+                    Talk About The Event</h2>
+                <p class="text-etGray font-light text-[16px] mb-[38px]">We're excited about our upcoming event! Please share your expectations and any suggestions to help us make it a success.</p>
 
                 <form action="" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
                     @csrf
