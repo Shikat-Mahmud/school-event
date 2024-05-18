@@ -18,7 +18,8 @@ class EventController extends Controller
     public function eventDetail()
     {
         $event = Event::first();
-        return view('frontend.main.event', compact('event'));
+        $setting = generalSettings();
+        return view('frontend.main.event', compact('event', 'setting'));
     }
 
     public function index()
@@ -51,25 +52,25 @@ class EventController extends Controller
                 'description' => 'nullable|string',
                 'location' => 'nullable|string|max:255',
             ]);
-    
+
             $event = new Event();
             $event->name = $request->name;
             $event->datetime = $request->datetime;
-    
+
             if ($request->hasFile('image')) {
                 $event->image = $request->file('image')->store('events', 'public');
             }
-    
+
             $event->description = $request->description;
             $event->location = $request->location;
             $event->save();
-    
+
             return redirect()->route('events')->with('success', 'Event created successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
-    
+
 
     public function edit(string $id)
     {
@@ -93,32 +94,32 @@ class EventController extends Controller
                 'description' => 'nullable|string',
                 'location' => 'nullable|string|max:255',
             ]);
-    
+
             $event = Event::findOrFail($id);
-    
+
             $event->name = $request->input('name');
             $event->datetime = $request->input('datetime');
             $event->location = $request->input('location');
             $event->description = $request->input('description');
-    
+
             if ($request->hasFile('image')) {
                 // Delete old image if it exists
                 if ($event->image) {
                     Storage::delete('public/' . $event->image);
                 }
-    
+
                 // Store the new image
                 $event->image = $request->file('image')->store('events', 'public');
             }
-    
+
             $event->save();
-    
+
             return redirect()->route('events')->with('success', 'Event updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
-    
+
 
     public function destroy($id)
     {
