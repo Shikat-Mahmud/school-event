@@ -104,3 +104,7 @@ Route::post('/add-team', [TeamController::class, 'store'])->name('store.team');
 Route::get('/edit-team/{id}', [TeamController::class, 'edit'])->name('edit.team');
 Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.team');
 Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
+
+Route::get('/gallery', function (){
+    return view('frontend.main.gallery');
+})->name('gallery');

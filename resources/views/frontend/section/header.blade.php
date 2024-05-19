@@ -14,7 +14,7 @@
                     <ul class="et-header-nav flex md:flex-col gap-x-[43px] xl:gap-x-[33px] font-kanit text-[17px] font-normal">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('event.detail') }}">Event</a></li>
-                        <li><a href="{{ route('home') }}">Gallery</a></li>
+                        <li><a href="{{ route('gallery') }}">Gallery</a></li>
                         <li><a href="{{ route('team') }}">Team</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
 
