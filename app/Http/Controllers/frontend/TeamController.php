@@ -10,7 +10,13 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $team = Team::all();
-        return view('frontend.main.team', compact('team'));
+        $teams = Team::all();
+        return view('frontend.main.team', compact('teams'));
+    }
+
+    public function teamList()
+    {
+        $teams = Team::all();
+        return view('admin.main.team.index', compact('teams'));
     }
 }

@@ -98,3 +98,9 @@ Route::get('/contact-view/{id}', [ContactController::class, 'view'])->name('cont
 
 // all contact route
 Route::get('/team', [TeamController::class, 'index'])->name('team');
+Route::get('/team-list', [TeamController::class, 'teamList'])->name('team.list');
+Route::get('/add-event', [EventController::class, 'create'])->name('create.event');
+Route::post('/add-event', [EventController::class, 'store'])->name('store.event');
+Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.event');
+Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
+Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');
