@@ -48,9 +48,9 @@
                                             </td>
                                             <td>
                                                 @if ($item->status == '1')
-                                                    <span class="btn btn-success btn-sm me-2">Paid</span>
+                                                    <span class="badge bg-success">Paid</span>
                                                 @elseif($item->status == '0')
-                                                    <span class="btn btn-danger btn-sm me-2">Unpaid</span>
+                                                    <span class="badge bg-danger">Unpaid</span>
                                                 @endif
                                             </td>
                                             @if (isset($item->batch))
@@ -62,9 +62,9 @@
                                             <td>{{ $item->phone }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <form action="{{ route('payment.status.change', $item->id) }}" method="post" class="me-2">
+                                                    <form action="{{ route('payment.status.change', $item->id) }}" method="post" class="changeStatusForm me-2">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-primary btn-sm">Change Status</button>
+                                                        <button type="button" class="btn btn-primary btn-sm btnPaymentChange">Change Status</button>
                                                     </form>
                                                     <a class="btn btn-info btn-sm" href="{{ route('student.detail', $item->id) }}">View</a>
                                                 </div>
@@ -77,9 +77,43 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.btnPaymentChange').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to change the payment status?",
+                icon: "warning",
+                buttons: {
+                    cancel: {
+                        text: "Cancel",
+                        value: null,
+                        visible: true,
+                        className: "btn btn-secondary",
+                        closeModal: true,
+                    },
+                    confirm: {
+                        text: "Change",
+                        value: true,
+                        visible: true,
+                        className: "btn btn-primary",
+                    }
+                },
+                dangerMode: true
+            }).then((willChange) => {
+                if (willChange) {
+                    btn.closest('.changeStatusForm').submit();
+                }
+            });
+        });
+    });
+});
+</script>
+@endpush

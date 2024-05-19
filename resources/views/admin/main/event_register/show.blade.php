@@ -88,15 +88,11 @@
                                     <b><span>Payment Status: </span></b>
                                 </div>
                                 <div class="col-md-8">
-                                    <p class="ml-3"> <b>
-                                            @if ($student->status == 1)
-                                                Paid <i class="fas fa-circle text-c-green f-10 m-r-15"
-                                                    aria-hidden="true" style="color: green; margin-left: 2px;"></i>
-                                            @else
-                                                Unpaid <i class="fas fa-circle text-c-red f-10 m-r-15"
-                                                    aria-hidden="true" style="color: red; margin-left: 2px;"></i>
-                                            @endif
-                                        </b></p>
+                                    @if ($student->status == 1)
+                                        <span class="ml-3 mb-3 badge bg-success">Paid</span>
+                                    @else
+                                        <span class="ml-3 mb-3 badge bg-danger">Unpaid</span>
+                                    @endif
                                 </div>
                             </div>
 
