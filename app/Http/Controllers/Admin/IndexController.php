@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\EventRegister;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
@@ -22,13 +23,14 @@ class IndexController extends Controller
             $totalCategory = Category::count();
             $totalProduct = Product::count();
             $subsetCount = 100;
+            $registrations = EventRegister::latest()->limit(5)->get();
 
             $peruser = (($totalUsers / $subsetCount) * 100);
             $percategory = (($totalCategory / $subsetCount) * 100);
             $perproduct = (($totalProduct / $subsetCount) * 100);
 
 
-            return view('admin.main.index', compact('totalUsers', 'totalCategory', 'totalProduct', 'peruser', 'percategory', 'perproduct'));
+            return view('admin.main.index', compact('totalUsers', 'totalCategory', 'totalProduct', 'peruser', 'percategory', 'perproduct', 'registrations'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }

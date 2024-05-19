@@ -50,56 +50,46 @@
                 <div class="col-sm-12">
                     <div class="card table-card">
                         <div class="card-header">
-                            <h5>Recent Orders</h5>
+                            <h5>Recent Student Registration</h5>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
-                                <table class="table">
+                            <table class="table">
+                                <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Product Code</th>
-                                        <th>Customer</th>
-                                        <th>Purchased On</th>
-                                        <th>Status</th>
-                                        <th>Transaction ID</th>
+                                        <th>Student Name</th>
+                                        <th>Photo</th>
+                                        <th>Payment Status</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
                                     </tr>
-                                    <tr>
-                                        <td><img src="{{ asset('/images/widget/p1.jpg') }}" alt="prod img" class="img-fluid">
-                                        </td>
-                                        <td>PNG002413</td>
-                                        <td>Jane Elliott</td>
-                                        <td>06-01-2017</td>
-                                        <td><span class="badge bg-primary">Shipping</span></td>
-                                        <td>#7234421</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="{{ asset('/images/widget/p2.jpg') }}" alt="prod img" class="img-fluid">
-                                        </td>
-                                        <td>PNG002344</td>
-                                        <td>John Deo</td>
-                                        <td>05-01-2017</td>
-                                        <td><span class="badge bg-danger">Failed</span></td>
-                                        <td>#7234486</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="{{ asset('/images/widget/p3.jpg') }}" alt="prod img" class="img-fluid">
-                                        </td>
-                                        <td>PNG002653</td>
-                                        <td>Eugine Turner</td>
-                                        <td>04-01-2017</td>
-                                        <td><span class="badge bg-success">Delivered</span></td>
-                                        <td>#7234417</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img src="{{ asset('/images/widget/p4.jpg') }}" alt="prod img" class="img-fluid">
-                                        </td>
-                                        <td>PNG002156</td>
-                                        <td>Jacqueline Howell</td>
-                                        <td>03-01-2017</td>
-                                        <td><span class="badge bg-warning">Pending</span></td>
-                                        <td>#7234454</td>
-                                    </tr>
-                                </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($registrations as $item)
+                                        <tr>
+                                            <td>{{ $item->name }}</td>
+                                            <td>
+                                                @if ($item->photo)
+                                                    <img src="{{ asset('storage/' . $item->photo) }}" alt="Reviewer Image"
+                                                        style="height: 50px; border-radius: 6px;">
+                                                @else
+                                                    <img src="{{ asset('/assets/images/user/avatar-2.jpg') }}" alt="Default Image"
+                                                        style="height: 50px; border-radius: 6px;">
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($item->status == '1')
+                                                    <span class="badge bg-success">Paid</span>
+                                                @elseif($item->status == '0')
+                                                    <span class="badge bg-danger">Unpaid</span>
+                                                @endif
+                                            </td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->phone }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                             </div>
                         </div>
                     </div>
