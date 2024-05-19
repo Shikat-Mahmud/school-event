@@ -107,7 +107,9 @@ Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.
 Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
 
 // all register route
-Route::get('/ticket', [EventRegisterController::class, 'index'])->name('ticket');
+Route::get('/ticket', [EventRegisterController::class, 'create'])->name('ticket');
+Route::post('/ticket-create', [EventRegisterController::class, 'store'])->name('ticket.post');
+
 
 Route::get('/gallery', function (){
     return view('frontend.main.gallery');

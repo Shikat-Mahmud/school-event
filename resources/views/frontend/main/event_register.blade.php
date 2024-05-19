@@ -33,11 +33,17 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                         {{ session('error') }} <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
                 @endif
+                
+                @if (session('warning'))
+                    <div class="alert alert-danger font-light text-[16px] mb-[10px] p-[16px]" style="color: #d68917; background-color: #ffdead;">
+                        {{ session('warning') }} <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                @endif
 
                 <h2 class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-medium text-etBlack mb-[7px]">Register For The Event </h2>
                 <p class="text-etGray font-light text-[16px] mb-[38px]">Register now to join our school get-together event and reconnect with friends while enjoying a memorable day!</p>
 
-                <form action="" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
+                <form action="{{ route('ticket.post') }}" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
                     @csrf
                     <div>
                         <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Name: *</label>
@@ -64,7 +70,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
                     <div>
-                        <label for="et-contact-guest" class="font-lato font-semibold text-etBlack block mb-[12px]">Guest: </label>
+                        <label for="et-contact-guest" class="font-lato font-semibold text-etBlack block mb-[12px]">No of Guest: <span class="text-[#707882] text-[12px]">(optional)</span></label>
                         <div class="flex items-center">
                             <button type="button" id="decrease-guest" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] focus:outline-none bg-etBlue text-[30px] text-white">-</button>
                             <input type="number" name="guest" id="et-contact-guest" value="0" min="0" readonly
@@ -83,9 +89,8 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                             class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
-                        <label for="et-contact-message"
-                            class="font-lato font-semibold text-etBlack block mb-[12px]">Your Suggestion: </label>
-                        <textarea name="message" id="et-contact-message" placeholder="Your Message"
+                        <label for="et-contact-message" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Suggestion: <span class="text-[#707882] text-[12px]">(optional)</span></label>
+                        <textarea name="message" id="et-contact-message" placeholder="Write your suggestion here."
                             class="border border-[#ECECEC] h-[145px] p-[20px] rounded-[4px] w-full focus:outline-none"></textarea>
                     </div>
                     <div>
