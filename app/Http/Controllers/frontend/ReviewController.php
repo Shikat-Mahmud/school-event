@@ -56,7 +56,7 @@ class ReviewController extends Controller
             return redirect()->back()->with('message', 'Status Change Successfully');
         } catch (\Exception $e) {
             // Log the error
-            \Log::error('Error changing rev$review status: ' . $e->getMessage());
+            \Log::error('Error changing review status: ' . $e->getMessage());
 
             // Return an error message or handle it as needed
             return redirect()->back()->with('error', 'Error changing review status');

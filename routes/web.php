@@ -110,6 +110,7 @@ Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('des
 Route::get('/register-list', [EventRegisterController::class, 'index'])->name('register.list');
 Route::get('/ticket', [EventRegisterController::class, 'create'])->name('ticket');
 Route::post('/ticket-create', [EventRegisterController::class, 'store'])->name('ticket.post');
+Route::post('/payment-status-change/{eventRegister}', [EventRegisterController::class, 'changeStatus'])->name('payment.status.change');
 
 
 Route::get('/gallery', function (){

@@ -48,11 +48,9 @@
                                             </td>
                                             <td>
                                                 @if ($item->status == '1')
-                                                <span>Paid</span> <i class="fas fa-circle text-c-green f-10 m-r-15"
-                                                    aria-hidden="true" style="color: green; mergin-left: 2px;"></i>
+                                                    <span class="btn btn-success btn-sm me-2">Paid</span>
                                                 @elseif($item->status == '0')
-                                                <span>Unpaid</span> <i class="fas fa-circle text-c-red f-10 m-r-15"
-                                                    aria-hidden="true" style="color: red; mergin-left: 2px;"></i>
+                                                    <span class="btn btn-danger btn-sm me-2">Unpaid</span>
                                                 @endif
                                             </td>
                                             @if (isset($item->batch))
@@ -64,15 +62,15 @@
                                             <td>{{ $item->phone }}</td>
                                             <td>
                                                 <div class="span2">
-                                                    @if($item->status==1)
-                                                    <a class="btn btn-success" href="{{ url('review-status/' . $item->id) }}">
-                                                    <i class="fa fa-eye"></i>
-                                                    </a>
-                                                    @else
-                                                    <a class="btn btn-danger" href="{{ url('review-status/' . $item->id) }}">
-                                                    <i class="fa fa-eye-slash"></i>
-                                                    </a>
-                                                    @endif
+                                                    <form action="{{ route('payment.status.change', $item->id) }}" method="post">
+                                                        @csrf
+                                                        <select name="status" class="btn btn-secondary btn-sm me-2">
+                                                            <option value="0" {{ $item->status == 0 ? 'selected' : '' }}>Unpaid</option>
+                                                            <option value="1" {{ $item->status == 1 ? 'selected' : '' }}>Paid</option>
+                                                        </select>
+                                                        <button type="submit" class="btn btn-primary btn-sm me-2">Change</button>
+                                                    </form>
+                                                    <a class="btn btn-info btn-sm me-2 mt-1" href="{{ route('products.show', $item->id) }}">View All Information</a>
                                                 </div>
                                             </td>
                                         </tr>
