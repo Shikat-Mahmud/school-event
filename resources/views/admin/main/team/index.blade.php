@@ -49,14 +49,12 @@
                                         </td>
                                         <td>
                                             <div class="d-flex">
-                                                <a class="btn btn-secondary btn-sm me-2"
-                                                    href="{{ route('members.show', $member->id) }}">View</a>
 
                                                 <a class="btn btn-info btn-sm me-2"
-                                                    href="{{ route('members.edit', $member->id) }}">Edit</a>
+                                                    href="{{ route('products.edit', $member->id) }}">Edit</a>
 
                                                 <form class="deleteForm"
-                                                    action="{{ route('members.destroy', $member->id) }}"
+                                                    action="{{ route('products.destroy', $member->id) }}"
                                                     method="post">
                                                     @csrf
                                                     @method('DELETE')

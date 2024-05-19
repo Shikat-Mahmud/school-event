@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('store.team') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
                                 <label for="" class="col-md-4 required">Member Name <span class="text-danger">*</span></label>
