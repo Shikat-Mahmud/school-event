@@ -42,7 +42,7 @@
                                                     <img src="{{ asset('storage/' . $item->photo) }}" alt="Reviewer Image"
                                                         style="height: 50px; border-radius: 6px;">
                                                 @else
-                                                    <img src="https://placehold.co/400" alt="Default Image"
+                                                    <img src="{{ asset('/assets/images/user/avatar-2.jpg') }}" alt="Default Image"
                                                         style="height: 50px; border-radius: 6px;">
                                                 @endif
                                             </td>
@@ -66,7 +66,7 @@
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary btn-sm">Change Status</button>
                                                     </form>
-                                                    <a class="btn btn-info btn-sm" href="{{ route('products.show', $item->id) }}">View</a>
+                                                    <a class="btn btn-info btn-sm" href="{{ route('student.detail', $item->id) }}">View</a>
                                                 </div>
                                             </td>
                                         </tr>

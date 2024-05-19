@@ -59,6 +59,12 @@ class EventRegisterController extends Controller
         }
     }
 
+    public function showStudentDetail(string $id)
+    {
+        $student = EventRegister::findOrFail($id);
+        return view('admin.main.event_register.show', compact('student'));
+    }
+
     public function changeStatus(EventRegister $eventRegister)
     {
         try {
