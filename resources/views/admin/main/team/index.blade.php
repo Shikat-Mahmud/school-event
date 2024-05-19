@@ -53,13 +53,9 @@
                                                 <a class="btn btn-info btn-sm me-2"
                                                     href="{{ route('edit.team', $member->id) }}">Edit</a>
 
-                                                <form class="deleteForm"
-                                                    action="{{ route('products.destroy', $member->id) }}"
-                                                    method="post">
+                                                <form class="deleteForm" action="{{ route('destroy.team', $member->id) }}" method="post">
                                                     @csrf
-                                                    @method('DELETE')
-                                                    <button type="button"
-                                                        class="btn btn-danger btn-sm btnDelete">Delete</button>
+                                                    <button type="button" class="btn btn-danger btn-sm btnDelete">Delete</button>
                                                 </form>
                                             </div>
                                         </td>

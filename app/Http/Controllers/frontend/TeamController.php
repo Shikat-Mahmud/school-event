@@ -89,4 +89,15 @@ class TeamController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $team = Team::find($id);
+        // Delete the image if it exists
+        if ($team->image) {
+            Storage::disk('public')->delete($team->image);
+        }
+        $team->delete();
+
+        return redirect()->route('team.list')->with('success', 'Team member deleted successfully.');
+    }
 }
