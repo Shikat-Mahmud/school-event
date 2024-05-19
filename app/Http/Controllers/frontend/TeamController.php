@@ -19,4 +19,9 @@ class TeamController extends Controller
         $teams = Team::all();
         return view('admin.main.team.index', compact('teams'));
     }
+
+    public function create()
+    {
+        return view('admin.main.team.create');
+    }
 }

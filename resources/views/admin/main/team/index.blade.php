@@ -19,7 +19,7 @@
                             Team Member List
                         </div>
                         <div>
-                            <a href="#" class="btn btn-primary btn-sm">Create new member </a>
+                            <a href="{{ route('create.team') }}" class="btn btn-primary btn-sm">Create new member </a>
                         </div>
                     </div>
                     <div class="card-body table-border-style">
