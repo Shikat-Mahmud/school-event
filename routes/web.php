@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\frontend\ContactController;
+use App\Http\Controllers\frontend\EventRegisterController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ReviewController;
 use App\Http\Controllers\frontend\TeamController;
@@ -104,6 +105,9 @@ Route::post('/add-team', [TeamController::class, 'store'])->name('store.team');
 Route::get('/edit-team/{id}', [TeamController::class, 'edit'])->name('edit.team');
 Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.team');
 Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
+
+// all register route
+Route::get('/ticket', [EventRegisterController::class, 'index'])->name('ticket');
 
 Route::get('/gallery', function (){
     return view('frontend.main.gallery');
