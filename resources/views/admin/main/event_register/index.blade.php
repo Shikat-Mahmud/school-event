@@ -61,16 +61,12 @@
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>
                                             <td>
-                                                <div class="span2">
-                                                    <form action="{{ route('payment.status.change', $item->id) }}" method="post">
+                                                <div class="d-flex align-items-center">
+                                                    <form action="{{ route('payment.status.change', $item->id) }}" method="post" class="me-2">
                                                         @csrf
-                                                        <select name="status" class="btn btn-secondary btn-sm me-2">
-                                                            <option value="0" {{ $item->status == 0 ? 'selected' : '' }}>Unpaid</option>
-                                                            <option value="1" {{ $item->status == 1 ? 'selected' : '' }}>Paid</option>
-                                                        </select>
-                                                        <button type="submit" class="btn btn-primary btn-sm me-2">Change</button>
+                                                        <button type="submit" class="btn btn-primary btn-sm">Change Status</button>
                                                     </form>
-                                                    <a class="btn btn-info btn-sm me-2 mt-1" href="{{ route('products.show', $item->id) }}">View All Information</a>
+                                                    <a class="btn btn-info btn-sm" href="{{ route('products.show', $item->id) }}">View</a>
                                                 </div>
                                             </td>
                                         </tr>
