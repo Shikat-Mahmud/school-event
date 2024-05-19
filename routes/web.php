@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ReviewController;
+use App\Http\Controllers\frontend\TeamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingsController;
@@ -93,3 +94,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('post.contact');
 Route::get('/contact-list', [ContactController::class, 'showContact'])->name('contact.list');
 Route::get('/contact-view/{id}', [ContactController::class, 'view'])->name('contact.view');
+
+
+// all contact route
+Route::get('/team', [TeamController::class, 'index'])->name('team');
