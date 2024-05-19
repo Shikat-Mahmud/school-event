@@ -80,7 +80,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
 
                 <!-- actions -->
                 <div class="border-y border-[#d9d9d9] py-[24px] flex items-center xxs:flex-col gap-[20px]">
-                    <a href="#" class="inline-flex items-center h-[50px] rounded-full bg-etBlue px-[20px] text-[17px] font-medium text-white gap-[10px] hover:bg-etGray">Register Yourself <i class="fa-arrow-right-long fa-solid"></i></a>
+                    <a href="{{ route('ticket') }}" class="inline-flex items-center h-[50px] rounded-full bg-etBlue px-[20px] text-[17px] font-medium text-white gap-[10px] hover:bg-etGray">Register Yourself <i class="fa-arrow-right-long fa-solid"></i></a>
                     <div class="flex gap-[12px]">
                         <span class="icon bg-etBlue w-[50px] aspect-square rounded-full outline-[2px] outline outline-white -outline-offset-[3px] flex items-center justify-center">
                             <img src="{{ asset('/') }}frontend/img/call-icon.svg" alt="call icon">

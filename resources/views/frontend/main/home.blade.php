@@ -21,7 +21,7 @@
                         <div class="et-banner-btns flex flex-wrap items-center gap-[20px]">
                             <!-- <a href="#" class="et-btn bg-etBlue inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-white font-normal text-[17px] rounded-full hover:!bg-white hover:!text-etBlue">Register Now</a> -->
 
-                            <a href="#"
+                            <a href="{{ route('ticket') }}"
                                 class="et-btn bg-white inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-etBlue font-normal text-[17px] rounded-full">Register
                                 Now</a>
                             <!-- <a href="#" class="et-btn bg-white inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-etBlue font-normal text-[17px] rounded-full">View More</a> -->
@@ -38,7 +38,7 @@
                     <div class="pr-[54px] border-r md:border-r-0 border-white/20 md:text-center md:pr-0 md:w-full">
                         <h2 class="et-section-title !text-white mb-[28px] anim-text">Count Every Second Until Event.
                         </h2>
-                        <a href="#"
+                        <a href="{{ route('ticket') }}"
                             class="et-btn bg-etBlue inline-flex items-center justify-center gap-x-[13px] h-[45px] px-[15px] text-white font-normal text-[17px] rounded-full border-white border hover:!bg-white hover:!text-etBlue">Buy
                             Ticket</a>
                     </div>

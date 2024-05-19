@@ -85,7 +85,7 @@
                         @else
                             <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
                         @endif
-                        <p class="font-light text-[#f2f2f2] text-[16px] mb-[25px]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam purus sit amet magna elemen facilisis</p>
+                        <p class="font-light text-[#f2f2f2] text-[16px] mb-[25px]">Reconnect and reminisce with fellow alumni at the Child Care Academy's ex-student reunion event.</p>
 
                         <!-- social media -->
                         <!-- <div class="et-socials flex gap-[10px] text-[14px] *:border *:border-[#9EAACB] *:text-[#9EAACB] *:w-[40px] *:aspect-square *:shrink-0 *:inline-flex *:items-center *:justify-center *:rounded-full ">
