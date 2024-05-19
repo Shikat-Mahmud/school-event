@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use App\Models\EventRegister;
+use App\Models\Review;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
@@ -25,8 +28,11 @@ class IndexController extends Controller
             $registrations = EventRegister::latest()->limit(5)->get();
             $totalRegistration = EventRegister::count();
             $totalPayment = EventRegister::where('status', 1)->count();
+            $event = Event::first();
+            $totalReviewrs = Review::count();
+            $totalTeamMembers = Team::count();
 
-            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }
