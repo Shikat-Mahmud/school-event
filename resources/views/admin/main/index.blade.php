@@ -8,11 +8,11 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-primary order-card">
                         <div class="card-body">
-                            <h6 class="text-white">Orders Received</h6>
+                            <h6 class="text-white">Total User Registration</h6>
                             <h2 class="text-end text-white"><i
-                                    class="feather icon-shopping-cart float-start"></i><span>486</span>
+                                    class="ph ph-users-three float-start"></i><span>{{ $totalRegistration }}</span>
                             </h2>
-                            <p class="m-b-0">Completed Orders<span class="float-end">351</span></p>
+                            <p class="m-b-0">Payment Received<span class="float-end">{{ $totalPayment }}</span></p>
                         </div>
                     </div>
                 </div>

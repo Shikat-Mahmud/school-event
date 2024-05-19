@@ -22,22 +22,18 @@ class IndexController extends Controller
             $totalUsers = User::count();
             $totalCategory = Category::count();
             $totalProduct = Product::count();
-            $subsetCount = 100;
             $registrations = EventRegister::latest()->limit(5)->get();
+            $totalRegistration = EventRegister::count();
+            $totalPayment = EventRegister::where('status', 1)->count();
 
-            $peruser = (($totalUsers / $subsetCount) * 100);
-            $percategory = (($totalCategory / $subsetCount) * 100);
-            $perproduct = (($totalProduct / $subsetCount) * 100);
-
-
-            return view('admin.main.index', compact('totalUsers', 'totalCategory', 'totalProduct', 'peruser', 'percategory', 'perproduct', 'registrations'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }
     }
 
     public function login(){
-        $general =  ApplicationSetting::latest()->first();
+        $general =  generalSettings();
         return view('admin.main.users.admin_login', compact('general'));
     }
 }
