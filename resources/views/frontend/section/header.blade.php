@@ -15,7 +15,7 @@
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('event.detail') }}">Event</a></li>
                         <li><a href="{{ route('home') }}">Gallery</a></li>
-                        <li><a href="team.html">Team</a></li>
+                        <li><a href="{{ route('team') }}">Team</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
 
                         <!-- <li class="has-sub-menu relative">
