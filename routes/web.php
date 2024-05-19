@@ -107,6 +107,7 @@ Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.
 Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
 
 // all register route
+Route::get('/register-list', [EventRegisterController::class, 'index'])->name('register.list');
 Route::get('/ticket', [EventRegisterController::class, 'create'])->name('ticket');
 Route::post('/ticket-create', [EventRegisterController::class, 'store'])->name('ticket.post');
 

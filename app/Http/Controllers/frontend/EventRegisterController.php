@@ -9,6 +9,12 @@ use Illuminate\Validation\ValidationException;
 
 class EventRegisterController extends Controller
 {
+    public function index()
+    {
+        $registrations = EventRegister::all();
+        return view('admin.main.event_register.index', compact('registrations'));
+    }
+
     public function create()
     {
         $batchs = range(2000, 2024);
