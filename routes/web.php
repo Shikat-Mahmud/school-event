@@ -101,6 +101,6 @@ Route::get('/team', [TeamController::class, 'index'])->name('team');
 Route::get('/team-list', [TeamController::class, 'teamList'])->name('team.list');
 Route::get('/add-team', [TeamController::class, 'create'])->name('create.team');
 Route::post('/add-team', [TeamController::class, 'store'])->name('store.team');
-Route::get('/edit-event/{id}', [EventController::class, 'edit'])->name('edit.event');
-Route::post('/edit-event/{id}', [EventController::class, 'update'])->name('update.event');
+Route::get('/edit-team/{id}', [TeamController::class, 'edit'])->name('edit.team');
+Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.team');
 Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('destroy.event');

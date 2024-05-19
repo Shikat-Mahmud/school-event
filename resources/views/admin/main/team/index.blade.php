@@ -51,7 +51,7 @@
                                             <div class="d-flex">
 
                                                 <a class="btn btn-info btn-sm me-2"
-                                                    href="{{ route('products.edit', $member->id) }}">Edit</a>
+                                                    href="{{ route('edit.team', $member->id) }}">Edit</a>
 
                                                 <form class="deleteForm"
                                                     action="{{ route('products.destroy', $member->id) }}"
