@@ -30,7 +30,7 @@ class GalleryController extends Controller
     {
         try {
             $request->validate([
-                'photos.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'photos.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
             ]);
 
             if ($request->hasfile('photos')) {
