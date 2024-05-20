@@ -31,7 +31,7 @@
                             @else
                             <div class="d-flex align-items-center justify-content-center flex-column">
                                 <img src="{{ asset('/') }}images/empty.jpg" alt="Photo" style="height: 200px;">
-                                <h5 class="mt-5 mb-5 text-center text-secondary">There is no image in your gallery</h5>
+                                <h5 class="mt-5 mb-5 text-center text-secondary">There is no image in your gallery!</h5>
                             </div>
                         @endif
                     </div>
