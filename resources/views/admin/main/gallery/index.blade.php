@@ -19,7 +19,7 @@
                         @if (isset($galleries) && count($galleries) > 0)
                             <div class="d-flex flex-wrap justify-content-start">
                                 @foreach ($galleries as $gallery)
-                                    <div class="position-relative m-2" style="width: 150px; height: 150px;">
+                                    <div class="position-relative m-2" style="width: 130px; height: 130px;">
                                         <img src="{{ asset('storage/' . $gallery->photo) }}" alt="Photo" class="img-thumbnail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;">
                                         <form class="deleteForm" action="{{ route('destroy.gallery', $gallery->id) }}" method="post" style="position: absolute; top: 5px; right: 5px;">
                                             @csrf

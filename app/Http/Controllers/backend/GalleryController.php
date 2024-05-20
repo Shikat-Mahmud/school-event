@@ -29,18 +29,20 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         try {
-            // Validate the request
             $request->validate([
-                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120'
+                'photos.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
-            $gallery = new Gallery();
-            if ($request->hasFile('photo')) {
-                $gallery->photo = $request->file('photo')->store('galleries', 'public');
+            if ($request->hasfile('photos')) {
+                foreach ($request->file('photos') as $file) {
+                    $path = $file->store('gallery', 'public');
+                    Gallery::create([
+                        'photo' => $path,
+                    ]);
+                }
             }
-            $gallery->save();
 
-            return redirect()->route('gallery.list')->with('success', 'New image added successfully.');
+            return redirect()->route('gallery.list')->with('success', 'Photos uploaded successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
