@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
+use App\Http\Controllers\backend\GalleryController;
 use App\Http\Controllers\backend\GuestController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\EventRegisterController;
@@ -127,3 +128,12 @@ Route::get('/student-detail/{id}', [EventRegisterController::class, 'showStudent
 Route::get('/gallery', function (){
     return view('frontend.main.gallery');
 })->name('gallery');
+
+// all gallery route
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/gallery-list', [GalleryController::class, 'galleryList'])->name('gallery.list');
+Route::get('/add-team', [TeamController::class, 'create'])->name('create.team');
+Route::post('/add-team', [TeamController::class, 'store'])->name('store.team');
+Route::get('/edit-team/{id}', [TeamController::class, 'edit'])->name('edit.team');
+Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.team');
+Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
