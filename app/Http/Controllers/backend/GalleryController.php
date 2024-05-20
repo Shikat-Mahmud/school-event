@@ -48,13 +48,13 @@ class GalleryController extends Controller
 
     public function destroy($id)
     {
-        $team = Gallery::find($id);
+        $gallery = Gallery::find($id);
         // Delete the image if it exists
-        if ($team->image) {
-            Storage::disk('public')->delete($team->image);
+        if ($gallery->image) {
+            Storage::disk('public')->delete($gallery->image);
         }
-        $team->delete();
+        $gallery->delete();
 
-        return redirect()->route('team.list')->with('success', 'Team member deleted successfully.');
+        return redirect()->route('gallery.list')->with('success', 'Photo deleted successfully.');
     }
 }

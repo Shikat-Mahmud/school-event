@@ -130,4 +130,4 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/gallery-list', [GalleryController::class, 'galleryList'])->name('gallery.list');
 Route::get('/add-gallery', [GalleryController::class, 'create'])->name('create.gallery');
 Route::post('/add-gallery', [GalleryController::class, 'store'])->name('store.gallery');
-// Route::post('/destroy-gallery/{id}', [GalleryController::class, 'destroy'])->name('destroy.gallery');
+Route::post('/destroy-gallery/{id}', [GalleryController::class, 'destroy'])->name('destroy.gallery');
