@@ -85,13 +85,13 @@ class GuestController extends Controller
 
     public function destroy($id)
     {
-        $team = Guest::find($id);
+        $guest = Guest::find($id);
         // Delete the image if it exists
-        if ($team->image) {
-            Storage::disk('public')->delete($team->image);
+        if ($guest->image) {
+            Storage::disk('public')->delete($guest->image);
         }
-        $team->delete();
+        $guest->delete();
 
-        return redirect()->route('team.list')->with('success', 'Team member deleted successfully.');
+        return redirect()->route('guests')->with('success', 'Guest deleted successfully.');
     }
 }

@@ -88,6 +88,7 @@ Route::get('/add-guest', [GuestController::class, 'create'])->name('create.guest
 Route::post('/add-guest', [GuestController::class, 'store'])->name('store.guest');
 Route::get('/edit-guest/{id}', [GuestController::class, 'edit'])->name('edit.guest');
 Route::post('/edit-guest/{id}', [GuestController::class, 'update'])->name('update.guest');
+Route::post('/destroy-guest/{id}', [GuestController::class, 'destroy'])->name('destroy.guest');
 
 
 // all review route
