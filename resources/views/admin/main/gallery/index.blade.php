@@ -12,7 +12,7 @@
                             Gallery Images
                         </div>
                         <div>
-                            <a href="{{ route('create.guest') }}" class="btn btn-primary btn-sm">Add new photo</a>
+                            <a href="{{ route('create.gallery') }}" class="btn btn-primary btn-sm">Add new photo</a>
                         </div>
                     </div>
                     <div class="card-body">
