@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Edit Team Member')
+@section('title', 'Edit Guest')
 @section('content')
 <section class="pc-container">
     <div class="pc-content">
@@ -8,33 +8,33 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div>
-                            <h4>Edit Team Member</h4>
+                            <h4>Edit Guest</h4>
                         </div>
                         <div>
-                            <a href="{{ route('team.list') }}" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left mr-2 "></i> Team Member List</a>
+                            <a href="{{ route('guests') }}" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left mr-2 "></i> Guest List</a>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('update.team', $team->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('update.guest', $guest->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
-                                <label for="team-name" class="col-md-4">Member Name: <span class="text-danger">*</span></label>
+                                <label for="guest-name" class="col-md-4">Guest Name: <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="team-name" name="name" value="{{ old('name', $team->name) }}" class="form-control" placeholder="Member name" required />
+                                    <input type="text" id="guest-name" name="name" value="{{ old('name', $guest->name) }}" class="form-control" placeholder="Guest name" required />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="team-role" class="col-md-4">Role: <span class="text-danger">*</span></label>
+                                <label for="guest-designation" class="col-md-4">Designation: <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="team-role" name="role" value="{{ old('name', $team->role) }}" class="form-control" placeholder="Role" required />
+                                    <input type="text" id="guest-designation" name="designation" value="{{ old('name', $guest->designation) }}" class="form-control" placeholder="Designation" required />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="team-photo" class="col-md-4">Photo: </label>
+                                <label for="guest-photo" class="col-md-4">Photo: </label>
                                 <div class="col-md-8">
-                                    <input type="file" id="team-photo" name="photo" class="form-control" />
-                                    @if($team->photo)
-                                        <img class="p-t-10" src="{{ asset('storage/' . $team->photo) }}" alt="{{ $team->name }}"
+                                    <input type="file" id="guest-photo" name="photo" class="form-control" />
+                                    @if($guest->photo)
+                                        <img class="p-t-10" src="{{ asset('storage/' . $guest->photo) }}" alt="{{ $guest->name }}"
                                             width="100" />
                                     @endif
                                 </div>

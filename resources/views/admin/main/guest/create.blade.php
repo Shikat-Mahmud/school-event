@@ -20,13 +20,13 @@
                             <div class="row mt-3">
                                 <label for="" class="col-md-4 required">Guest Name <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="name" class="form-control" placeholder="Guest Name"/>
+                                    <input type="text" name="name" class="form-control" placeholder="Guest Name" required/>
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <label for="designation" class="col-md-4 required">Designation <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="designation" id="designation" class="form-control" placeholder="Designation"/>
+                                    <input type="text" name="designation" id="designation" class="form-control" placeholder="Designation" required/>
                                 </div>
                             </div>
                             <div class="row mt-3">

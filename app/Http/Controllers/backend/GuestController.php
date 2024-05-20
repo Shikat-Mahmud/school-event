@@ -47,8 +47,8 @@ class GuestController extends Controller
 
     public function edit(string $id)
     {
-        $team = Guest::find($id);
-        return view('admin.main.team.edit', compact('team'));
+        $guest = Guest::find($id);
+        return view('admin.main.guest.edit', compact('guest'));
     }
 
 
@@ -58,26 +58,26 @@ class GuestController extends Controller
             // Validate the request
             $request->validate([
                 'name' => 'required|string|max:255',
-                'role' => 'required|string',
+                'designation' => 'required|string',
                 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
-            $team = Guest::findOrFail($id);
+            $guest = Guest::findOrFail($id);
 
-            $team->name = $request->input('name');
-            $team->role = $request->input('role');
+            $guest->name = $request->input('name');
+            $guest->designation = $request->input('designation');
             if ($request->hasFile('photo')) {
                 // Delete old image if it exists
-                if ($team->photo) {
-                    Storage::delete('public/' . $team->photo);
+                if ($guest->photo) {
+                    Storage::delete('public/' . $guest->photo);
                 }
                 // Store the new image
-                $team->photo = $request->file('photo')->store('teams', 'public');
+                $guest->photo = $request->file('photo')->store('teams', 'public');
             }
 
-            $team->save();
+            $guest->save();
 
-            return redirect()->route('team.list')->with('success', 'Team member updated successfully.');
+            return redirect()->route('guests')->with('success', 'Guest information updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
