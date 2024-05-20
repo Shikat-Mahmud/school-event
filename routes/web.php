@@ -84,6 +84,8 @@ Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'de
 
 
 Route::get('/guests', [GuestController::class, 'index'])->name('guests');
+Route::get('/add-guest', [GuestController::class, 'create'])->name('create.guest');
+Route::post('/add-guest', [GuestController::class, 'store'])->name('store.guest');
 
 
 // all review route

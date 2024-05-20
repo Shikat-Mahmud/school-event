@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Add Team Member')
+@section('title', 'Add Guest')
 @section('content')
 <section class="pc-container">
     <div class="pc-content">
@@ -8,25 +8,25 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div>
-                            <h4>Add Team Member</h4>
+                            <h4>Add Guest</h4>
                         </div>
                         <div>
-                            <a href="{{ route('team.list') }}" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left mr-2 "></i> Team Member List</a>
+                            <a href="{{ route('guests') }}" class="btn btn-primary btn-sm"><i class="fas fa-arrow-left mr-2 "></i> Guest List</a>
                         </div>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('store.team') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row mt-3">
-                                <label for="" class="col-md-4 required">Member Name <span class="text-danger">*</span></label>
+                                <label for="" class="col-md-4 required">Guest Name <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="name" class="form-control" placeholder="Member Name"/>
+                                    <input type="text" name="name" class="form-control" placeholder="Guest Name"/>
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <label for="role" class="col-md-4 required">Role <span class="text-danger">*</span></label>
+                                <label for="designation" class="col-md-4 required">Designation <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" name="role" id="role" class="form-control" placeholder="Role"/>
+                                    <input type="text" name="designation" id="designation" class="form-control" placeholder="Designation"/>
                                 </div>
                             </div>
                             <div class="row mt-3">

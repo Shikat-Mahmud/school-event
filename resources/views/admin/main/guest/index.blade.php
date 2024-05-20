@@ -19,7 +19,7 @@
                             Guest List
                         </div>
                         <div>
-                            <a href="{{ route('create.team') }}" class="btn btn-primary btn-sm">Create new guest </a>
+                            <a href="{{ route('create.guest') }}" class="btn btn-primary btn-sm">Create new guest </a>
                         </div>
                     </div>
                     <div class="card-body table-border-style">

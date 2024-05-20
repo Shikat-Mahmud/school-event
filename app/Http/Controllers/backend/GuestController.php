@@ -17,7 +17,7 @@ class GuestController extends Controller
 
     public function create()
     {
-        return view('admin.main.team.create');
+        return view('admin.main.guest.create');
     }
 
     public function store(Request $request)
@@ -26,19 +26,19 @@ class GuestController extends Controller
             // Validate the request
             $request->validate([
                 'name' => 'required|string|max:255',
-                'role' => 'required|string',
+                'designation' => 'required|string',
                 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
-            $team = new Guest();
-            $team->name = $request->name;
-            $team->role = $request->role;
+            $guest = new Guest();
+            $guest->name = $request->name;
+            $guest->designation = $request->designation;
             if ($request->hasFile('photo')) {
-                $team->photo = $request->file('photo')->store('teams', 'public');
+                $guest->photo = $request->file('photo')->store('guests', 'public');
             }
-            $team->save();
+            $guest->save();
 
-            return redirect()->route('team.list')->with('success', 'Team member created successfully.');
+            return redirect()->route('guests')->with('success', 'Guest added successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
