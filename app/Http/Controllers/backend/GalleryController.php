@@ -23,7 +23,7 @@ class GalleryController extends Controller
 
     public function create()
     {
-        return view('admin.main.team.create');
+        return view('admin.main.gallery.create');
     }
 
     public function store(Request $request)
@@ -31,20 +31,16 @@ class GalleryController extends Controller
         try {
             // Validate the request
             $request->validate([
-                'name' => 'required|string|max:255',
-                'role' => 'required|string',
-                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120'
             ]);
 
-            $team = new Gallery();
-            $team->name = $request->name;
-            $team->role = $request->role;
+            $gallery = new Gallery();
             if ($request->hasFile('photo')) {
-                $team->photo = $request->file('photo')->store('teams', 'public');
+                $gallery->photo = $request->file('photo')->store('galleries', 'public');
             }
-            $team->save();
+            $gallery->save();
 
-            return redirect()->route('team.list')->with('success', 'Team member created successfully.');
+            return redirect()->route('gallery.list')->with('success', 'New image added successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }

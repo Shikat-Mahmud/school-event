@@ -125,15 +125,9 @@ Route::post('/payment-status-change/{eventRegister}', [EventRegisterController::
 Route::get('/student-detail/{id}', [EventRegisterController::class, 'showStudentDetail'])->name('student.detail');
 
 
-Route::get('/gallery', function (){
-    return view('frontend.main.gallery');
-})->name('gallery');
-
 // all gallery route
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/gallery-list', [GalleryController::class, 'galleryList'])->name('gallery.list');
-Route::get('/add-team', [TeamController::class, 'create'])->name('create.team');
-Route::post('/add-team', [TeamController::class, 'store'])->name('store.team');
-Route::get('/edit-team/{id}', [TeamController::class, 'edit'])->name('edit.team');
-Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.team');
-Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
+Route::get('/add-gallery', [GalleryController::class, 'create'])->name('create.gallery');
+Route::post('/add-gallery', [GalleryController::class, 'store'])->name('store.gallery');
+// Route::post('/destroy-gallery/{id}', [GalleryController::class, 'destroy'])->name('destroy.gallery');
