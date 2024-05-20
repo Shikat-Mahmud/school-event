@@ -36,6 +36,16 @@
                                 <i class="ph ph-clock"></i></span><span class="pc-mtext">Event Schedules</span></a>
                     </li>
                 @endif
+                
+                <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('guests') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-user"></i></span><span class="pc-mtext">Our Guests</span></a>
+                </li>
+                
+                <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('register.list') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-users-three"></i></span><span class="pc-mtext">Student Registraiton</span></a>
+                </li>
 
                 <li class="pc-item pc-hasmenu">
                     <a href="{{ route('reviews') }}" class="pc-link"><span class="pc-micon">
@@ -50,11 +60,6 @@
                 <li class="pc-item pc-hasmenu">
                     <a href="{{ route('team.list') }}" class="pc-link"><span class="pc-micon">
                             <i class="ph ph-users"></i></span><span class="pc-mtext">Team Members</span></a>
-                </li>
-
-                <li class="pc-item pc-hasmenu">
-                    <a href="{{ route('register.list') }}" class="pc-link"><span class="pc-micon">
-                            <i class="ph ph-users-three"></i></span><span class="pc-mtext">Student Registraiton</span></a>
                 </li>
 
                 @if (auth()->check() && auth()->user()->hasAnyPermission(['update-general-setting', 'update-email-setting', 'cache-clear']))

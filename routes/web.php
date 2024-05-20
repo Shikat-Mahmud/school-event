@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
+use App\Http\Controllers\backend\GuestController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\EventRegisterController;
 use App\Http\Controllers\frontend\HomeController;
@@ -73,7 +74,6 @@ Route::post('/destroy-event/{id}', [EventController::class, 'destroy'])->name('d
 Route::get('/event-detail', [EventController::class, 'eventDetail'])->name('event.detail');
 
 
-
 // all event schedule route
 Route::get('/event-schedule', [EventScheduleController::class, 'index'])->name('event.schedule');
 Route::get('/add-event-schedule', [EventScheduleController::class, 'create'])->name('create.event.schedule');
@@ -81,6 +81,9 @@ Route::post('/add-event-schedule', [EventScheduleController::class, 'store'])->n
 Route::get('/edit-event-schedule/{id}', [EventScheduleController::class, 'edit'])->name('edit.event.schedule');
 Route::post('/edit-event-schedule/{id}', [EventScheduleController::class, 'update'])->name('update.event.schedule');
 Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'destroy'])->name('destroy.event.schedule');
+
+
+Route::get('/guests', [GuestController::class, 'index'])->name('guests');
 
 
 // all review route
@@ -105,6 +108,7 @@ Route::post('/add-team', [TeamController::class, 'store'])->name('store.team');
 Route::get('/edit-team/{id}', [TeamController::class, 'edit'])->name('edit.team');
 Route::post('/edit-team/{id}', [TeamController::class, 'update'])->name('update.team');
 Route::post('/destroy-team/{id}', [TeamController::class, 'destroy'])->name('destroy.team');
+
 
 // all register route
 Route::get('/register-list', [EventRegisterController::class, 'index'])->name('register.list');
