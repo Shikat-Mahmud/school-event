@@ -97,26 +97,26 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                 <div class="mt-[50px]">
                     <h3 class="text-[30px] xs:text-[25px] font-semibold text-etBlack mb-[30px] xs:mb-[15px]">Our Guests</h3>
                     <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[25px] gap-y-[10px] mb-[30px]">
-                        <!-- single artist -->
-                        <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
-                            <div>
-                                <div class="overflow-hidden">
-                                    <img src="{{ asset('/') }}frontend/img/artist-4.jpg" alt="Artist Image" class="rounded-[6px] w-[168px] aspect-square">
+
+                        @if (isset($guests))
+                        @foreach ($guests as $guest)
+                            <!-- single artist -->
+                            <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
+                                <div>
+                                    <div class="overflow-hidden">
+                                        @if (isset($guest->photo))
+                                            <img src="{{ asset('storage/' . $guest->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                                        @else
+                                            <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                                        @endif
+                                    </div>
+                                    <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $guest->name }}</h5>
+                                    <span class="inline-block text-etGray2 text-[16px]">{{ $guest->designation }}</span>
                                 </div>
-                                <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">Ronald Richards</h5>
-                                <span class="inline-block text-etGray2 text-[16px]">Singer</span>
                             </div>
-                        </div>
-                        <!-- single artist -->
-                        <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
-                            <div>
-                                <div class="overflow-hidden">
-                                    <img src="{{ asset('/') }}frontend/img/artist-4.jpg" alt="Artist Image" class="rounded-[6px] w-[168px] aspect-square">
-                                </div>
-                                <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">Ronald Richards</h5>
-                                <span class="inline-block text-etGray2 text-[16px]">Singer</span>
-                            </div>
-                        </div>
+                        @endforeach
+                        @endif
+                        
                     </div>
                 </div>
             </div>

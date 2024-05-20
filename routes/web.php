@@ -83,6 +83,7 @@ Route::post('/edit-event-schedule/{id}', [EventScheduleController::class, 'updat
 Route::post('/destroy-event-schedule/{id}', [EventScheduleController::class, 'destroy'])->name('destroy.event.schedule');
 
 
+// all event guest route
 Route::get('/guests', [GuestController::class, 'index'])->name('guests');
 Route::get('/add-guest', [GuestController::class, 'create'])->name('create.guest');
 Route::post('/add-guest', [GuestController::class, 'store'])->name('store.guest');

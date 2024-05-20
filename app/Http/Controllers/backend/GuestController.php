@@ -72,7 +72,7 @@ class GuestController extends Controller
                     Storage::delete('public/' . $guest->photo);
                 }
                 // Store the new image
-                $guest->photo = $request->file('photo')->store('teams', 'public');
+                $guest->photo = $request->file('photo')->store('guests', 'public');
             }
 
             $guest->save();
