@@ -60,7 +60,7 @@
                                         <th>Student Name</th>
                                         <th>Photo</th>
                                         <th>Payment Status</th>
-                                        <th>Email</th>
+                                        <th>Amount</th>
                                         <th>Phone</th>
                                     </tr>
                                 </thead>
@@ -84,7 +84,7 @@
                                                     <span class="badge bg-danger">Unpaid</span>
                                                 @endif
                                             </td>
-                                            <td>{{ $item->email }}</td>
+                                            <td>&#2547; {{ $item->amount }}</td>
                                             <td>{{ $item->phone }}</td>
                                         </tr>
                                     @endforeach

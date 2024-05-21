@@ -79,7 +79,7 @@
                                     <b><span>Payable Amount: </span></b>
                                 </div>
                                 <div class="col-md-8">
-                                    <p class="ml-3">{{ $student->amount }}</p>
+                                    <p class="ml-3">&#2547; {{ $student->amount }}</p>
                                 </div>
                             </div>
 

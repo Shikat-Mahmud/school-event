@@ -28,7 +28,7 @@
                                         <th>Photo</th>
                                         <th>Payment Status</th>
                                         <th>Batch</th>
-                                        <th>Email</th>
+                                        <th>Amount</th>
                                         <th>Phone</th>
                                         <th>Action</th>
                                     </tr>
@@ -58,7 +58,7 @@
                                             @else
                                                 <td>--</td>
                                             @endif
-                                            <td>{{ $item->email }}</td>
+                                            <td>&#2547; {{ $item->amount }}</td>
                                             <td>{{ $item->phone }}</td>
                                             <td>
                                                 <div class="d-flex align-items-center">
