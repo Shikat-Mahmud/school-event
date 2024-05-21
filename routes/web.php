@@ -12,8 +12,6 @@ use App\Http\Controllers\frontend\TeamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
@@ -56,11 +54,6 @@ Route::get('/email-setting', [SettingsController::class, 'emailSetting'])->name(
 Route::post('/email-update', [SettingsController::class, 'emailUpdate'])->name('email.update');
 
 Route::get('application-cache-clear', [SettingsController::class, 'cacheClear'])->name('application.cache.clear');
-
-
-// product & category route
-Route::resource('categories', CategoryController::class);
-Route::resource('products', ProductController::class);
 
 
 // all event route

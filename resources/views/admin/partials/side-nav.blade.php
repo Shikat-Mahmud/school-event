@@ -109,26 +109,6 @@
                         </ul>
                     </li>
                 @endif
-
-                @if (auth()->check() && auth()->user()->hasAnyPermission(['create-category', 'edit-category', 'show-category', 'delete-category', 'create-product', 'edit-product', 'show-product', 'delete-product']))
-                    <li class="pc-item pc-hasmenu">
-                        <a href="#!" class="pc-link"><span class="pc-micon">
-                                <i class="ph ph-list"></i></span><span class="pc-mtext">Menus</span><span class="pc-arrow"><i
-                                    data-feather="chevron-right"></i></span></a>
-                        <ul class="pc-submenu">
-                            @if (auth()->check() && auth()->user()->hasAnyPermission(['create-category', 'edit-category', 'show-category', 'delete-category']))
-                                <li class="pc-item">
-                                    <a class="pc-link" href="{{ route('categories.index') }}">Category</a>
-                                </li>
-                            @endif
-                            @if (auth()->check() && auth()->user()->hasAnyPermission(['create-product', 'edit-product', 'show-product', 'delete-product']))
-                                <li class="pc-item">
-                                    <a class="pc-link" href="{{ route('products.index') }}">Product</a>
-                                </li>
-                            @endif
-                        </ul>
-                    </li>
-                @endif
             </ul>
         </div>
     </div>

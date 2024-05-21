@@ -13,8 +13,8 @@
                         Update your account's profile information and email address.
                     </p>
                     @if (isset($user->photo))
-                        <img src="{{ asset('storage/' . $user->photo) }}" alt="Photo" class="rounded-circle"
-                            style="height: 100px; width: 100px; object-fit: cover; border: 3px solid #23B7E5; padding: 2px;">
+                    <img src="{{ asset('storage/' . $user->photo) }}" alt="">
+
                     @else
                         <img src="{{ asset('/assets/images/user/avatar-2.jpg') }}" class="img-radius mb-4"
                             alt="User-Profile-Image">

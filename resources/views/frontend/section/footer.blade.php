@@ -81,19 +81,19 @@
                     <!-- footer about -->
                     <div class="et-footer-about max-w-[295px] lg:max-w-none md:max-w-[300px] xs:max-w-full">
                         @if (isset($setting->logo))
-                            <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('storage/' . $setting->logo )}}" alt="logo"  style="max-height: 70px;"></a>
+                            <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('storage/' . $setting->logo )}}" alt="logo"></a>
                         @else
                             <a href="{{ route('home') }}" class="mb-[25px] inline-block"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
                         @endif
                         <p class="font-light text-[#f2f2f2] text-[16px] mb-[25px]">Reconnect and reminisce with fellow alumni at the Child Care Academy's ex-student reunion event.</p>
 
                         <!-- social media -->
-                        <div class="et-socials flex gap-[10px] text-[14px] *:border *:border-[#9EAACB] *:text-[#9EAACB] *:w-[40px] *:aspect-square *:shrink-0 *:inline-flex *:items-center *:justify-center *:rounded-full ">
+                        <!-- <div class="et-socials flex gap-[10px] text-[14px] *:border *:border-[#9EAACB] *:text-[#9EAACB] *:w-[40px] *:aspect-square *:shrink-0 *:inline-flex *:items-center *:justify-center *:rounded-full ">
                             <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-facebook-f"></i></a>
                             <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-twitter"></i></a>
                             <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-linkedin-in"></i></a>
                             <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- widget -->
