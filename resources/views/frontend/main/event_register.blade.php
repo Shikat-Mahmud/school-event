@@ -89,8 +89,8 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                             class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
-                        <label for="et-contact-message" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Suggestion: <span class="text-[#707882] text-[12px]">(optional)</span></label>
-                        <textarea name="message" id="et-contact-message" placeholder="Write your suggestion here."
+                        <label for="et-contact-suggestion" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Suggestion: <span class="text-[#707882] text-[12px]">(optional)</span></label>
+                        <textarea name="suggestion" id="et-contact-suggestion" placeholder="Write your suggestion here."
                             class="border border-[#ECECEC] h-[145px] p-[20px] rounded-[4px] w-full focus:outline-none"></textarea>
                     </div>
                     <div>
