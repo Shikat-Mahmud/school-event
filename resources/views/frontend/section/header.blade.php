@@ -1,10 +1,17 @@
-    <!-- HEADER SECTION START -->
+@php
+    $setting = generalSettings();
+@endphp
+<!-- HEADER SECTION START -->
     <header class="et-header to-be-fixed py-[30px] xxs:py-[20px] fixed top-0 w-full px-[155px] xxxl:px-[100px] xxl:px-[40px] xs:px-[20px] z-50">
         <div class="flex justify-between items-center">
             <!-- logo -->
             <div class="logo shrink-0">
                 <a href="{{ route('home') }}">
-                    <img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo">
+                @if (isset($setting->logo))
+                <img src="{{asset('storage/' . $setting->logo)}}" alt="logo" style="max-height: 60px;">
+                @else
+                <img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo">
+                @endif
                 </a>
             </div>
 

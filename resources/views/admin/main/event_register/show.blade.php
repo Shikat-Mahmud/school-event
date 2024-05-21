@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     @if (isset($student->suggestion))
-                                        <p class="ml-3">{!! $student->suggestion !!}</p>
+                                        <p class="ml-3">{{ $student->suggestion }}</p>
                                     @else
                                         <p class="ml-3" style="color: #a5a5a5;">No suggestion from the student.</p>
                                     @endif
