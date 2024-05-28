@@ -15,7 +15,7 @@ class HomeController extends Controller
         $event = Event::first();
         $event_schedule = EventSchedule::where('event_id', 1)->get();
         $reviews = Review::where('status', 1)->inRandomOrder()->get();
-        $galleries = Gallery::latest()->limit(8)->get();
+        $galleries = Gallery::latest()->limit(8)->inRandomOrder()->get();
         return view('frontend.main.home', compact('event', 'event_schedule', 'reviews', 'galleries'));
     }
 }
