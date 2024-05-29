@@ -48,7 +48,7 @@
                         <!-- txt -->
                         <div>
                             <span class="block font-medium text-[14px]">Send Email</span>
-                            <h5 class="font-medium text-[20px]"><a href="mailto:info@eventek.com">{{ $setting->business_email }}</a></h5>
+                            <h5 class="font-medium text-[20px]"><a href="mailto:{{ $setting->business_email }}">{{ $setting->business_email }}</a></h5>
                         </div>
                     </div>
 
@@ -68,9 +68,9 @@
                         <!-- txt -->
                         <div>
                             <span class="block font-medium text-[14px]">Call Emergency</span>
-                            <h5 class="font-medium text-[20px]"><a href="tel:88012365499">{{ $setting->business_number }}</a></h5>
+                            <h5 class="font-medium text-[20px]"><a href="tel:{{ $setting->business_number }}">{{ $setting->business_number }}</a></h5>
                             @if (isset($setting->business_whatsapp))
-                                <h5 class="font-medium text-[20px]"><a href="tel:88012365499">{{ $setting->business_whatsapp }}</a></h5>
+                                <h5 class="font-medium text-[20px]"><a href="tel:{{ $setting->business_whatsapp }}">{{ $setting->business_whatsapp }}</a></h5>
                             @endif
                         </div>
                         @endif
