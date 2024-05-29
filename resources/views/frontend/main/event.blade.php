@@ -88,7 +88,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
 
                         <span class="txt font-semibold text-etBlack">
                             <span class="block text-[14px] mb-[2px]">Call Us Now</span>
-                            <a href="tel:+208-555-0112" class="text-[18px] hover:text-etBlue">{{ $setting->business_number }}</a>
+                            <a href="tel:{{ $setting->business_number }}" class="text-[18px] hover:text-etBlue">{{ $setting->business_number }}</a>
                         </span>
                     </div>
                 </div>
