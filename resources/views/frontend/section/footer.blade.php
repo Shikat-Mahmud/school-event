@@ -1,5 +1,6 @@
 @php
     $setting = generalSettings();
+    $myevent = myEvent();
 @endphp
     <!-- FOOTER SECTION START -->
     <footer class="et-footer bg-etBlack relative z-[1] before:absolute before:-z-[1] before:inset-0 before:opacity-30 before:mix-blend-overlay text-white" style="background-color: #3F3F3F;">
@@ -23,8 +24,8 @@
                         <!-- txt -->
                         <div>
                             <span class="block font-medium text-[14px]">Event Venue</span>
-                            @if (isset($event))
-                                <h5 class="font-medium text-[20px]">{{ $event->location }}</h5>
+                            @if (isset($myevent))
+                                <h5 class="font-medium text-[20px]">{{ $myevent->location }}</h5>
                             @else
                                 <h5 class="font-medium text-[20px]">4648 Rocky Road Philadelphia PA, 1920</h5>
                             @endif
