@@ -11,10 +11,6 @@ use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-use App\Models\ApplicationSetting;
-
-
-
 
 class IndexController extends Controller
 {
