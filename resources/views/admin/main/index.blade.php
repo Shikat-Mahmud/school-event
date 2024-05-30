@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-md-6 col-xl-3">
-                    <div class="card bg-grd-primary order-card">
+                    <div class="card bg-grd-secondary order-card">
                         <div class="card-body">
                             <h6 class="text-white">Total User Registration</h6>
                             <h2 class="text-end text-white"><i
@@ -51,26 +51,8 @@
                         <div class="card-body">
                             <img src="{{ asset('/')}}images/widget/img-status-6.svg"
                                 alt="img" class="img-fluid img-bg">
-                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
-                                <h6 class="mb-0 text-white">Total Students</h6>
-                            </div>
-                            <div class="d-flex align-items-center mt-3">
-                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">{{ $totalStudent }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-3 col-sm-6">
-                    <div class="card statistics-card-1 bg-brand-color-1">
-                        <div class="card-body">
-                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
-                                alt="img" class="img-fluid img-bg">
-                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
-                                <h6 class="mb-0 text-white">Total Guests</h6>
-                            </div>
-                            <div class="d-flex align-items-center mt-3">
-                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">{{ $totalGuest }}</h3>
-                            </div>
+                            <h6 class="mb-0 text-white mb-3">Total Students<span class="float-end text-white h4">{{ $totalStudent }}</span></h6>
+                            <h6 class="mb-0 text-white mb-3">Total Guests<span class="float-end text-white h4">{{ $totalGuest }}</span></h6>
                         </div>
                     </div>
                 </div>
@@ -94,11 +76,39 @@
                             <img src="{{ asset('/')}}images/widget/img-status-6.svg"
                                 alt="img" class="img-fluid img-bg">
                             <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
-                                <h6 class="mb-0 text-white">Total Amount Received</h6>
+                                <h6 class="mb-0 text-white">Amount Received From Registration</h6>
                             </div>
                             <div class="d-flex align-items-center mt-3">
-                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">&#2547; {{ $totalAmountReceived }}</h3>
+                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">&#2547; {{ $totalRegAmount }}</h3>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Amount Received From Donation</h6>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">&#2547; {{ $totalDonAmount }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1" style="background-color: #008375;">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Amount In Cash</h6>
+                            </div>
+                            <h2 class="text-end text-white"><i
+                                    class="ph ph-money float-start"></i><span>&#2547; {{ $totalAmountReceived }}</span>
+                            </h2>
                         </div>
                     </div>
                 </div>
