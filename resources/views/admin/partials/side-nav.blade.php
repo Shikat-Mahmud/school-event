@@ -38,11 +38,6 @@
                 @endif
                 
                 <li class="pc-item pc-hasmenu">
-                    <a href="{{ route('guests') }}" class="pc-link"><span class="pc-micon">
-                            <i class="ph ph-user"></i></span><span class="pc-mtext">Our Guests</span></a>
-                </li>
-                
-                <li class="pc-item pc-hasmenu">
                     <a href="{{ route('register.list') }}" class="pc-link"><span class="pc-micon">
                             <i class="ph ph-users-three"></i></span><span class="pc-mtext">Student Registraiton</span></a>
                 </li>
@@ -50,6 +45,16 @@
                 <li class="pc-item pc-hasmenu">
                     <a href="{{ route('gallery.list') }}" class="pc-link"><span class="pc-micon">
                             <i class="ph ph-image"></i></span><span class="pc-mtext">Gallery Photos</span></a>
+                </li>
+                                
+                <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('donations') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-money"></i></span><span class="pc-mtext">Donations</span></a>
+                </li>
+                                
+                <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('guests') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-user"></i></span><span class="pc-mtext">Our Guests</span></a>
                 </li>
 
                 <li class="pc-item pc-hasmenu">

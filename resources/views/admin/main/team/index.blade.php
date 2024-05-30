@@ -43,7 +43,7 @@
                                             <img src="{{ asset('storage/' . $member->photo) }}" alt="Member photo"
                                                 style="height: 50px; border-radius: 6px;">
                                             @else
-                                            <img src="https://placehold.co/400" alt="Default photo"
+                                            <img src="{{ asset('/assets/images/user/avatar-2.jpg') }}" alt="Default photo"
                                                 style="height: 50px; border-radius: 6px;">
                                             @endif
                                         </td>

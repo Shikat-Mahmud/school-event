@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\DonationController;
 use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\backend\GalleryController;
@@ -126,3 +127,12 @@ Route::get('/gallery-list', [GalleryController::class, 'galleryList'])->name('ga
 Route::get('/add-gallery', [GalleryController::class, 'create'])->name('create.gallery');
 Route::post('/add-gallery', [GalleryController::class, 'store'])->name('store.gallery');
 Route::post('/destroy-gallery/{id}', [GalleryController::class, 'destroy'])->name('destroy.gallery');
+
+
+// all donation route
+Route::get('/donations', [DonationController::class, 'index'])->name('donations');
+Route::get('/add-donation', [DonationController::class, 'create'])->name('create.donation');
+Route::post('/add-donation', [DonationController::class, 'store'])->name('store.donation');
+Route::get('/edit-donation/{id}', [DonationController::class, 'edit'])->name('edit.donation');
+Route::post('/edit-donation/{id}', [DonationController::class, 'update'])->name('update.donation');
+Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->name('destroy.donation');
