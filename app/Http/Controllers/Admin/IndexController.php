@@ -25,11 +25,17 @@ class IndexController extends Controller
             $registrations = EventRegister::latest()->limit(5)->get();
             $totalRegistration = EventRegister::count();
             $totalPayment = EventRegister::where('status', 1)->count();
+
+            $totalStudent = EventRegister::count();
+            $totalGuest = EventRegister::sum('guest');
+            $totalAttendee = $totalStudent + $totalGuest;
+            $totalAmountReceived = EventRegister::where('status', 1)->sum('amount');
+
             $event = Event::first();
             $totalReviewrs = Review::count();
             $totalTeamMembers = Team::count();
 
-            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalGuest', 'totalAttendee', 'totalAmountReceived'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }

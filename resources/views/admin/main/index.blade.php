@@ -46,6 +46,62 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Students</h6>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">{{ $totalStudent }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Guests</h6>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">{{ $totalGuest }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Attendees</h6>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">{{ $totalAttendee }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Amount Received</h6>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">&#2547; {{ $totalAmountReceived }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-sm-12">
                     <div class="card table-card">

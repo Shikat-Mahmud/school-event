@@ -1,7 +1,7 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header">
-            <a href="{{ route('admin.index') }}" class="b-brand text-primary">
+            <a href="{{ route('home') }}" class="b-brand text-primary">
                 @php
                     $settings = generalSettings()
                 @endphp
