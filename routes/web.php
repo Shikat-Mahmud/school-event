@@ -117,6 +117,8 @@ Route::post('/ticket-create', [EventRegisterController::class, 'store'])->name('
 Route::post('/payment-status-change/{eventRegister}', [EventRegisterController::class, 'changeStatus'])->name('payment.status.change');
 Route::get('/student-detail/{id}', [EventRegisterController::class, 'showStudentDetail'])->name('student.detail');
 
+Route::get('/all-registration', [EventRegisterController::class, 'allReg'])->name('all.registration');
+
 
 // all gallery route
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');

@@ -81,4 +81,17 @@ class EventRegisterController extends Controller
         }
     }
 
+    public function allReg()
+    {
+        $registrations = EventRegister::all();
+        $batchs = range(2000, 2024);
+    
+        $registrationsByBatch = [];
+        foreach ($batchs as $batch) {
+            $registrationsByBatch[$batch] = EventRegister::where('batch', $batch)->get();
+        }
+    
+        return view('frontend.main.all_registration', compact('registrations', 'batchs', 'registrationsByBatch'));
+    }
+    
 }

@@ -102,7 +102,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                         @foreach ($guests as $guest)
                             <!-- single artist -->
                             <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
-                                <div>
+                                <div class="w-[168px]">
                                     <div class="overflow-hidden">
                                         @if (isset($guest->photo))
                                             <img src="{{ asset('storage/' . $guest->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
