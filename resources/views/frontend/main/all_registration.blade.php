@@ -81,7 +81,7 @@
                                 @endif
                             </div>
                             <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                            <span class="inline-block text-etGray2 text-[16px]">{{ $student->batch }}</span>
+                            <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
                         </div>
                     </div>
                 @endforeach
@@ -107,7 +107,7 @@
                                         @endif
                                     </div>
                                     <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                                    <span class="inline-block text-etGray2 text-[16px]">{{ $student->batch }}</span>
+                                    <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
                                 </div>
                             </div>
                         @endforeach
