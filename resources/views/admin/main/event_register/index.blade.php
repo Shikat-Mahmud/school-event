@@ -28,6 +28,7 @@
                                         <th>Photo</th>
                                         <th>Payment Status</th>
                                         <th>Batch</th>
+                                        <th>Guests</th>
                                         <th>Amount</th>
                                         <th>Phone</th>
                                         <th>Action</th>
@@ -58,6 +59,7 @@
                                             @else
                                                 <td>--</td>
                                             @endif
+                                            <td>{{ $item->guest }}</td>
                                             <td>&#2547; {{ $item->amount }}</td>
                                             <td>{{ $item->phone }}</td>
                                             <td>
