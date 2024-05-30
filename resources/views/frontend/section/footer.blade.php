@@ -119,7 +119,7 @@
                                             <path d="M0 15.875V2.28125C0 1.51953 0.615234 0.875 1.40625 0.875H9.84375C10.6055 0.875 11.25 1.51953 11.25 2.28125V15.875L5.625 12.5938L0 15.875Z" class="fill-transparent stroke-white group-hover:stroke-etBlue group-hover:fill-etBlue transition" />
                                         </svg>
                                     </span>
-                                    <span class="txt">Registrations</span>
+                                    <span class="txt">See Other Registrations</span>
                                 </a>
                             </li>
                             <li>
@@ -139,7 +139,7 @@
                                             <path d="M0 15.875V2.28125C0 1.51953 0.615234 0.875 1.40625 0.875H9.84375C10.6055 0.875 11.25 1.51953 11.25 2.28125V15.875L5.625 12.5938L0 15.875Z" class="fill-transparent stroke-white group-hover:stroke-etBlue group-hover:fill-etBlue transition" />
                                         </svg>
                                     </span>
-                                    <span class="txt">Team</span>
+                                    <span class="txt">Our Team</span>
                                 </a>
                             </li>
                             <li>
