@@ -112,6 +112,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1" style="background-color: #ff4261;">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Investment</h6>
+                            </div>
+                            <h2 class="text-end text-white"><i
+                                    class="ph ph-coins float-start"></i><span>&#2547; {{ $totalInvestment }}</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-sm-12">
                     <div class="card table-card">

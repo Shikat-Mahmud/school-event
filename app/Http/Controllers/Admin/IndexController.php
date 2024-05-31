@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Donation;
 use App\Models\Event;
 use App\Models\EventRegister;
+use App\Models\Invest;
 use App\Models\Review;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -30,12 +31,13 @@ class IndexController extends Controller
             $totalRegAmount = EventRegister::where('status', 1)->sum('amount');
             $totalDonAmount = Donation::sum('amount');
             $totalAmountReceived = $totalRegAmount + $totalDonAmount;
+            $totalInvestment = Invest::sum('amount');
 
             $event = Event::first();
             $totalReviewrs = Review::count();
             $totalTeamMembers = Team::count();
 
-            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalDonAmount', 'totalAmountReceived'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalDonAmount', 'totalAmountReceived', 'totalInvestment'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }
