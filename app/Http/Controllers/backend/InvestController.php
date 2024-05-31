@@ -77,13 +77,9 @@ class InvestController extends Controller
 
     public function destroy($id)
     {
-        $donation = Invest::find($id);
-        // Delete the image if it exists
-        if ($donation->image) {
-            Storage::disk('public')->delete($donation->image);
-        }
-        $donation->delete();
+        $invest = Invest::find($id);
+        $invest->delete();
 
-        return redirect()->route('donations')->with('success', 'Donation deleted successfully.');
+        return redirect()->route('invests')->with('success', 'Investment deleted successfully.');
     }
 }

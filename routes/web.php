@@ -147,4 +147,4 @@ Route::get('/add-investment', [InvestController::class, 'create'])->name('create
 Route::post('/add-investment', [InvestController::class, 'store'])->name('store.investment');
 Route::get('/edit-investment/{id}', [InvestController::class, 'edit'])->name('edit.investment');
 Route::post('/edit-investment/{id}', [InvestController::class, 'update'])->name('update.investment');
-// Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->name('destroy.donation');
+Route::post('/destroy-investment/{id}', [InvestController::class, 'destroy'])->name('destroy.investment');

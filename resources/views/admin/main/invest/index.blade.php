@@ -35,7 +35,7 @@
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-info btn-sm me-2" href="{{ route('edit.investment', $invest->id) }}">Edit</a>
-                                                <form class="deleteForm" action="{{ route('destroy.donation', $invest->id) }}" method="post">
+                                                <form class="deleteForm" action="{{ route('destroy.investment', $invest->id) }}" method="post">
                                                     @csrf
                                                     <button type="button" class="btn btn-danger btn-sm btnDelete">Delete</button>
                                                 </form>
