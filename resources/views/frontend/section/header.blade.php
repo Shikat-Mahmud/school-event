@@ -23,6 +23,7 @@
                         <li><a href="{{ route('event.detail') }}">Event</a></li>
                         <li><a href="{{ route('all.registration') }}">See Other Registrations</a></li>
                         <li><a href="{{ route('gallery') }}">Gallery</a></li>
+                        <li><a href="{{ route('our.doner') }}">Donations</a></li>
                         <li><a href="{{ route('team') }}">Our Team</a></li>
                         <li><a href="{{ route('contact') }}">Contact</a></li>
 

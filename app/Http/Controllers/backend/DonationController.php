@@ -94,4 +94,11 @@ class DonationController extends Controller
 
         return redirect()->route('donations')->with('success', 'Donation deleted successfully.');
     }
+
+    public function donerShow()
+    {
+        $setting = generalSettings();
+        $doners = Donation::all();
+        return view('frontend.main.our_doner', compact('setting', 'doners'));
+    }
 }

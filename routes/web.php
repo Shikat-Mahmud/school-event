@@ -140,6 +140,8 @@ Route::get('/edit-donation/{id}', [DonationController::class, 'edit'])->name('ed
 Route::post('/edit-donation/{id}', [DonationController::class, 'update'])->name('update.donation');
 Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->name('destroy.donation');
 
+Route::get('/our-doner', [DonationController::class, 'donerShow'])->name('our.doner');
+
 
 // all investment route
 Route::get('/invests', [InvestController::class, 'index'])->name('invests');

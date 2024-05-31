@@ -89,12 +89,13 @@
                         <p class="font-light text-[#f2f2f2] text-[16px] mb-[25px]">Reconnect and reminisce with fellow alumni at the Child Care Academy's ex-student reunion event.</p>
 
                         <!-- social media -->
-                        <!-- <div class="et-socials flex gap-[10px] text-[14px] *:border *:border-[#9EAACB] *:text-[#9EAACB] *:w-[40px] *:aspect-square *:shrink-0 *:inline-flex *:items-center *:justify-center *:rounded-full ">
-                            <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-twitter"></i></a>
+                        <div class="et-socials flex gap-[10px] text-[14px] *:border *:border-[#9EAACB] *:text-[#9EAACB] *:w-[40px] *:aspect-square *:shrink-0 *:inline-flex *:items-center *:justify-center *:rounded-full ">
+                            <a href="https://m.facebook.com/groups/ProtectYourCommunity/?ref=share&mibextid=NSMWBT" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://wa.me/{{ $setting->business_whatsapp }}" class="hover:text-white hover:bg-etBlue hover:border-etBlue" onclick="window.open('https://wa.me/{{ $setting->business_whatsapp }}', '_blank');"> <i class="fa-brands fa-whatsapp"></i></a>
+                            <!-- <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-twitter"></i></a>
                             <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-instagram"></i></a>
-                        </div> -->
+                            <a href="#" class="hover:text-white hover:bg-etBlue hover:border-etBlue"><i class="fa-brands fa-instagram"></i></a> -->
+                        </div>
                     </div>
 
                     <!-- widget -->
@@ -130,6 +131,16 @@
                                         </svg>
                                     </span>
                                     <span class="txt">Gallery</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('our.doner') }}" class="flex items-center gap-[10px] hover:text-etBlue group">
+                                    <span class="icon">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 15.875V2.28125C0 1.51953 0.615234 0.875 1.40625 0.875H9.84375C10.6055 0.875 11.25 1.51953 11.25 2.28125V15.875L5.625 12.5938L0 15.875Z" class="fill-transparent stroke-white group-hover:stroke-etBlue group-hover:fill-etBlue transition" />
+                                        </svg>
+                                    </span>
+                                    <span class="txt">Donations</span>
                                 </a>
                             </li>
                             <li>
