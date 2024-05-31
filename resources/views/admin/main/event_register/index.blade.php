@@ -68,7 +68,8 @@
                                                         @csrf
                                                         <button type="button" class="btn btn-primary btn-sm btnPaymentChange">Change Status</button>
                                                     </form>
-                                                    <a class="btn btn-info btn-sm" href="{{ route('student.detail', $item->id) }}">View</a>
+                                                    <a class="btn btn-secondary btn-sm me-2" href="{{ route('student.detail', $item->id) }}">View</a>
+                                                    <a class="btn btn-info btn-sm" href="{{ route('ticket.edit', $item->id) }}">Edit</a>
                                                 </div>
                                             </td>
                                         </tr>

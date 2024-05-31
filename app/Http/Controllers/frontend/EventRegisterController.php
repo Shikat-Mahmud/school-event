@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\EventRegister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 
 class EventRegisterController extends Controller
@@ -56,6 +57,53 @@ class EventRegisterController extends Controller
             return redirect()->back()->withInput()->with('error', $e->getMessage());
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->with('error', $e->getMessage());
+        }
+    }
+
+    public function edit($id)
+    {
+        $student = EventRegister::find($id);
+        $batchs = range(2000, 2024);
+        $guestNo = range(1, 10);
+        return view('admin.main.event_register.edit', compact('batchs', 'student', 'guestNo'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        try {
+            // Validate the request
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'batch' => 'nullable|string|max:255',
+                'email' => 'nullable|email|max:255',
+                'phone' => 'required|string|max:15',
+                'guest' => 'nullable|integer|min:0',
+                'amount' => 'required|numeric|min:0',
+                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $register = EventRegister::findOrFail($id);
+
+            $register->name = $request->input('name');
+            $register->batch = $request->input('batch');
+            $register->email = $request->input('email');
+            $register->phone = $request->input('phone');
+            $register->guest = $request->input('guest');
+            $register->amount = $request->input('amount');
+            if ($request->hasFile('photo')) {
+                // Delete old image if it exists
+                if ($register->photo) {
+                    Storage::delete('public/' . $register->photo);
+                }
+                // Store the new image
+                $register->photo = $request->file('photo')->store('event_registers', 'public');
+            }
+
+            $register->save();
+
+            return redirect()->route('register.list')->with('success', 'Registration information updated successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 

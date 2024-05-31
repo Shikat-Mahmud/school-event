@@ -26,7 +26,7 @@
                             <div class="row mt-3">
                                 <label for="guest-designation" class="col-md-4">Designation: <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="guest-designation" name="designation" value="{{ old('name', $guest->designation) }}" class="form-control" placeholder="Designation" required />
+                                    <input type="text" id="guest-designation" name="designation" value="{{ old('designation', $guest->designation) }}" class="form-control" placeholder="Designation" required />
                                 </div>
                             </div>
                             <div class="row mt-3">
