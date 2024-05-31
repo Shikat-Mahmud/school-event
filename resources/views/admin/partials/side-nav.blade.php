@@ -53,6 +53,11 @@
                 </li>
                                 
                 <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('invests') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-coins"></i></span><span class="pc-mtext">investment</span></a>
+                </li>
+                                
+                <li class="pc-item pc-hasmenu">
                     <a href="{{ route('guests') }}" class="pc-link"><span class="pc-micon">
                             <i class="ph ph-user"></i></span><span class="pc-mtext">Our Guests</span></a>
                 </li>

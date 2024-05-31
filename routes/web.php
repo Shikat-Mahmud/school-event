@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\EventController;
 use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\backend\GalleryController;
 use App\Http\Controllers\backend\GuestController;
+use App\Http\Controllers\backend\InvestController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\EventRegisterController;
 use App\Http\Controllers\frontend\HomeController;
@@ -138,3 +139,12 @@ Route::post('/add-donation', [DonationController::class, 'store'])->name('store.
 Route::get('/edit-donation/{id}', [DonationController::class, 'edit'])->name('edit.donation');
 Route::post('/edit-donation/{id}', [DonationController::class, 'update'])->name('update.donation');
 Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->name('destroy.donation');
+
+
+// all investment route
+Route::get('/invests', [InvestController::class, 'index'])->name('invests');
+// Route::get('/add-donation', [DonationController::class, 'create'])->name('create.donation');
+// Route::post('/add-donation', [DonationController::class, 'store'])->name('store.donation');
+// Route::get('/edit-donation/{id}', [DonationController::class, 'edit'])->name('edit.donation');
+// Route::post('/edit-donation/{id}', [DonationController::class, 'update'])->name('update.donation');
+// Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->name('destroy.donation');
