@@ -26,7 +26,7 @@
                             <div class="row mt-3">
                                 <label for="donation-amount" class="col-md-4">Amount: <span class="text-danger">*</span></label>
                                 <div class="col-md-8">
-                                    <input type="text" id="donation-amount" name="amount" value="{{ old('name', $donation->amount) }}" class="form-control" placeholder="Amount" required />
+                                    <input type="text" id="donation-amount" name="amount" value="{{ old('amount', $donation->amount) }}" class="form-control" placeholder="Amount" required />
                                 </div>
                             </div>
                             <div class="row mt-3">

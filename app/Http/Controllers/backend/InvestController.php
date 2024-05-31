@@ -46,8 +46,8 @@ class InvestController extends Controller
 
     public function edit(string $id)
     {
-        $donation = Invest::find($id);
-        return view('admin.main.donation.edit', compact('donation'));
+        $invest = Invest::find($id);
+        return view('admin.main.invest.edit', compact('invest'));
     }
 
 
@@ -56,27 +56,20 @@ class InvestController extends Controller
         try {
             // Validate the request
             $request->validate([
+                'sector' => 'required|string',
                 'name' => 'required|string|max:255',
                 'amount' => 'required',
-                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3072',
             ]);
 
-            $donation = Invest::findOrFail($id);
+            $invest = Invest::findOrFail($id);
 
-            $donation->name = $request->input('name');
-            $donation->amount = $request->input('amount');
-            if ($request->hasFile('photo')) {
-                // Delete old image if it exists
-                if ($donation->photo) {
-                    Storage::delete('public/' . $donation->photo);
-                }
-                // Store the new image
-                $donation->photo = $request->file('photo')->store('donations', 'public');
-            }
+            $invest->sector = $request->input('sector');
+            $invest->name = $request->input('name');
+            $invest->amount = $request->input('amount');
 
-            $donation->save();
+            $invest->save();
 
-            return redirect()->route('donations')->with('success', 'Donation information updated successfully.');
+            return redirect()->route('invests')->with('success', 'Investment updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
