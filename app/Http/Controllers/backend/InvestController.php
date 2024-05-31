@@ -17,7 +17,7 @@ class InvestController extends Controller
 
     public function create()
     {
-        return view('admin.main.donation.create');
+        return view('admin.main.invest.create');
     }
 
     public function store(Request $request)
@@ -25,20 +25,19 @@ class InvestController extends Controller
         try {
             // Validate the request
             $request->validate([
+                'sector' => 'required|string',
                 'name' => 'required|string|max:255',
                 'amount' => 'required',
-                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:3072',
             ]);
 
-            $donation = new Invest();
-            $donation->name = $request->name;
-            $donation->amount = $request->amount;
-            if ($request->hasFile('photo')) {
-                $donation->photo = $request->file('photo')->store('donations', 'public');
-            }
-            $donation->save();
+            $invest = new Invest();
+            $invest->sector = $request->sector;
+            $invest->name = $request->name;
+            $invest->amount = $request->amount;
+            
+            $invest->save();
 
-            return redirect()->route('donations')->with('success', 'Donation added successfully.');
+            return redirect()->route('invests')->with('success', 'Investment added successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
         }

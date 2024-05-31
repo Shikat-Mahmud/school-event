@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', 'Invest List')
+@section('title', 'Investment List')
 @section('content')
 <section class="pc-container">
     <div class="pc-content">
@@ -12,7 +12,7 @@
                             Invest List
                         </div>
                         <div>
-                            <a href="{{ route('create.donation') }}" class="btn btn-primary btn-sm">Add investment</a>
+                            <a href="{{ route('create.investment') }}" class="btn btn-primary btn-sm">Add investment</a>
                         </div>
                     </div>
                     <div class="card-body table-border-style">
@@ -22,7 +22,7 @@
                                     <tr>
                                         <th>investment Sector</th>
                                         <th>Invested By Person</th>
-                                        <th>Amount</th>
+                                        <th>Invested Amount</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -31,7 +31,7 @@
                                     <tr>
                                         <td>{{ $invest->sector }}</td>
                                         <td>{{ $invest->name }}</td>
-                                        <td>{{ $doner->amount }}</td>
+                                        <td>{{ $invest->amount }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-info btn-sm me-2" href="{{ route('edit.donation', $invest->id) }}">Edit</a>

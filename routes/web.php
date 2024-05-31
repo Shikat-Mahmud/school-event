@@ -143,8 +143,8 @@ Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->n
 
 // all investment route
 Route::get('/invests', [InvestController::class, 'index'])->name('invests');
-// Route::get('/add-donation', [DonationController::class, 'create'])->name('create.donation');
-// Route::post('/add-donation', [DonationController::class, 'store'])->name('store.donation');
+Route::get('/add-investment', [InvestController::class, 'create'])->name('create.investment');
+Route::post('/add-investment', [InvestController::class, 'store'])->name('store.investment');
 // Route::get('/edit-donation/{id}', [DonationController::class, 'edit'])->name('edit.donation');
 // Route::post('/edit-donation/{id}', [DonationController::class, 'update'])->name('update.donation');
 // Route::post('/destroy-donation/{id}', [DonationController::class, 'destroy'])->name('destroy.donation');
