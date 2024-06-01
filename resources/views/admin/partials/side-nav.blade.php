@@ -37,10 +37,12 @@
                     </li>
                 @endif
                 
-                <li class="pc-item pc-hasmenu">
-                    <a href="{{ route('register.list') }}" class="pc-link"><span class="pc-micon">
-                            <i class="ph ph-users-three"></i></span><span class="pc-mtext">Student Registraiton</span></a>
-                </li>
+                @if(auth()->check() && auth()->user()->hasAnyPermission(['edit-register', 'show-register']))
+                    <li class="pc-item pc-hasmenu">
+                        <a href="{{ route('register.list') }}" class="pc-link"><span class="pc-micon">
+                                <i class="ph ph-users-three"></i></span><span class="pc-mtext">Student Registraiton</span></a>
+                    </li>
+                @endif
                 
                 <li class="pc-item pc-hasmenu">
                     <a href="{{ route('gallery.list') }}" class="pc-link"><span class="pc-micon">

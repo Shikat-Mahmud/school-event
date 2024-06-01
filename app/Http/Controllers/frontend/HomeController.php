@@ -7,7 +7,7 @@ use App\Models\Event;
 use App\Models\EventSchedule;
 use App\Models\Gallery;
 use App\Models\Review;
-use Illuminate\Http\Request;
+use App\Models\Sponsor;
 
 class HomeController extends Controller
 {
@@ -16,6 +16,7 @@ class HomeController extends Controller
         $event_schedule = EventSchedule::where('event_id', 1)->get();
         $reviews = Review::where('status', 1)->inRandomOrder()->get();
         $galleries = Gallery::latest()->limit(8)->inRandomOrder()->get();
-        return view('frontend.main.home', compact('event', 'event_schedule', 'reviews', 'galleries'));
+        $sponsors = Sponsor::all();
+        return view('frontend.main.home', compact('event', 'event_schedule', 'reviews', 'galleries', 'sponsors'));
     }
 }

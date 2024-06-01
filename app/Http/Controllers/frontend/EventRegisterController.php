@@ -12,8 +12,12 @@ class EventRegisterController extends Controller
 {
     public function index()
     {
-        $registrations = EventRegister::all();
-        return view('admin.main.event_register.index', compact('registrations'));
+        if (auth()->check() && auth()->user()->hasAnyPermission(['edit-register', 'show-register'])) {
+            $registrations = EventRegister::all();
+            return view('admin.main.event_register.index', compact('registrations'));
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to see registration.');
+        }
     }
 
     public function create()
@@ -62,10 +66,14 @@ class EventRegisterController extends Controller
 
     public function edit($id)
     {
-        $student = EventRegister::find($id);
-        $batchs = range(2000, 2024);
-        $guestNo = range(1, 10);
-        return view('admin.main.event_register.edit', compact('batchs', 'student', 'guestNo'));
+        if (auth()->user()->can('edit-register')) {
+            $student = EventRegister::find($id);
+            $batchs = range(2000, 2024);
+            $guestNo = range(1, 10);
+            return view('admin.main.event_register.edit', compact('batchs', 'student', 'guestNo'));
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to edit registrations.');
+        }
     }
 
     public function update(Request $request, string $id)
@@ -109,23 +117,31 @@ class EventRegisterController extends Controller
 
     public function showStudentDetail(string $id)
     {
-        $student = EventRegister::findOrFail($id);
-        return view('admin.main.event_register.show', compact('student'));
+        if (auth()->user()->can('show-register')) {
+            $student = EventRegister::findOrFail($id);
+            return view('admin.main.event_register.show', compact('student'));
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to see student detail.');
+        }
     }
 
     public function changeStatus(EventRegister $eventRegister)
     {
-        try {
-            $eventRegister->status = $eventRegister->status == 1 ? 0 : 1;
-            $eventRegister->save();
+        if (auth()->user()->can('edit-register')) {
+            try {
+                $eventRegister->status = $eventRegister->status == 1 ? 0 : 1;
+                $eventRegister->save();
 
-            return redirect()->back()->with('message', 'Payment Status Changed Successfully');
-        } catch (\Exception $e) {
-            // Log the error
-            \Log::error('Error changing payment status: ' . $e->getMessage());
+                return redirect()->back()->with('message', 'Payment Status Changed Successfully');
+            } catch (\Exception $e) {
+                // Log the error
+                \Log::error('Error changing payment status: ' . $e->getMessage());
 
-            // Return an error message or handle it as needed
-            return redirect()->back()->with('error', 'Error changing payment status');
+                // Return an error message or handle it as needed
+                return redirect()->back()->with('error', 'Error changing payment status');
+            }
+        } else {
+            return redirect()->back()->with('error', 'You do not have permission to change payment status.');
         }
     }
 
@@ -133,13 +149,13 @@ class EventRegisterController extends Controller
     {
         $registrations = EventRegister::all();
         $batchs = range(2000, 2024);
-    
+
         $registrationsByBatch = [];
         foreach ($batchs as $batch) {
             $registrationsByBatch[$batch] = EventRegister::where('batch', $batch)->get();
         }
-    
+
         return view('frontend.main.all_registration', compact('registrations', 'batchs', 'registrationsByBatch'));
     }
-    
+
 }

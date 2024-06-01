@@ -131,13 +131,11 @@ Route::get('/team', [TeamController::class, 'index'])->name('team');
 
 
 // all register route start //
-Route::middleware('auth')->group(function () {
-    Route::get('/register-list', [EventRegisterController::class, 'index'])->name('register.list');
-    Route::get('/ticket-edit/{id}', [EventRegisterController::class, 'edit'])->name('ticket.edit');
-    Route::post('/ticket-edit/{id}', [EventRegisterController::class, 'update'])->name('ticket.update');
-    Route::post('/payment-status-change/{eventRegister}', [EventRegisterController::class, 'changeStatus'])->name('payment.status.change');
-    Route::get('/student-detail/{id}', [EventRegisterController::class, 'showStudentDetail'])->name('student.detail');
-});
+Route::get('/register-list', [EventRegisterController::class, 'index'])->name('register.list');
+Route::get('/ticket-edit/{id}', [EventRegisterController::class, 'edit'])->name('ticket.edit');
+Route::post('/ticket-edit/{id}', [EventRegisterController::class, 'update'])->name('ticket.update');
+Route::post('/payment-status-change/{eventRegister}', [EventRegisterController::class, 'changeStatus'])->name('payment.status.change');
+Route::get('/student-detail/{id}', [EventRegisterController::class, 'showStudentDetail'])->name('student.detail');
 
 Route::get('/ticket', [EventRegisterController::class, 'create'])->name('ticket');
 Route::post('/ticket-create', [EventRegisterController::class, 'store'])->name('ticket.post');

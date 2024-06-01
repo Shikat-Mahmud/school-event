@@ -345,4 +345,31 @@
 </section>
 <!-- TESTIMONIAL SECTION END -->
 
+<!-- SPONSORS SECTION START -->
+@if ($sponsors->isNotEmpty())
+    <section class="et-2-sponsors py-[130px] lg:py-[80px] md:py-[60px] relative z-[1] before:absolute before:inset-0 before:-z-[1] before:opacity-30" style="background-color: #d1e7ff;">
+        <div class="container mx-auto max-w-[calc(100%-37.1vw)] xxxl:max-w-[calc(100%-350px)] xl:max-w-[calc(100%-170px)] px-[12px] lg:max-w-full">
+            <!-- heading -->
+            <div class="text-center mb-[52px] xl:mb-[42px] md:mb-[32px]">
+                <h6 class="et-section-sub-title anim-text">Sponsors & Exhibitors</h6>
+                <h2 class="et-section-title anim-text">We're Sponsored By</h2>
+            </div>
+
+            <!-- sponsors -->
+            <div class="flex flex-wrap gap-y-[60px] lg:gap-y-[40px] gap-x-[76px] xxl:gap-x-[56px] xl:gap-x-[46px] lg:gap-x-[36px] mb-[60px]">
+                @foreach ($sponsors as $sponsor)
+                    <div class="flex items-center">
+                        @if (isset($sponsor->photo))
+                            <img src="{{ asset('storage/'. $sponsor->photo)}}" alt="sponsor logo" style="height: 80px;">
+                        @else
+                            <span class="text-[22px] font-kalam font-semibold" style="color: #18377e;">{{ $sponsor->company }}</span>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+@endif
+<!-- SPONSORS SECTION END -->
+
 @endsection
