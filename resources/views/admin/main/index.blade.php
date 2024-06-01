@@ -104,7 +104,7 @@
                             <img src="{{ asset('/')}}images/widget/img-status-6.svg"
                                 alt="img" class="img-fluid img-bg">
                             <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
-                                <h6 class="mb-0 text-white">Total Amount In Cash</h6>
+                                <h6 class="mb-0 text-white">Total Amount Received</h6>
                             </div>
                             <h2 class="text-end text-white"><i
                                     class="ph ph-money float-start"></i><span>&#2547; {{ $totalAmountReceived }}</span>
