@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\EventScheduleController;
 use App\Http\Controllers\backend\GalleryController;
 use App\Http\Controllers\backend\GuestController;
 use App\Http\Controllers\backend\InvestController;
+use App\Http\Controllers\backend\SponsorController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\EventRegisterController;
 use App\Http\Controllers\frontend\HomeController;
@@ -150,3 +151,12 @@ Route::post('/add-investment', [InvestController::class, 'store'])->name('store.
 Route::get('/edit-investment/{id}', [InvestController::class, 'edit'])->name('edit.investment');
 Route::post('/edit-investment/{id}', [InvestController::class, 'update'])->name('update.investment');
 Route::post('/destroy-investment/{id}', [InvestController::class, 'destroy'])->name('destroy.investment');
+
+
+// all sponsor route
+Route::get('/sponsors', [SponsorController::class, 'index'])->name('sponsors');
+Route::get('/add-sponsor', [SponsorController::class, 'create'])->name('create.sponsor');
+Route::post('/add-sponsor', [SponsorController::class, 'store'])->name('store.sponsor');
+Route::get('/edit-sponsor/{id}', [SponsorController::class, 'edit'])->name('edit.sponsor');
+Route::post('/edit-sponsor/{id}', [SponsorController::class, 'update'])->name('update.sponsor');
+Route::post('/destroy-sponsor/{id}', [SponsorController::class, 'destroy'])->name('destroy.sponsor');

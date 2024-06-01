@@ -53,8 +53,13 @@
                 </li>
                                 
                 <li class="pc-item pc-hasmenu">
+                    <a href="{{ route('sponsors') }}" class="pc-link"><span class="pc-micon">
+                            <i class="ph ph-handshake"></i></span><span class="pc-mtext">Sponsors</span></a>
+                </li>
+                                
+                <li class="pc-item pc-hasmenu">
                     <a href="{{ route('invests') }}" class="pc-link"><span class="pc-micon">
-                            <i class="ph ph-coins"></i></span><span class="pc-mtext">investment</span></a>
+                            <i class="ph ph-coins"></i></span><span class="pc-mtext">Investment</span></a>
                 </li>
                                 
                 <li class="pc-item pc-hasmenu">
