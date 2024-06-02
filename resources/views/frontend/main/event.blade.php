@@ -40,6 +40,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                 </div>
                 @endif
 
+                @if ($event_schedule->isNotEmpty())
                 <div class="p-[50px]" style="background-image: url('{{asset('/')}}frontend/img/footer-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
                     <!-- heading -->
                     <div class="text-center mb-[52px]">
@@ -49,34 +50,33 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                     <!-- cards -->
                     <div class="grid grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 gap-[30px] lg:gap-[20px] items-start">
                         <!-- single card -->
-                        @if (isset($event_schedule))
-                            @foreach ($event_schedule as $schedule)
-                                <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
-                                    <div class="bg-white p-[30px]">
-                                        <!-- icon -->
-                                        <div
-                                            class="w-[102px] aspect-square border-[10px] bg-etBlue border-[#EDF3FE] rounded-full flex items-center justify-center mb-[20px]">
-                                            <img src="{{asset('/')}}frontend/img/clock.png" alt="Feature icon"
-                                                class="transition duration-[0.4s] group-hover:-scale-x-100">
-                                        </div>
-
-                                        <!-- text -->
-                                        <div>
-                                            <h5 class="font-medium text-[20px] text-etBlack mb-[8px]"> {{ $schedule->time }} </h5>
-                                            <p class="font-light text-etGray text-[16px]">{!! $schedule->description !!}</p>
-                                        </div>
+                        @foreach ($event_schedule as $schedule)
+                            <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
+                                <div class="bg-white p-[30px]">
+                                    <!-- icon -->
+                                    <div
+                                        class="w-[102px] aspect-square border-[10px] bg-etBlue border-[#EDF3FE] rounded-full flex items-center justify-center mb-[20px]">
+                                        <img src="{{asset('/')}}frontend/img/clock.png" alt="Feature icon"
+                                            class="transition duration-[0.4s] group-hover:-scale-x-100">
                                     </div>
 
-                                    <!-- index number -->
-                                    <div style="border-bottom-left-radius: 10px;"
-                                        class="absolute top-0 right-0 z-[1] w-[60px] aspect-square bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
-                                        {{ $schedule->sl_no }}
+                                    <!-- text -->
+                                    <div>
+                                        <h5 class="font-medium text-[20px] text-etBlack mb-[8px]"> {{ $schedule->time }} </h5>
+                                        <p class="font-light text-etGray text-[16px]">{!! $schedule->description !!}</p>
                                     </div>
                                 </div>
-                            @endforeach
-                        @endif
+
+                                <!-- index number -->
+                                <div style="border-bottom-left-radius: 10px;"
+                                    class="absolute top-0 right-0 z-[1] w-[60px] aspect-square bg-etBlue font-lato font-semibold text-[20px] text-white flex items-center justify-center">
+                                    {{ $schedule->sl_no }}
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
+                </div>                
+                @endif
 
                 <!-- actions -->
                 <div class="border-y border-[#d9d9d9] py-[24px] flex items-center xxs:flex-col gap-[20px]">
@@ -94,11 +94,11 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                 </div>
 
                 <!-- artists -->
+                @if($guests->isNotEmpty())
                 <div class="mt-[50px]">
                     <h3 class="text-[30px] xs:text-[25px] font-semibold text-etBlack mb-[30px] xs:mb-[15px]">Our Guests</h3>
                     <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[25px] gap-y-[10px] mb-[30px]">
 
-                        @if (isset($guests))
                         @foreach ($guests as $guest)
                             <!-- single artist -->
                             <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
@@ -115,10 +115,11 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                                 </div>
                             </div>
                         @endforeach
-                        @endif
                         
                     </div>
                 </div>
+                @endif
+
             </div>
         </div>
     </div>
