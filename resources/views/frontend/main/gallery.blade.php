@@ -21,7 +21,7 @@
 <div class="py-[130px] xl:py-[80px] md:py-[60px]">
     <div
         class="container mx-auto max-w-[calc(100%-37.1vw)] xxxl:max-w-[calc(100%-350px)] xl:max-w-[calc(100%-170px)] px-[12px] lg:max-w-full">
-        @if (isset($galleries) && count($galleries) > 0)
+        @if ($galleries->isNotEmpty())
             <div class="grid grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 gap-[30px] lg:gap-[20px]">
                 @foreach ($galleries as $gallery)
                     <div
