@@ -56,6 +56,7 @@
 
 <!-- REGISTRATION SECTION START -->
 <div class="py-[130px] xl:py-[80px] md:py-[60px] mx-[25px]">
+    @if ($registrations->isNotEmpty())
     <div class="tab p-[10px]">
         <button class="tablinks active" onclick="openTab(event, 'all')" id="defaultOpen">All</button>
         @if (isset($batchs))
@@ -68,26 +69,30 @@
     <div id="all" class="tabcontent" style="display: block;">
         <h3 class="text-[24px] py-[16px]">All Registered Students</h3>
         <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[25px] gap-y-[10px] mb-[30px]">
-            @if (isset($registrations))
-                @foreach ($registrations as $student)
-                    <!-- single artist -->
-                    <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
-                        <div class="w-[168px]">
-                            <div class="overflow-hidden">
-                                @if (isset($student->photo))
-                                    <img src="{{ asset('storage/' . $student->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
-                                @else
-                                    <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
-                                @endif
-                            </div>
-                            <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                            <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
+            @foreach ($registrations as $student)
+                <!-- single artist -->
+                <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
+                    <div class="w-[168px]">
+                        <div class="overflow-hidden">
+                            @if (isset($student->photo))
+                                <img src="{{ asset('storage/' . $student->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                            @else
+                                <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                            @endif
                         </div>
+                        <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
+                        <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
                     </div>
-                @endforeach
-            @endif
+                </div>
+            @endforeach
         </div>
     </div>
+    @else
+        <div class="flex flex-col justify-center items-center">
+            <h3 class="text-center text-[2.4rem] text-[#757277]">There is no data of student registrations!</h3>
+            <img src="{{ asset('/') }}images/empty.jpg" alt="Photo" class="w-[350px] my-[30px]">
+        </div>
+    @endif
 
     @if (isset($registrationsByBatch))
         @foreach ($registrationsByBatch as $batch => $students)
