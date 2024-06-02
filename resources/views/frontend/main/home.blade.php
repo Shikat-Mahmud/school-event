@@ -209,6 +209,7 @@
 
 
 <!-- EVENT SCHEDULE SECTION START -->
+@if ($event_schedule->isNotEmpty())
 <div class="bg-[#00339A] relative z-[1] after:absolute after:inset-0 after:bg-no-repeat after:bg-cover after:-z-[2] after:pointer-events-none after:opacity-50 pb-[130px] xl:pb-[80px] md:pb-[60px] pt-[60px] xl:pt-[60px] md:pt-[54px]"
     style="background-image: url('{{asset('/')}}frontend/img/features-bg.jpg');">
     <div
@@ -223,7 +224,6 @@
         <div
             class="grid grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 gap-[30px] lg:gap-[20px] items-start">
             <!-- single card -->
-            @if (isset($event_schedule))
             @foreach ($event_schedule as $schedule)
             <div class="et-2-feature-card rounded-[30px] overflow-hidden group relative">
                 <div class="bg-white p-[30px]">
@@ -247,7 +247,6 @@
                 </div>
             </div>
             @endforeach
-            @endif
         </div>
     </div>
 
@@ -257,6 +256,7 @@
             class="pointer-events-none absolute top-[85px] right-[67px] -z-[1] opacity-10">
     </div>
 </div>
+@endif
 <!-- EVENT SCHEDULE SECTION END -->
 
 
@@ -279,6 +279,7 @@
 <!-- GALLERY SECTION END -->
 
 <!-- TESTIMONIAL SECTION START -->
+@if ($reviews->isNotEmpty())
 <section class="et-testimonial overflow-hidden py-[130px] xl:py-[80px] md:py-[60px]">
     <div class="container mx-auto max-w-[1200px] px-[12px] xl:max-w-full">
         <!-- heading -->
@@ -291,7 +292,6 @@
         <div class="et-2-testimonial-slider swiper overflow-visible">
             <div class="swiper-wrapper">
 
-                @if (isset($reviews))
                 @foreach ($reviews as $review)
                 <!-- single testimony  -->
                 <div class="swiper-slide">
@@ -334,7 +334,6 @@
                     </div>
                 </div>
                 @endforeach
-                @endif
 
             </div>
             <div class="text-center pt-[54px]">
@@ -343,6 +342,7 @@
         </div>
     </div>
 </section>
+@endif
 <!-- TESTIMONIAL SECTION END -->
 
 <!-- SPONSORS SECTION START -->
