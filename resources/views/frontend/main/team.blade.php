@@ -19,12 +19,12 @@
 
 <div class="py-[130px] lg:py-[80px] md:py-[60px]">
     <!-- TEAM MEMBER SECTION START -->
+    @if ($teams->isNotEmpty())
     <section class="et-team">
         <div class="container mx-auto max-w-[1200px] px-[12px] xl:max-w-full">
             <!-- cards -->
             <div class="grid grid-cols-3 md:grid-cols-3 sm:grid-cols-2 xxs:grid-cols-1 justify-center gap-[30px] lg:gap-[20px]">
 
-                @if (isset($teams))
                 @foreach ($teams as $team)
                 <!-- single team member -->
                 <div class="et-member group">
@@ -43,11 +43,16 @@
                     </div>
                 </div> 
                 @endforeach            
-                @endif
 
             </div>
         </div>
     </section>
+    @else
+    <div class="flex flex-col justify-center items-center">
+        <h3 class="text-center text-[2.4rem] text-[#757277]">There is no data of team members!</h3>
+        <img src="{{ asset('/') }}images/empty.jpg" alt="Photo" class="w-[350px] my-[30px]">
+    </div>
+    @endif
     <!-- TEAM MEMBER SECTION END -->
 </div>
 
