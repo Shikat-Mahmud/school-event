@@ -20,6 +20,9 @@
 </head>
 
 <body>
+    @php
+        $setting = generalSettings();
+    @endphp
     <!-- overlay -->
     <div class="et-overlay group">
         <div class="opacity-0 pointer-events-none group-[.active]:opacity-100 group-[.active]:pointer-events-auto transition ease-linear duration-300  bg-etBlack/80 fixed inset-0 z-[60]"></div>
@@ -32,8 +35,14 @@
             <!-- heading -->
             <div class="et-sidebar-heading">
                 <div class="logo flex justify-between items-center">
-                    <a href="{{ route('home') }}"><img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo"></a>
-
+                    <a href="{{ route('home') }}">
+                        @if (isset($setting->logo))
+                            <img src="{{asset('storage/' . $setting->logo)}}" alt="logo" style="max-height: 60px;">
+                        @else
+                            <img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo">
+                        @endif
+                    </a>
+                    
                     <button type="button" class="et-sidebar-close-btn border border-white/50 w-[45px] aspect-square shrink-0 text-white text-[22px] rounded-full hover:text-etBlue hover:bg-white"><i class="fa-solid fa-xmark"></i></button>
                 </div>
             </div>

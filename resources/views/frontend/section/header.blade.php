@@ -8,7 +8,7 @@
             <div class="logo shrink-0">
                 <a href="{{ route('home') }}">
                 @if (isset($setting->logo))
-                <img src="{{asset('storage/' . $setting->logo)}}" alt="logo" style="max-height: 60px;">
+                <img src="{{asset('storage/' . $setting->logo)}}" alt="logo" style="height: 70px;">
                 @else
                 <img src="{{asset('/')}}frontend/img/logo-white.png" alt="logo">
                 @endif
