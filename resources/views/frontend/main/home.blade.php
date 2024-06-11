@@ -11,8 +11,7 @@
             <div class="mx-[15.5em] xxxl:mx-[10em] xxl:mx-[40px] xs:mx-[12px] mb-[132px] xl:mb-[112px] lg:mb-[82px]">
                 <div class="flex md:flex-col items-center justify-between gap-x-[30px] gap-y-[30px] md:grid-cols-1">
                     <div class="left relative z-[20] w-[80%] md:w-full">
-                        <h6 class="font-kalam font-bold text-[2.4rem] mb-[3px] anim-text">Recall Your Best Student Life
-                        </h6>
+                        <h6 class="font-kalam font-bold text-[2.4rem] mb-[3px] anim-text">Recall Your Best Student Life </h6>
 
                         <h1
                             class="text-[clamp(42px,6.25vw,12rem)] font-semibold leading-[1.1] mb-[36px] md:mb-[36px] anim-text">
