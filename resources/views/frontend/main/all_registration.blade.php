@@ -106,9 +106,9 @@
                                 <div class="w-[168px]">
                                     <div class="overflow-hidden">
                                         @if (isset($student->photo))
-                                            <img src="{{ asset('storage/' . $student->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                                            <img src="{{ asset('storage/' . $student->photo) }}" alt="Students Image" class="rounded-[6px] w-[168px] aspect-square">
                                         @else
-                                            <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                                            <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Students Image" class="rounded-[6px] w-[168px] aspect-square">
                                         @endif
                                     </div>
                                     <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
