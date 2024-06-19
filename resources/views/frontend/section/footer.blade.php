@@ -70,9 +70,6 @@
                         <div>
                             <span class="block font-medium text-[14px]">Call Emergency</span>
                             <h5 class="font-medium text-[20px]"><a href="tel:{{ $setting->business_number }}">{{ $setting->business_number }}</a></h5>
-                            @if (isset($setting->business_whatsapp))
-                                <h5 class="font-medium text-[20px]"><a href="tel:{{ $setting->business_whatsapp }}">{{ $setting->business_whatsapp }}</a></h5>
-                            @endif
                         </div>
                         @endif
                     </div>
