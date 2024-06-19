@@ -86,7 +86,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                     <div class="col-span-2 xxs:col-span-1">
                         <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: </label>
                         <input type="file" name="photo" id="et-contact-photo" accept="image/*" 
-                            class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none">
+                            class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
                         <label for="et-contact-suggestion" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Suggestion: <span class="text-[#707882] text-[12px]">(optional)</span></label>
