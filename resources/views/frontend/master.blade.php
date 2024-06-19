@@ -9,7 +9,15 @@
     <link rel="stylesheet" href="{{asset('/')}}frontend/vendor/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="{{asset('/')}}frontend/vendor/splide/splide.min.css" />
     <link rel="stylesheet" href="{{asset('/')}}frontend/vendor/slim-select/slimselect.css" />
+    <link href="https://fonts.maateen.me/charukola-ultra-light/font.css" rel="stylesheet">
+
     <title>@yield('title')</title>
+
+    @if (isset(generalSettings()->favicon))
+        <link rel="icon" href="{{ asset('storage/' . generalSettings()->favicon) }}" type="image/x-icon">
+    @else
+        <link rel="icon" href="{{ asset('images/demo_logo.png') }}" type="image/x-icon">
+    @endif
 
     <!-- tailwind css -->
     <link href="{{asset('/')}}frontend/css/output.css" rel="stylesheet" />
