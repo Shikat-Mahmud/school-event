@@ -46,7 +46,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                 <form action="{{ route('ticket.post') }}" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
                     @csrf
                     <div>
-                        <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Name: *</label>
+                        <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Name: <span style="color: red;">*</span></label>
                         <input type="text" name="name" id="et-contact-name" placeholder="Your Name"
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
@@ -65,7 +65,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div>
-                        <label for="et-contact-phone" class="font-lato font-semibold text-etBlack block mb-[12px]">Phone: *</label>
+                        <label for="et-contact-phone" class="font-lato font-semibold text-etBlack block mb-[12px]">Phone: <span style="color: red;">*</span></label>
                         <input type="tel" name="phone" id="et-contact-phone" placeholder="Your Phone No"
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
@@ -84,7 +84,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
-                        <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: *</label>
+                        <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: <span style="color: red;">*</span></label>
                         <input type="file" name="photo" id="et-contact-photo" accept="image/*" 
                             class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
