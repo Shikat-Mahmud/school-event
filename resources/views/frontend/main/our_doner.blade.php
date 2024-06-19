@@ -28,21 +28,21 @@
                 <h3 class="text-[30px] xs:text-[25px] font-semibold text-etBlack mb-[30px] xs:mb-[15px]">Our Doners</h3>
                 <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[25px] gap-y-[10px] mb-[30px]">
 
-                    @foreach ($doners as $guest)
+                    @foreach ($doners as $doner)
                         <!-- single artist -->
                         <div
                             class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
                             <div class="w-[168px]">
                                 <div class="overflow-hidden">
-                                    @if (isset($guest->photo))
-                                        <img src="{{ asset('storage/' . $guest->photo) }}" alt="Guest Image"
+                                    @if (isset($doner->photo))
+                                        <img src="{{ asset('storage/' . $doner->photo) }}" alt="Doner Image"
                                             class="rounded-[6px] w-[168px] aspect-square">
                                     @else
-                                        <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Guest Image"
+                                        <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Doner Image"
                                             class="rounded-[6px] w-[168px] aspect-square">
                                     @endif
                                 </div>
-                                <h5 class="font-semibold text-[16px] pt-[10px] text-etBlack">{{ $guest->name }}</h5>
+                                <h5 class="font-semibold text-[16px] pt-[10px] text-etBlack">{{ $doner->name }}</h5>
                             </div>
                         </div>
                     @endforeach
