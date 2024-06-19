@@ -60,7 +60,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                         </select>
                     </div>
                     <div>
-                        <label for="et-contact-email" class="font-lato font-semibold text-etBlack block mb-[12px]">Email: </label>
+                        <label for="et-contact-email" class="font-lato font-semibold text-etBlack block mb-[12px]">Email: <span class="text-[#707882] text-[12px]">(optional)</span></label>
                         <input type="email" name="email" id="et-contact-email" placeholder="Your Email"
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                     </div>
@@ -84,7 +84,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
-                        <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: <span style="color: red;">*</span></label>
+                        <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: <span style="color: red;">*</span> <span class="text-[#707882] text-[12px]">(for id card)</span></label>
                         <input type="file" name="photo" id="et-contact-photo" accept="image/*" 
                             class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
