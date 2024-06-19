@@ -98,15 +98,15 @@ style="background-image: url('{{asset('/')}}frontend/img/venue-img.jpg'); backgr
                         <form action="{{ route('post.contact') }}" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]">
                         @csrf
                             <div>
-                                <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Name*</label>
+                                <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Name: <span style="color: red;">*</span></label>
                                 <input type="text" name="name" id="et-contact-name" placeholder="Your Name" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                             </div>
                             <div>
-                                <label for="et-contact-email" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Email</label>
+                                <label for="et-contact-email" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Email: </label>
                                 <input type="email" name="email" id="et-contact-email" placeholder="Your Email" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                             </div>
                             <div class="col-span-2 xxs:col-span-1">
-                                <label for="et-contact-message" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Message*</label>
+                                <label for="et-contact-message" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Message: <span style="color: red;">*</span></label>
                                 <textarea name="message" id="et-contact-message" placeholder="Your Message" class="border border-[#ECECEC] h-[145px] p-[20px] rounded-[4px] w-full focus:outline-none" required></textarea>
                             </div>
                             <div>
