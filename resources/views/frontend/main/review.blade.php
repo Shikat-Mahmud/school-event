@@ -44,13 +44,13 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                     @csrf
                     <div>
                         <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your
-                            Name*</label>
+                            Name: <span style="color: red;">*</span></label>
                         <input type="text" name="name" id="et-contact-name" placeholder="Your Name"
                             class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
                     <div>
                         <label for="et-contact-batch" class="font-lato font-semibold text-etBlack block mb-[12px]">
-                            Your Batch
+                            Your Batch:
                         </label>
                         <select name="batch" id="et-contact-batch" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                             <option value="" disabled selected>Your Batch</option>
@@ -61,14 +61,14 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
                         <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">
-                            Your Photo
+                            Your Photo:
                         </label>
                         <input type="file" name="photo" id="et-contact-photo" accept="image/*" 
                             class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
                         <label for="et-contact-message"
-                            class="font-lato font-semibold text-etBlack block mb-[12px]">Your Message*</label>
+                            class="font-lato font-semibold text-etBlack block mb-[12px]">Your Message: <span style="color: red;">*</span></label>
                         <textarea name="message" id="et-contact-message" placeholder="Your Message"
                             class="border border-[#ECECEC] h-[145px] p-[20px] rounded-[4px] w-full focus:outline-none" required></textarea>
                     </div>
