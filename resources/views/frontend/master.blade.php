@@ -1,7 +1,5 @@
 <!doctype html>
 <html>
-
-<!-- Mirrored from eventics.temptics.com/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 May 2024 06:50:41 GMT -->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,6 +67,8 @@
     @include('frontend.section.footer')
 
     <!-- JS FILES -->
+    <script src="{{asset('/')}}frontend/js/jquery-3.6.0.min.js"></script>
+
     <script src="{{asset('/')}}frontend/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="{{asset('/')}}frontend/vendor/splide/splide.min.js"></script>
     <script src="{{asset('/')}}frontend/vendor/slim-select/slimselect.min.js"></script>
@@ -85,6 +85,4 @@
     @stack('scripts')
 </body>
 
-
-<!-- Mirrored from eventics.temptics.com/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 14 May 2024 06:50:52 GMT -->
 </html>

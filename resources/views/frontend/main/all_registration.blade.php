@@ -57,7 +57,7 @@
 <!-- REGISTRATION SECTION START -->
 <div class="py-[130px] xl:py-[80px] md:py-[60px] mx-[25px]">
     @if ($registrations->isNotEmpty())
-    <div class="tab p-[10px]">
+    <div class="tab" style="padding: 6px;">
         <button class="tablinks active" onclick="openTab(event, 'all')" id="defaultOpen">All</button>
         @if (isset($batchs))
             @foreach ($batchs as $batch)

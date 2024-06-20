@@ -22,7 +22,7 @@ class EventRegisterController extends Controller
 
     public function create()
     {
-        $batchs = range(2000, 2024);
+        $batchs = range(2000, 2025);
         return view('frontend.main.event_register', compact('batchs'));
     }
 
@@ -68,7 +68,7 @@ class EventRegisterController extends Controller
     {
         if (auth()->user()->can('edit-register')) {
             $student = EventRegister::find($id);
-            $batchs = range(2000, 2024);
+            $batchs = range(2000, 2025);
             $guestNo = range(1, 10);
             return view('admin.main.event_register.edit', compact('batchs', 'student', 'guestNo'));
         } else {
@@ -148,7 +148,7 @@ class EventRegisterController extends Controller
     public function allReg()
     {
         $registrations = EventRegister::all();
-        $batchs = range(2000, 2024);
+        $batchs = range(2000, 2025);
 
         $registrationsByBatch = [];
         foreach ($batchs as $batch) {

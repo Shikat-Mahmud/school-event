@@ -60,7 +60,11 @@
                             <div class="row mt-3">
                                 <label for="et-contact-amount" class="col-md-4 font-lato font-semibold text-etBlack">Total Amount: </label>
                                 <div class="col-md-8">
-                                    <input type="text" name="amount" id="et-contact-amount" value="{{ old('amount', $student->amount ?? 1000) }}" readonly class="form-control">
+                                    @php
+                                        $baseAmount = ($student->batch >= 2024) ? 500 : 1000;
+                                        $totalAmount = $baseAmount + ($student->guest * 500);
+                                    @endphp
+                                    <input type="text" name="amount" id="et-contact-amount" value="{{ old('amount', $totalAmount) }}" readonly class="form-control">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -87,26 +91,41 @@
 </section>
 @endsection
 @push('scripts')
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log('DOM fully loaded and parsed');
+    <script>
+        $(document).ready(function () {
+            console.log('DOM fully loaded and parsed');
 
-        const guestSelect = document.getElementById('et-contact-guest');
-        const amountInput = document.getElementById('et-contact-amount');
+            const batchSelect = $('#et-contact-batch');
+            const guestSelect = $('#et-contact-guest');
+            const amountInput = $('#et-contact-amount');
 
-        console.log('Elements:', { guestSelect, amountInput });
+            console.log('Elements:', { batchSelect, guestSelect, amountInput });
 
-        function updateAmount() {
-            const guestCount = parseInt(guestSelect.value, 10);
-            const totalAmount = 1000 + guestCount * 500;
-            amountInput.value = totalAmount;
-            console.log('Updated amount:', totalAmount);
-        }
+            function updateAmount() {
+                const selectedBatch = parseInt(batchSelect.val(), 10);
+                const guestCount = parseInt(guestSelect.val(), 10);
+                let baseAmount = 1000;
 
-        guestSelect.addEventListener('change', function () {
-            console.log('Guest selection changed');
+                if (selectedBatch >= 2024) {
+                    baseAmount = 500;
+                }
+
+                const totalAmount = baseAmount + guestCount * 500;
+                amountInput.val(totalAmount);
+                console.log('Updated amount:', totalAmount);
+            }
+
+            batchSelect.on('change', function () {
+                console.log('Batch selection changed');
+                updateAmount();
+            });
+
+            guestSelect.on('change', function () {
+                console.log('Guest selection changed');
+                updateAmount();
+            });
+
             updateAmount();
         });
-    });
-</script>
+    </script>
 @endpush
