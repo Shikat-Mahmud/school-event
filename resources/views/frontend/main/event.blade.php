@@ -105,7 +105,7 @@ style="background-image: url('{{asset('/')}}frontend/img/upcomng-events-bg.jpg')
                                 <div class="w-[168px]">
                                     <div class="overflow-hidden">
                                         @if (isset($guest->photo))
-                                            <img src="{{ asset('storage/' . $guest->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
+                                            <img src="{{ asset('storage/' . $guest->photo) }}" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square" style="object-fit: cover;">
                                         @else
                                             <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Guest Image" class="rounded-[6px] w-[168px] aspect-square">
                                         @endif

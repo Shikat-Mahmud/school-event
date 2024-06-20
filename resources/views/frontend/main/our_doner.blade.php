@@ -35,11 +35,9 @@
                             <div class="w-[168px]">
                                 <div class="overflow-hidden">
                                     @if (isset($doner->photo))
-                                        <img src="{{ asset('storage/' . $doner->photo) }}" alt="Doner Image"
-                                            class="rounded-[6px] w-[168px] aspect-square">
+                                        <img src="{{ asset('storage/' . $doner->photo) }}" alt="Doner Image" class="rounded-[6px] w-[168px] aspect-square" style="object-fit: cover;">
                                     @else
-                                        <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Doner Image"
-                                            class="rounded-[6px] w-[168px] aspect-square">
+                                        <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Doner Image" class="rounded-[6px] w-[168px] aspect-square">
                                     @endif
                                 </div>
                                 <h5 class="font-semibold text-[16px] pt-[10px] text-etBlack">{{ $doner->name }}</h5>
