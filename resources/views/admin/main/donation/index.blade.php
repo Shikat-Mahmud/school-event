@@ -39,7 +39,7 @@
                                                 style="height: 50px; border-radius: 6px;">
                                             @endif
                                         </td>
-                                        <td>{{ $doner->amount }}</td>
+                                        <td>&#2547; {{ $doner->amount }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-info btn-sm me-2" href="{{ route('edit.donation', $doner->id) }}">Edit</a>

@@ -31,7 +31,7 @@
                                     <tr>
                                         <td>{{ $invest->sector }}</td>
                                         <td>{{ $invest->name }}</td>
-                                        <td>{{ $invest->amount }}</td>
+                                        <td>&#2547; {{ $invest->amount }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-info btn-sm me-2" href="{{ route('edit.investment', $invest->id) }}">Edit</a>

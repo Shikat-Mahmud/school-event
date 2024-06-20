@@ -39,7 +39,7 @@
                                                 style="height: 50px; border-radius: 6px;">
                                             @endif
                                         </td>
-                                        <td>{{ $sponsor->amount }}</td>
+                                        <td>&#2547; {{ $sponsor->amount }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="btn btn-info btn-sm me-2" href="{{ route('edit.sponsor', $sponsor->id) }}">Edit</a>
