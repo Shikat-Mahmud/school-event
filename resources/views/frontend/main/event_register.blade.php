@@ -3,15 +3,15 @@
 @push('styles')
 <style>
     .reg-ul {
-        list-style-type: none; /* Remove default bullets */
-        padding: 0; /* Remove default padding */
+        list-style-type: none;
+        padding: 0;
     }
     .reg-li {
-        display: inline-block; /* Display list items in a line */
-        margin-right: 10px; /* Add spacing between items */
+        display: inline-block;
+        margin-right: 10px;
     }
     .reg-li i {
-        margin-right: 10px; /* Adjust spacing between icon and text */
+        margin-right: 5px;
     }
 </style>
 @endpush
