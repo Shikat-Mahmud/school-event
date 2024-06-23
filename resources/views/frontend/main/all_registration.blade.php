@@ -68,10 +68,10 @@
 
     <div id="all" class="tabcontent" style="display: block;">
         <h3 class="text-[24px] py-[16px]">All Registered Students</h3>
-        <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[25px] gap-y-[10px] mb-[30px]">
+        <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[20px] gap-y-[20px] mb-[30px]">
             @foreach ($registrations as $student)
                 <!-- single artist -->
-                <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
+                <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px]" style="background-color: #d3deff;">
                     <div class="w-[168px]">
                         <div class="overflow-hidden">
                             @if (isset($student->photo))
@@ -98,11 +98,11 @@
         @foreach ($registrationsByBatch as $batch => $students)
             <div id="{{ $batch }}" class="tabcontent">
                 <h3 class="text-[24px] py-[16px]">Registered Students Of {{ $batch }} Batch</h3>
-                <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[25px] gap-y-[10px] mb-[30px]">
+                <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[20px] gap-y-[20px] mb-[30px]">
                     @if (count($students) > 0)
                         @foreach ($students as $student)
                             <!-- single artist -->
-                            <div class="gap-[10px] pb-[15px] flex justify-center border border-[#d9d9d9] rounded-[12px] p-[30px]">
+                            <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px]" style="background-color: #d3deff;">
                                 <div class="w-[168px]">
                                     <div class="overflow-hidden">
                                         @if (isset($student->photo))
