@@ -1,5 +1,20 @@
 @extends('frontend.master')
 @section('title', 'Get Ticket')
+@push('styles')
+<style>
+    ul {
+        list-style-type: none; /* Remove default bullets */
+        padding: 0; /* Remove default padding */
+    }
+    li {
+        display: inline-block; /* Display list items in a line */
+        margin-right: 10px; /* Add spacing between items */
+    }
+    li i {
+        margin-right: 10px; /* Adjust spacing between icon and text */
+    }
+</style>
+@endpush
 @section('content')
 
 <!-- BREADCRUMB SECTION START -->
@@ -46,9 +61,16 @@
 
                 <h2 class="text-[40px] md:text-[35px] sm:text-[30px] xxs:text-[28px] font-medium text-etBlack mb-[7px]">
                     Register For The Event </h2>
-                <p class="text-etGray font-light text-[16px] mb-[38px]">Register now to join our school get-together
-                    event and reconnect with friends while enjoying a memorable day!</p>
-
+                <p class="text-etGray font-light text-[16px] font-semibold">Registration fees:</p>
+                
+                <ul class="mt-[10px] text-[14px] font-light text-etGray">
+                    <li><i class="fas fa-check-circle text-etBlue"></i> Ex-students: 1000/-</li>
+                    <li><i class="fas fa-check-circle text-etBlue"></i> Students: 500/-</li>
+                    <li><i class="fas fa-check-circle text-etBlue"></i> Guest: 500/-</li>
+                    <li><i class="fas fa-check-circle text-etBlue"></i> Bkash/Nagad: 01648099070 (personal)</li>
+                </ul>
+                <p class="mb-[38px] text-etGray font-light text-[10px]" style="margin-top: 5px;"><span style="color: red;">*</span> Note: Only family members or close friends of students are allowed as guests.</p>
+                
                 <form action="{{ route('ticket.post') }}" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
                     @csrf
                     <div>
