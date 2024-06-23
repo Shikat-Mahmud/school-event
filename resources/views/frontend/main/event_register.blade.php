@@ -2,15 +2,15 @@
 @section('title', 'Get Ticket')
 @push('styles')
 <style>
-    ul {
+    .reg-ul {
         list-style-type: none; /* Remove default bullets */
         padding: 0; /* Remove default padding */
     }
-    li {
+    .reg-li {
         display: inline-block; /* Display list items in a line */
         margin-right: 10px; /* Add spacing between items */
     }
-    li i {
+    .reg-li i {
         margin-right: 10px; /* Adjust spacing between icon and text */
     }
 </style>
@@ -63,11 +63,11 @@
                     Register For The Event </h2>
                 <p class="text-etGray font-light text-[16px] font-semibold">Registration fees:</p>
                 
-                <ul class="mt-[10px] text-[14px] font-light text-etGray">
-                    <li><i class="fas fa-check-circle text-etBlue"></i> Ex-students: 1000/-</li>
-                    <li><i class="fas fa-check-circle text-etBlue"></i> Students: 500/-</li>
-                    <li><i class="fas fa-check-circle text-etBlue"></i> Guest: 500/-</li>
-                    <li><i class="fas fa-check-circle text-etBlue"></i> Bkash/Nagad: 01648099070 (personal)</li>
+                <ul class="mt-[10px] text-[12px] font-light text-etGray reg-ul">
+                    <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Ex-students: 1000/-</li>
+                    <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Students: 500/-</li>
+                    <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Guest: 500/-</li>
+                    <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Bkash/Nagad: 01648099070 (personal)</li>
                 </ul>
                 <p class="mb-[38px] text-etGray font-light text-[10px]" style="margin-top: 5px;"><span style="color: red;">*</span> Note: Only family members or close friends of students are allowed as guests.</p>
                 
