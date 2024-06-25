@@ -1,5 +1,5 @@
 @extends('frontend.master')
-@section('title', 'School Event')
+@section('title', 'CCA School Event')
 @section('content')
 <!-- BANNER SECTION START -->
 <section class="et-2-banner relative bg-etBlue max-w-[1920px]"

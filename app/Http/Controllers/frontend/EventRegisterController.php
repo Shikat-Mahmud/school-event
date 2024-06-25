@@ -31,12 +31,12 @@ class EventRegisterController extends Controller
         try {
             $request->validate([
                 'name' => 'required|string|max:255',
-                'batch' => 'nullable|string|max:255',
+                'batch' => 'required|string|max:255',
                 'email' => 'nullable|email|max:255',
                 'phone' => 'required|string|max:15|unique:event_registers,phone',
                 'guest' => 'nullable|integer|min:0',
                 'amount' => 'required|numeric|min:0',
-                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'suggestion' => 'nullable|string',
             ], [
                 'phone.unique' => 'You have already registered for the event.',
@@ -82,12 +82,12 @@ class EventRegisterController extends Controller
             // Validate the request
             $request->validate([
                 'name' => 'required|string|max:255',
-                'batch' => 'nullable|string|max:255',
+                'batch' => 'required|string|max:255',
                 'email' => 'nullable|email|max:255',
                 'phone' => 'required|string|max:15',
                 'guest' => 'nullable|integer|min:0',
                 'amount' => 'required|numeric|min:0',
-                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             $register = EventRegister::findOrFail($id);
@@ -147,7 +147,7 @@ class EventRegisterController extends Controller
 
     public function allReg()
     {
-        $registrations = EventRegister::all();
+        $registrations = EventRegister::paginate(5);
         $batchs = range(2000, 2025);
 
         $registrationsByBatch = [];

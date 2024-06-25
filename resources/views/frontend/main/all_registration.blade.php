@@ -1,15 +1,13 @@
 @extends('frontend.master')
 @section('title', 'All Registration')
-@section('content')
 @push('styles')
     <style>
-        /* Style the tab buttons */
+        /* Style for tab buttons start */
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
         }
 
-        /* Style the buttons inside the tab */
         .tab button {
             background-color: inherit;
             float: left;
@@ -20,25 +18,56 @@
             transition: 0.3s;
         }
 
-        /* Change background color of buttons on hover */
         .tab button:hover {
             background-color: #ddd;
         }
 
-        /* Create an active/current tablink class */
         .tab button.active {
             background-color: #1260FE;
             border-radius: 6px;
             color: #fff;
         }
 
-        /* Style the tab content */
         .tabcontent {
             display: none;
             padding: 6px 12px;
         }
+        /* Style for tab buttons end */
+
+
+        /* Style for tab pagination start */
+        .pagination {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .pagination a, .inactive-pagi-btn {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .inactive-pagi-btn {
+            color: gray;
+        }
+
+        .pagination a.active {
+            background-color: #1260FE;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        /* Style for tab pagination end */
     </style>
 @endpush
+
+@section('content')
 <!-- BREADCRUMB SECTION START -->
 <section
     class="et-breadcrumb bg-[#000D83] pt-[146px] lg:pt-[146px] sm:pt-[146px] pb-[130px] lg:pb-[110px] sm:pb-[80px] relative z-[1] before:absolute before:inset-0 before:-z-[1] before:opacity-30"
@@ -68,7 +97,7 @@
 
     <div id="all" class="tabcontent" style="display: block;">
         <h3 class="text-[24px] py-[16px]">All Registered Students</h3>
-        <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[20px] gap-y-[20px] mb-[30px]">
+        <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
             @foreach ($registrations as $student)
                 <!-- single artist -->
                 <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px]" style="background-color: #d3deff;">
@@ -86,6 +115,11 @@
                 </div>
             @endforeach
         </div>
+        
+        <!-- Render pagination links for the main registrations -->
+        <div class="font-kanit mt-[10px]" style="text-align: center;">
+            {{ $registrations->links('pagination::pagination_view') }}
+        </div>
     </div>
     @else
         <div class="flex flex-col justify-center items-center">
@@ -98,8 +132,8 @@
         @foreach ($registrationsByBatch as $batch => $students)
             <div id="{{ $batch }}" class="tabcontent">
                 <h3 class="text-[24px] py-[16px]">Registered Students Of {{ $batch }} Batch</h3>
-                <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[20px] gap-y-[20px] mb-[30px]">
-                    @if (count($students) > 0)
+                <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
+                    @if ($students->isNotEmpty())
                         @foreach ($students as $student)
                             <!-- single artist -->
                             <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px]" style="background-color: #d3deff;">
@@ -125,7 +159,6 @@
             </div>
         @endforeach
     @endif
-
 </div>
 <!-- REGISTRATION SECTION END -->
 
