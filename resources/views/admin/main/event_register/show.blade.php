@@ -52,7 +52,11 @@
                                     <b><span>Email: </span></b>
                                 </div>
                                 <div class="col-md-8">
-                                    <p class="ml-3">{{ $student->email }}</p>
+                                    @if (isset($student->email))
+                                        <p class="ml-3">{{ $student->email }}</p>
+                                    @else
+                                        <p class="ml-3" style="color: #a5a5a5;">Null</p>
+                                    @endif
                                 </div>
                             </div>
 
