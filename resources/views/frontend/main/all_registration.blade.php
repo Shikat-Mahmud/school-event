@@ -33,37 +33,6 @@
             padding: 6px 12px;
         }
         /* Style for tab buttons end */
-
-
-        /* Style for tab pagination start */
-        .pagination {
-            display: inline-block;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .pagination a, .inactive-pagi-btn {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-        }
-
-        .inactive-pagi-btn {
-            color: gray;
-        }
-
-        .pagination a.active {
-            background-color: #1260FE;
-            color: white;
-            border-radius: 5px;
-        }
-
-        .pagination a:hover:not(.active) {
-            background-color: #ddd;
-            border-radius: 5px;
-        }
-        /* Style for tab pagination end */
     </style>
 @endpush
 
@@ -86,7 +55,7 @@
 <!-- REGISTRATION SECTION START -->
 <div class="py-[130px] xl:py-[80px] md:py-[60px] mx-[25px]">
     @if ($registrations->isNotEmpty())
-    <div class="tab" style="padding: 6px;">
+    <div class="tab text-[12px]" style="padding: 6px;">
         <button class="tablinks active" onclick="openTab(event, 'all')" id="defaultOpen">All</button>
         @if (isset($batchs))
             @foreach ($batchs as $batch)

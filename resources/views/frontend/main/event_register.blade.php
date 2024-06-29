@@ -69,7 +69,7 @@
                     <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Guest: 500/-</li>
                     <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Bkash/Nagad: 01648099070 (personal)</li>
                 </ul>
-                <p class="mb-[38px] text-etGray font-light text-[10px]" style="margin-top: 5px;"><span style="color: red;">*</span> Note: Only family members or close friends of students are allowed as guests.</p>
+                <p class="mb-[38px] text-etGray font-light text-[10px]" style="margin-top: 5px;"><span style="color: red;">*</span> Note: Only family members or close friends of students are allowed as guest. Children above 3 years old will be counted as guest.</p>
                 
                 <form action="{{ route('ticket.post') }}" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
                     @csrf

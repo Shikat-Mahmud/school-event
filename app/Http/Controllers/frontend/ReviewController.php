@@ -10,7 +10,7 @@ class ReviewController extends Controller
 {
     public function index()
     {
-        $batchs = range(2000, 2025);
+        $batchs = range(2000, 2026);
         return view('frontend.main.review', compact('batchs'));
     }
 
