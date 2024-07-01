@@ -7,6 +7,7 @@ use App\Models\EventRegister;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
+use Str;
 
 class EventRegisterController extends Controller
 {
@@ -43,9 +44,22 @@ class EventRegisterController extends Controller
             ]);
     
             $inputs = $request->all();
+            
             if ($request->hasFile('photo')) {
-                $imagePath = $request->file('photo')->store('event_registers', 'public');
-                $inputs['photo'] = $imagePath;
+                $photo = $request->file('photo');
+                $studentName = $request->input('name');
+                $studentNameSlug = Str::slug($studentName);
+                $photoExtension = $photo->getClientOriginalExtension();
+                $photoPath = 'event_registers/' . $studentNameSlug . '.' . $photoExtension;
+    
+                $counter = 1;
+                while (Storage::disk('public')->exists($photoPath)) {
+                    $photoPath = 'event_registers/' . $studentNameSlug . $counter . '.' . $photoExtension;
+                    $counter++;
+                }
+    
+                $photo->storeAs('public', $photoPath);
+                $inputs['photo'] = $photoPath;
             }
     
             $register = new EventRegister();
@@ -79,7 +93,6 @@ class EventRegisterController extends Controller
     public function update(Request $request, string $id)
     {
         try {
-            // Validate the request
             $request->validate([
                 'name' => 'required|string|max:255',
                 'batch' => 'required|string|max:255',
@@ -89,38 +102,50 @@ class EventRegisterController extends Controller
                 'amount' => 'required|numeric|min:0',
                 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
-
+    
             $register = EventRegister::findOrFail($id);
-
+    
             $register->name = $request->input('name');
             $register->batch = $request->input('batch');
             $register->email = $request->input('email');
             $register->phone = $request->input('phone');
             $register->guest = $request->input('guest');
             $register->amount = $request->input('amount');
-
+    
             // Handle photo upload
             if ($request->hasFile('photo')) {
                 // Delete the old photo if it exists
-                if ($register->photo) {
-                    Storage::delete('public/' . $register->photo);
+                if ($register->photo && Storage::disk('public')->exists($register->photo)) {
+                    Storage::disk('public')->delete($register->photo);
                 }
-
-                // Store the new photo
-                $path = $request->file('photo')->store('public/photos');
-                $register->photo = basename($path);
+    
+                $photo = $request->file('photo');
+                $studentName = $request->input('name');
+                $studentNameSlug = Str::slug($studentName); // Convert the name to a URL-friendly slug
+                $photoExtension = $photo->getClientOriginalExtension();
+                $photoPath = 'event_registers/' . $studentNameSlug . '.' . $photoExtension;
+    
+                $counter = 1;
+                while (Storage::disk('public')->exists($photoPath)) {
+                    $photoPath = 'event_registers/' . $studentNameSlug . $counter . '.' . $photoExtension;
+                    $counter++;
+                }
+    
+                $photo->storeAs('public', $photoPath);
+                $register->photo = $photoPath;
             } else {
                 // Keep the old photo
                 $register->photo = $request->input('old_photo');
             }
-
+    
             $register->save();
-
+    
             return redirect()->route('register.list')->with('success', 'Registration information updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+    
 
     public function showStudentDetail(string $id)
     {
