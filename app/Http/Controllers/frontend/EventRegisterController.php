@@ -87,7 +87,7 @@ class EventRegisterController extends Controller
                 'phone' => 'required|string|max:15',
                 'guest' => 'nullable|integer|min:0',
                 'amount' => 'required|numeric|min:0',
-                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             $register = EventRegister::findOrFail($id);
@@ -98,13 +98,20 @@ class EventRegisterController extends Controller
             $register->phone = $request->input('phone');
             $register->guest = $request->input('guest');
             $register->amount = $request->input('amount');
+
+            // Handle photo upload
             if ($request->hasFile('photo')) {
-                // Delete old image if it exists
+                // Delete the old photo if it exists
                 if ($register->photo) {
                     Storage::delete('public/' . $register->photo);
                 }
-                // Store the new image
-                $register->photo = $request->file('photo')->store('event_registers', 'public');
+
+                // Store the new photo
+                $path = $request->file('photo')->store('public/photos');
+                $register->photo = basename($path);
+            } else {
+                // Keep the old photo
+                $register->photo = $request->input('old_photo');
             }
 
             $register->save();

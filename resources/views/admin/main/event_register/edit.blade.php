@@ -73,6 +73,7 @@
                                     <input type="file" name="photo" id="et-contact-photo" accept="image/*" class="form-control">
                                     @if($student->photo)
                                         <img class="p-t-10" src="{{ asset('storage/' . $student->photo) }}" alt="{{ $student->name }}" width="100" />
+                                        <input type="hidden" name="old_photo" value="{{ $student->photo }}">
                                     @endif
                                 </div>
                             </div>
@@ -93,13 +94,9 @@
 @push('scripts')
     <script>
         $(document).ready(function () {
-            console.log('DOM fully loaded and parsed');
-
             const batchSelect = $('#et-contact-batch');
             const guestSelect = $('#et-contact-guest');
             const amountInput = $('#et-contact-amount');
-
-            console.log('Elements:', { batchSelect, guestSelect, amountInput });
 
             function updateAmount() {
                 const selectedBatch = parseInt(batchSelect.val(), 10);
@@ -112,18 +109,10 @@
 
                 const totalAmount = baseAmount + guestCount * 500;
                 amountInput.val(totalAmount);
-                console.log('Updated amount:', totalAmount);
             }
 
-            batchSelect.on('change', function () {
-                console.log('Batch selection changed');
-                updateAmount();
-            });
-
-            guestSelect.on('change', function () {
-                console.log('Guest selection changed');
-                updateAmount();
-            });
+            batchSelect.on('change', updateAmount);
+            guestSelect.on('change', updateAmount);
 
             updateAmount();
         });
