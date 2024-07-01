@@ -88,8 +88,8 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.btnPaymentChange').forEach(function (btn) {
-        btn.addEventListener('click', function () {
+    document.querySelector('.table-responsive').addEventListener('click', function (event) {
+        if (event.target.classList.contains('btnPaymentChange')) {
             swal({
                 title: "Are you sure?",
                 text: "Do you want to change the payment status?",
@@ -112,10 +112,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 dangerMode: true
             }).then((willChange) => {
                 if (willChange) {
-                    btn.closest('.changeStatusForm').submit();
+                    event.target.closest('.changeStatusForm').submit();
                 }
             });
-        });
+        }
     });
 });
 </script>
