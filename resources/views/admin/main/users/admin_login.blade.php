@@ -32,6 +32,12 @@
 
         <div class="auth-wrapper">
             <div class="auth-content">
+                <div class="auth-bg">
+                    <span class="r"></span>
+                    <span class="r s"></span>
+                    <span class="r s"></span>
+                    <span class="r"></span>
+                </div>
                 <div class="card">
                     <div class="card-body text-center">
                         <div class="mb-4">
@@ -59,16 +65,16 @@
                         </div>
                         <br>
                         <button class="btn btn-primary shadow-2 mb-4">Login</button>
-                        <p class="mb-2 text-muted">
+                        <!-- <p class="mb-2 text-muted">
                             @if (Route::has('password.request'))
                             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 href="{{ route('password.request') }}">
                                 {{ __('Forgot your password?') }}
                             </a>
                             @endif
-                        </p>
-                        <p class="mb-0 text-muted">Don’t have an account? <a href="{{ route('register') }}">Signup</a>
-                        </p>
+                        </p> -->
+                        <!-- <p class="mb-0 text-muted">Don’t have an account? <a href="{{ route('register') }}">Signup</a></p> -->
+                        <p class="mb-0 text-muted"><span class="text-danger">*</span> Only For Admin Login</p>
                     </div>
                 </div>
             </div>
