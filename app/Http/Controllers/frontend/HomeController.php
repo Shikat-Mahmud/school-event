@@ -19,4 +19,9 @@ class HomeController extends Controller
         $sponsors = Sponsor::all();
         return view('frontend.main.home', compact('event', 'event_schedule', 'reviews', 'galleries', 'sponsors'));
     }
+
+    public function appDownload()
+    {
+        return view('frontend.main.download_app');
+    }
 }

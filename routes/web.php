@@ -23,6 +23,8 @@ use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/app-download', [HomeController::class, 'appDownload'])->name('app.download');
+
 Route::get('/admin-login', [IndexController::class, 'login'])->name('admin.login');
 
 Route::middleware(['auth', 'permission:admin-panel'])->name('admin.')->prefix('admin')->group(function () {

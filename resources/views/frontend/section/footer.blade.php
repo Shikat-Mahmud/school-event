@@ -166,6 +166,10 @@
                 </div>
             </div>
 
+            <div class="et-footer-bottom py-[34px]">
+                <p class="font-light text-[#f2f2f2] text-center text-[16px]"><i class="fa fa-mobile-alt text-etBlue text-[20px]"></i> <a href="{{ route('app.download') }}">Download Our Mobile App</a></p>
+            </div>
+            
             <!-- footer bottom -->
             <div class="et-footer-bottom border-t border-white/20 py-[34px]">
                 <p class="font-light text-[#f2f2f2] text-center text-[16px]">&copy; 2024, <a class="text-etBlue" href="https://eftakharmahmud.com">Saikat Mahmud</a> All Rights Reserved.</p>
