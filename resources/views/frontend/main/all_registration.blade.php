@@ -69,7 +69,7 @@
         <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
             @foreach ($registrations as $student)
                 <!-- single artist -->
-                <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px]" style="background-color: #d3deff;">
+                <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px] relative" style="background-color: #d3deff;">
                     <div class="w-[168px]">
                         <div class="overflow-hidden">
                             @if (isset($student->photo))
@@ -79,15 +79,13 @@
                             @endif
                         </div>
                         <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                        <div class="flex justify-between items-center text-etGray2 text-[16px] pt-[5px]">
-                            <span>Batch {{ $student->batch }}</span>
-                            @if ($student->status === 1)
-                                <span style="background-color: #057A55;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Paid</span>
-                            @else
-                                <span style="background-color: #4B5563;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Unpaid</span>
-                            @endif
-                        </div>
+                        <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
                     </div>
+                    @if ($student->status === 1)
+                        <span style="background-color: #057A55; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Paid</span>
+                    @else
+                        <span style="background-color: #4B5563; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Unpaid</span>
+                    @endif
                 </div>
             @endforeach
         </div>
@@ -112,7 +110,7 @@
                     @if ($students->isNotEmpty())
                         @foreach ($students as $student)
                             <!-- single artist -->
-                            <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px]" style="background-color: #d3deff;">
+                            <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px] relative" style="background-color: #d3deff;">
                                 <div class="w-[168px]">
                                     <div class="overflow-hidden">
                                         @if (isset($student->photo))
@@ -122,15 +120,13 @@
                                         @endif
                                     </div>
                                     <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                                    <div class="flex justify-between items-center text-etGray2 text-[16px] pt-[5px]">
-                                        <span>Batch {{ $student->batch }}</span>
-                                        @if ($student->status === 1)
-                                            <span style="background-color: #057A55;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Paid</span>
-                                        @else
-                                            <span style="background-color: #4B5563;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Unpaid</span>
-                                        @endif
-                                    </div>
+                                    <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
                                 </div>
+                                @if ($student->status === 1)
+                                    <span style="background-color: #057A55; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Paid</span>
+                                @else
+                                    <span style="background-color: #4B5563; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Unpaid</span>
+                                @endif
                             </div>
                         @endforeach
                     @else
