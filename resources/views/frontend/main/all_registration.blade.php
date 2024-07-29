@@ -79,7 +79,14 @@
                             @endif
                         </div>
                         <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                        <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
+                        <div class="flex justify-between items-center text-etGray2 text-[16px] pt-[5px]">
+                            <span>Batch {{ $student->batch }}</span>
+                            @if ($student->status === 1)
+                                <span style="background-color: #057A55;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Paid</span>
+                            @else
+                                <span style="background-color: #4B5563;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Unpaid</span>
+                            @endif
+                        </div>
                     </div>
                 </div>
             @endforeach
@@ -115,7 +122,14 @@
                                         @endif
                                     </div>
                                     <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                                    <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
+                                    <div class="flex justify-between items-center text-etGray2 text-[16px] pt-[5px]">
+                                        <span>Batch {{ $student->batch }}</span>
+                                        @if ($student->status === 1)
+                                            <span style="background-color: #057A55;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Paid</span>
+                                        @else
+                                            <span style="background-color: #4B5563;" class="text-white px-[10px] text-[12px] py-[2px] rounded-[12px]">Unpaid</span>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
