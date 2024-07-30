@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h6 class="text-white">Total User Registration</h6>
                             <h2 class="text-end text-white"><i
-                                    class="ph ph-users-three float-start"></i><span>{{ $totalRegistration }}</span>
+                                    class="ph ph-user-plus float-start"></i><span>{{ $totalRegistration }}</span>
                             </h2>
                             <p class="m-b-0">Payment Received<span class="float-end">{{ $totalPayment }}</span></p>
                         </div>
@@ -26,26 +26,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-6 col-sm-6">
-                    <div class="card statistics-card-1 bg-brand-color-1">
-                        <div class="card-body">
-                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
-                                alt="img" class="img-fluid img-bg">
-                            <h6 class="mb-0 text-white mb-3">Total Registrations<span class="float-end text-white h4">{{ $totalRegistration }}</span></h6>
-                            <h6 class="mb-0 text-white mb-3">Total Students<span class="float-end text-white h4">{{ $totalStudent }}</span></h6>
-                            <h6 class="mb-0 text-white mb-3">Total Ex Students<span class="float-end text-white h4">{{ $totalExStudent }}</span></h6>
-                            <h6 class="mb-0 text-white mb-3">Total Present Students<span class="float-end text-white h4">{{ $totalPresentStudent }}</span></h6>
-                            <h6 class="mb-0 text-white mb-3">Total Guests<span class="float-end text-white h4">{{ $totalGuest }}</span></h6> <br>
-                            <h4 class="mb-0 text-white mb-3">Total Attendees<span class="float-end text-white h4">{{ $totalAttendee }}</span></h4>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-warning order-card">
                         <div class="card-body">
-                            <h6 class="text-white">Total Reviewers</h6>
+                            <h6 class="text-white">Total Attendees</h6>
                             <h2 class="text-end text-white"><i
-                                    class="ph ph-chat float-start"></i><span>{{ $totalReviewrs }}</span></h2>
+                                    class="ph ph-users-three float-start"></i><span>{{ $totalAttendee }}</span></h2>
                             <!-- <p class="m-b-0">This Month<span class="float-end">$5,032</span></p> -->
                         </div>
                     </div>
@@ -57,6 +43,28 @@
                             <h2 class="text-end text-white"><i
                                     class="ph ph-users float-start"></i><span>{{ $totalTeamMembers }}</span></h2>
                             <!-- <p class="m-b-0">This Month<span class="float-end">$542</span></p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-6 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <h6 class="mb-0 text-white mb-3">Total Students<span class="float-end text-white h4">{{ $totalStudent }}</span></h6>
+                            <h6 class="mb-0 text-white mb-3">Total Ex Students<span class="float-end text-white h4">{{ $totalExStudent }}</span></h6>
+                            <h6 class="mb-0 text-white mb-3">Total Present Students<span class="float-end text-white h4">{{ $totalPresentStudent }}</span></h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-6 col-sm-6">
+                    <div class="card statistics-card-1 bg-brand-color-1">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <h6 class="mb-0 text-white mb-3">Total Teachers<span class="float-end text-white h4">{{ $totalTeachers }}</span></h6>
+                            <h6 class="mb-0 text-white mb-3">Total Staffs<span class="float-end text-white h4">{{ $totalStaffs }}</span></h6>
+                            <h6 class="mb-0 text-white mb-3">Total Guests<span class="float-end text-white h4">{{ $totalGuest }}</span></h6>
                         </div>
                     </div>
                 </div>

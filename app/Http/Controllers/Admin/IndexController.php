@@ -31,6 +31,12 @@ class IndexController extends Controller
             $totalPresentStudent = EventRegister::whereBetween('batch', [2024, 2026])->count();
             $totalStudent = $totalExStudent + $totalPresentStudent;
 
+            $totalTeachers = EventRegister::whereNull('batch')->where(function ($query) {
+                $query->where('suggestion', '!=', 'staff')
+                    ->orWhereNull('suggestion');
+            })->count();
+            $totalStaffs = EventRegister::whereNull('batch')->where('suggestion', 'staff')->count();
+
             $totalGuest = EventRegister::sum('guest');
             $totalAttendee = $totalRegistration + $totalGuest;
 
@@ -44,7 +50,7 @@ class IndexController extends Controller
             $totalReviewrs = Review::count();
             $totalTeamMembers = Team::count();
 
-            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalExStudent', 'totalPresentStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalDonAmount', 'totalSponAmount', 'totalAmountReceived', 'totalInvestment'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalTeachers', 'totalStaffs', 'totalExStudent', 'totalPresentStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalDonAmount', 'totalSponAmount', 'totalAmountReceived', 'totalInvestment'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }
