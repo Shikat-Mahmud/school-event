@@ -65,7 +65,7 @@
                 
                 <ul class="mt-[10px] text-[12px] font-light text-etGray reg-ul">
                     <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Ex-students: 1000/-</li>
-                    <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Students: 500/-</li>
+                    <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Students & Teachers: 500/-</li>
                     <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Guest: 500/-</li>
                     <li class="reg-li"><i class="fas fa-check-circle text-etBlue"></i> Bkash/Nagad: 01648099070 (personal)</li>
                 </ul>
@@ -73,13 +73,19 @@
                 
                 <form action="{{ route('ticket.post') }}" method="post" class="grid grid-cols-2 xxs:grid-cols-1 gap-[30px] xs:gap-[20px] text-[16px]" enctype="multipart/form-data">
                     @csrf
+                    <div class="col-span-2 xxs:col-span-1">
+                        <label class="font-lato font-semibold text-etBlack block mb-[12px]">Registration Type: <span style="color: red;">*</span></label>
+                        <label for="role-student" class="mr-[20px]"><input type="radio" name="role" value="student" id="role-student" checked> Student</label>
+                        <label for="role-teacher" class="ml-[28px]"><input type="radio" name="role" value="teacher" id="role-teacher"> Teacher</label>
+                        <label for="role-staff" class="ml-[28px]"><input type="radio" name="role" value="staff" id="role-staff"> Staff</label>
+                    </div>
                     <div>
                         <label for="et-contact-name" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Name: <span style="color: red;">*</span></label>
                         <input type="text" name="name" id="et-contact-name" placeholder="Your Name" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
-                    <div>
+                    <div id="batch-input" class="hidden">
                         <label for="et-contact-batch" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Batch: <span style="color: red;">*</span></label>
-                        <select name="batch" id="et-contact-batch" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
+                        <select name="batch" id="et-contact-batch" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                             <option value="" disabled selected>Your Batch</option>
                             @foreach ($batchs as $batch)
                                 <option value="{{ $batch }}">{{ $batch }}</option>
@@ -94,7 +100,7 @@
                         <label for="et-contact-phone" class="font-lato font-semibold text-etBlack block mb-[12px]">Phone: <span style="color: red;">*</span></label>
                         <input type="tel" name="phone" id="et-contact-phone" placeholder="Your Phone No" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
-                    <div>
+                    <div id="guest-input">
                         <label for="et-contact-guest" class="font-lato font-semibold text-etBlack block mb-[12px]">No of Guest: <span class="text-[#707882] text-[12px]">(optional)</span></label>
                         <div class="flex items-center">
                             <button type="button" id="decrease-guest" class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] focus:outline-none bg-etBlue text-[30px] text-white">-</button>
@@ -126,32 +132,56 @@
 <!-- TICKET SECTION END -->
 @endsection
 @push('scripts')
-    <script>
-        $(document).ready(function () {
-            $('#et-contact-batch').change(function () {
+<script>
+    $(document).ready(function () {
+        // Show/hide batch and guest input based on role selection
+        $('input[name="role"]').change(function () {
+            if ($(this).val() === 'teacher') {
+                $('#batch-input').hide().find('select').prop('required', false);
+                $('#guest-input').show();
+                $('#et-contact-suggestion').val(''); // Clear suggestion when Teacher is selected
+            } else if ($(this).val() === 'staff') {
+                $('#batch-input').hide().find('select').prop('required', false);
+                $('#guest-input').hide().find('input').val(0);
+                $('#et-contact-suggestion').val('staff'); // Set suggestion to 'staff' when Staff is selected
+            } else {
+                $('#batch-input').show().find('select').prop('required', true);
+                $('#guest-input').show();
+                $('#et-contact-suggestion').val(''); // Clear suggestion when Student is selected
+            }
+            updateAmount();
+        });
+
+        $('#et-contact-batch').change(function () {
+            updateAmount();
+        });
+
+        $('#decrease-guest').click(function () {
+            let currentValue = parseInt($('#et-contact-guest').val(), 10);
+            if (currentValue > 0) {
+                $('#et-contact-guest').val(currentValue - 1);
                 updateAmount();
-            });
-
-            $('#decrease-guest').click(function () {
-                let currentValue = parseInt($('#et-contact-guest').val(), 10);
-                if (currentValue > 0) {
-                    $('#et-contact-guest').val(currentValue - 1);
-                    updateAmount();
-                }
-            });
-
-            $('#increase-guest').click(function () {
-                let currentValue = parseInt($('#et-contact-guest').val(), 10);
-                $('#et-contact-guest').val(currentValue + 1);
-                updateAmount();
-            });
-
-            function updateAmount() {
-                let baseAmount = ($('#et-contact-batch').val() >= 2024) ? 500 : 1000;
-                let guestCount = parseInt($('#et-contact-guest').val(), 10);
-                let totalAmount = baseAmount + (guestCount * 500);
-                $('#et-contact-amount').val(totalAmount);
             }
         });
-    </script>
+
+        $('#increase-guest').click(function () {
+            let currentValue = parseInt($('#et-contact-guest').val(), 10);
+            $('#et-contact-guest').val(currentValue + 1);
+            updateAmount();
+        });
+
+        function updateAmount() {
+            let baseAmount = ($('#et-contact-batch').val() <= 2023 && $('#et-contact-batch').val() >= 1999) ? 1000 : 500;
+            let guestCount = parseInt($('#et-contact-guest').val(), 10);
+            if ($('input[name="role"]:checked').val() === 'staff' || $('input[name="role"]:checked').val() === 'teacher') {
+                    baseAmount = 500; // Assuming teacher and staff have base amount 500
+                }
+            let totalAmount = baseAmount + (guestCount * 500);
+            $('#et-contact-amount').val(totalAmount);
+        }
+
+        // Initialize form
+        $('input[name="role"]:checked').trigger('change');
+    });
+</script>
 @endpush

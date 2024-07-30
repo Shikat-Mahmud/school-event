@@ -27,11 +27,12 @@ class IndexController extends Controller
             $totalRegistration = EventRegister::count();
             $totalPayment = EventRegister::where('status', 1)->count();
 
-            $totalStudent = EventRegister::count();
             $totalExStudent = EventRegister::whereBetween('batch', [2000, 2023])->count();
             $totalPresentStudent = EventRegister::whereBetween('batch', [2024, 2026])->count();
+            $totalStudent = $totalExStudent + $totalPresentStudent;
+
             $totalGuest = EventRegister::sum('guest');
-            $totalAttendee = $totalStudent + $totalGuest;
+            $totalAttendee = $totalRegistration + $totalGuest;
 
             $totalRegAmount = EventRegister::where('status', 1)->sum('amount');
             $totalDonAmount = Donation::sum('amount');

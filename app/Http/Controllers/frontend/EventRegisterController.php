@@ -32,7 +32,7 @@ class EventRegisterController extends Controller
         try {
             $request->validate([
                 'name' => 'required|string|max:255',
-                'batch' => 'required|string|max:255',
+                'batch' => 'nullable|string|max:255',
                 'email' => 'nullable|email|max:255',
                 'phone' => 'required|string|max:15|unique:event_registers,phone',
                 'guest' => 'nullable|integer|min:0',
@@ -95,7 +95,7 @@ class EventRegisterController extends Controller
         try {
             $request->validate([
                 'name' => 'required|string|max:255',
-                'batch' => 'required|string|max:255',
+                'batch' => 'nullable|string|max:255',
                 'email' => 'nullable|email|max:255',
                 'phone' => 'required|string|max:15',
                 'guest' => 'nullable|integer|min:0',
@@ -182,12 +182,20 @@ class EventRegisterController extends Controller
         $registrations = EventRegister::paginate(5);
         $batchs = range(2000, 2026);
 
+        $teachers = EventRegister::whereNull('batch')
+            ->where(function ($query) {
+                $query->where('suggestion', '!=', 'staff')
+                    ->orWhereNull('suggestion');
+            })
+            ->get();
+        $staff = EventRegister::whereNull('batch')->where('suggestion', 'staff')->get();
+
         $registrationsByBatch = [];
         foreach ($batchs as $batch) {
             $registrationsByBatch[$batch] = EventRegister::where('batch', $batch)->get();
         }
 
-        return view('frontend.main.all_registration', compact('registrations', 'batchs', 'registrationsByBatch'));
+        return view('frontend.main.all_registration', compact('registrations', 'batchs', 'registrationsByBatch', 'teachers', 'staff'));
     }
 
 }

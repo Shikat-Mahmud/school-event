@@ -31,6 +31,7 @@
                         <div class="card-body">
                             <img src="{{ asset('/')}}images/widget/img-status-6.svg"
                                 alt="img" class="img-fluid img-bg">
+                            <h6 class="mb-0 text-white mb-3">Total Registrations<span class="float-end text-white h4">{{ $totalRegistration }}</span></h6>
                             <h6 class="mb-0 text-white mb-3">Total Students<span class="float-end text-white h4">{{ $totalStudent }}</span></h6>
                             <h6 class="mb-0 text-white mb-3">Total Ex Students<span class="float-end text-white h4">{{ $totalExStudent }}</span></h6>
                             <h6 class="mb-0 text-white mb-3">Total Present Students<span class="float-end text-white h4">{{ $totalPresentStudent }}</span></h6>

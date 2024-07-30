@@ -62,6 +62,8 @@
                 <button class="tablinks" onclick="openTab(event, '{{ $batch }}')">{{ $batch }}</button>
             @endforeach
         @endif
+        <button style="border: 2px solid #54cea7; border-radius: 7px; margin-left: 3px;" class="tablinks" onclick="openTab(event, 'teachers')">Teachers</button>
+        <button style="border: 2px solid #54cea7; border-radius: 7px; margin-left: 3px;" class="tablinks" onclick="openTab(event, 'staff')">Staffs</button>
     </div>
 
     <div id="all" class="tabcontent" style="display: block;">
@@ -79,7 +81,15 @@
                             @endif
                         </div>
                         <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $student->name }}</h5>
-                        <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
+                        @if (isset($student->batch))
+                            <span class="inline-block text-etGray2 text-[16px]">Batch {{ $student->batch }}</span>
+                        @elseif($student->batch == null)
+                            @if ($student->suggestion === 'staff')
+                                <span class="inline-block text-etGray2 text-[16px]">Staff</span>
+                            @else
+                                <span class="inline-block text-etGray2 text-[16px]">Teacher</span>
+                            @endif
+                        @endif
                     </div>
                     @if ($student->status === 1)
                         <span style="background-color: #057A55; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Paid</span>
@@ -95,12 +105,6 @@
             {{ $registrations->links('pagination::pagination_view') }}
         </div>
     </div>
-    @else
-        <div class="flex flex-col justify-center items-center">
-            <h3 class="text-center text-[2.4rem] text-[#757277]">There is no data of student registrations!</h3>
-            <img src="{{ asset('/') }}images/empty.jpg" alt="Photo" class="w-[350px] my-[30px]">
-        </div>
-    @endif
 
     @if (isset($registrationsByBatch))
         @foreach ($registrationsByBatch as $batch => $students)
@@ -137,6 +141,82 @@
                 </div>
             </div>
         @endforeach
+    @endif
+
+    @if (isset($teachers))
+        <div id="teachers" class="tabcontent">
+            <h3 class="text-[24px] py-[16px]">Registered Teachers</h3>
+            <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
+                @if ($teachers->isNotEmpty())
+                    @foreach ($teachers as $teacher)
+                        <!-- single artist -->
+                        <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px] relative" style="background-color: #d3deff;">
+                            <div class="w-[168px]">
+                                <div class="overflow-hidden">
+                                    @if (isset($teacher->photo))
+                                        <img src="{{ asset('storage/' . $teacher->photo) }}" alt="Teacher Image" class="rounded-[6px] w-[168px] aspect-square" style="object-fit: cover;">
+                                    @else
+                                        <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Teacher Image" class="rounded-[6px] w-[168px] aspect-square">
+                                    @endif
+                                </div>
+                                <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $teacher->name }}</h5>
+                                <span class="inline-block text-etGray2 text-[16px]">Teacher</span>
+                            </div>
+                            @if ($teacher->status === 1)
+                                <span style="background-color: #057A55; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Paid</span>
+                            @else
+                                <span style="background-color: #4B5563; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Unpaid</span>
+                            @endif
+                        </div>
+                    @endforeach
+                @else
+                    <div class="text-center w-full">
+                        <h3 class="text-[16px] text-[#757277]">No registered teachers! &#128532;</h3>
+                    </div>
+                @endif
+            </div>
+        </div>
+    @endif
+
+    @if (isset($staff))
+        <div id="staff" class="tabcontent">
+            <h3 class="text-[24px] py-[16px]">Registered Staff</h3>
+            <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
+                @if ($staff->isNotEmpty())
+                    @foreach ($staff as $person)
+                        <!-- single artist -->
+                        <div class="gap-[10px] pb-[15px] flex justify-center rounded-[12px] p-[30px] relative" style="background-color: #d3deff;">
+                            <div class="w-[168px]">
+                                <div class="overflow-hidden">
+                                    @if (isset($person->photo))
+                                        <img src="{{ asset('storage/' . $person->photo) }}" alt="Staff Image" class="rounded-[6px] w-[168px] aspect-square" style="object-fit: cover;">
+                                    @else
+                                        <img src="{{ asset('/') }}frontend/img/team_member_avatar.jpg" alt="Staff Image" class="rounded-[6px] w-[168px] aspect-square">
+                                    @endif
+                                </div>
+                                <h5 class="font-semibold text-[20px] pt-[10px] text-etBlack">{{ $person->name }}</h5>
+                                <span class="inline-block text-etGray2 text-[16px]">Staff</span>
+                            </div>
+                            @if ($person->status === 1)
+                                <span style="background-color: #057A55; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Paid</span>
+                            @else
+                                <span style="background-color: #4B5563; border-radius: 6px 0 0 6px;" class="text-white px-[10px] text-[12px] py-[2px] absolute bottom-0 right-0 mb-[15px] mr-[10px]">Unpaid</span>
+                            @endif
+                        </div>
+                    @endforeach
+                @else
+                    <div class="text-center w-full">
+                        <h3 class="text-[16px] text-[#757277]">No registered staff! &#128532;</h3>
+                    </div>
+                @endif
+            </div>
+        </div>
+    @endif
+    @else
+        <div class="flex flex-col justify-center items-center">
+            <h3 class="text-center text-[2.4rem] text-[#757277]">There is no data of student registrations!</h3>
+            <img src="{{ asset('/') }}images/empty.jpg" alt="Photo" class="w-[350px] my-[30px]">
+        </div>
     @endif
 </div>
 <!-- REGISTRATION SECTION END -->
