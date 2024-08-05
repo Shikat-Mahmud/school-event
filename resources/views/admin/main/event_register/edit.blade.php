@@ -101,10 +101,10 @@
             function updateAmount() {
                 const selectedBatch = parseInt(batchSelect.val(), 10);
                 const guestCount = parseInt(guestSelect.val(), 10);
-                let baseAmount = 1000;
+                let baseAmount = 500;
 
-                if (selectedBatch >= 2024) {
-                    baseAmount = 500;
+                if (selectedBatch <= 2024 && selectedBatch >= 1999) {
+                    baseAmount = 1000;
                 }
 
                 const totalAmount = baseAmount + guestCount * 500;
