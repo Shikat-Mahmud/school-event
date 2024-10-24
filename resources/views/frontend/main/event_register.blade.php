@@ -113,7 +113,7 @@
                         <input type="text" name="amount" id="et-contact-amount" value="1000" readonly class="border border-[#ECECEC] h-[55px] px-[20px] xs:px-[15px] rounded-[4px] w-full focus:outline-none">
                     </div>
                     <div class="col-span-2 xxs:col-span-1">
-                        <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: <span style="color: red;">*</span> <span class="text-[#707882] text-[12px]">(for id card)</span></label>
+                        <label for="et-contact-photo" class="font-lato font-semibold text-etBlack block mb-[12px]">Your Photo: <span style="color: red;">*</span> <span class="text-[#707882] text-[12px]">(for id card | max size: 5MB)</span></label>
                         <input type="file" name="photo" id="et-contact-photo" accept="image/*" class="border border-[#ECECEC] h-[55px] p-[20px] rounded-[4px] w-full focus:outline-none" required>
                     </div>
                     <div class="col-span-2 xxs:col-span-1">

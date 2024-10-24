@@ -37,7 +37,7 @@ class EventRegisterController extends Controller
                 'phone' => 'required|string|max:15|unique:event_registers,phone',
                 'guest' => 'nullable|integer|min:0',
                 'amount' => 'required|numeric|min:0',
-                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'suggestion' => 'nullable|string',
             ], [
                 'phone.unique' => 'You have already registered for the event.',
