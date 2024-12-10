@@ -79,6 +79,8 @@
                             <div class="d-flex align-items-center mt-3">
                                 <h3 class="text-white f-w-300 d-flex align-items-center m-b-0">&#2547; {{ $totalRegAmount }}</h3>
                             </div>
+                            <h6 class="mt-3 text-white mb-3">Ex Students<span class="float-end text-white">{{ $totalRegAmountExStd }}</span></h6>
+                            <h6 class="text-white mb-3">Present Students<span class="float-end text-white">{{ $totalRegAmountCurStd }}</span></h6>
                         </div>
                     </div>
                 </div>
@@ -134,6 +136,20 @@
                             </div>
                             <h2 class="text-end text-white"><i
                                     class="ph ph-coins float-start"></i><span>&#2547; {{ $totalInvestment }}</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1 bg-warning">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center justify-content-between mb-3 drp-div">
+                                <h6 class="mb-0 text-white">Total Cash In Hand</h6>
+                            </div>
+                            <h2 class="text-end text-white"><i
+                                    class="ph ph-coins float-start"></i><span>&#2547; {{ $totalInHand }}</span>
                             </h2>
                         </div>
                     </div>

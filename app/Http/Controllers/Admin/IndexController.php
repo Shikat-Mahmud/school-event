@@ -41,30 +41,41 @@ class IndexController extends Controller
             $totalAttendee = $totalRegistration + $totalGuest;
 
             $totalRegAmount = EventRegister::where('status', 1)->sum('amount');
+            $totalRegAmountExStd = EventRegister::where('status', 1)
+                ->whereNotNull('batch')
+                ->whereBetween('batch', [2000, 2023])
+                ->sum('amount');
+            $totalRegAmountCurStd = EventRegister::where('status', 1)
+                ->whereNotNull('batch')
+                ->whereBetween('batch', [2024, 2026])
+                ->sum('amount');
+
             $totalDonAmount = Donation::sum('amount');
             $totalSponAmount = Sponsor::sum('amount');
             $totalAmountReceived = $totalRegAmount + $totalDonAmount + $totalSponAmount;
             $totalInvestment = Invest::sum('amount');
+            $totalInHand = $totalAmountReceived - $totalInvestment;
 
             $event = Event::first();
             $totalReviewrs = Review::count();
             $totalTeamMembers = Team::count();
 
-            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalTeachers', 'totalStaffs', 'totalExStudent', 'totalPresentStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalDonAmount', 'totalSponAmount', 'totalAmountReceived', 'totalInvestment'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalTeachers', 'totalStaffs', 'totalExStudent', 'totalPresentStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalRegAmountExStd', 'totalRegAmountCurStd', 'totalDonAmount', 'totalSponAmount', 'totalAmountReceived', 'totalInvestment', 'totalInHand'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }
     }
 
-    public function login(){
-        $general =  generalSettings();
+    public function login()
+    {
+        $general = generalSettings();
         return view('admin.main.users.admin_login', compact('general'));
     }
 
     public function search(Request $request)
     {
         $query = $request->input('query');
-        
+
         $models = [
             'User' => User::class,
             'EventRegister' => EventRegister::class,
