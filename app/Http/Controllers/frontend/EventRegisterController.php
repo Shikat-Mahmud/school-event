@@ -188,14 +188,19 @@ class EventRegisterController extends Controller
                     ->orWhereNull('suggestion');
             })
             ->get();
+        $teachersCount = $teachers->count();
+
         $staff = EventRegister::whereNull('batch')->where('suggestion', 'staff')->get();
+        $staffCount = $staff->count();
 
         $registrationsByBatch = [];
+        $registrationsByBatchCount = [];
         foreach ($batchs as $batch) {
             $registrationsByBatch[$batch] = EventRegister::where('batch', $batch)->get();
+            $registrationsByBatchCount[$batch] = $registrationsByBatch[$batch]->count();
         }
 
-        return view('frontend.main.all_registration', compact('registrations', 'batchs', 'registrationsByBatch', 'teachers', 'staff'));
+        return view('frontend.main.all_registration', compact('registrations', 'batchs', 'registrationsByBatch', 'registrationsByBatchCount', 'teachers', 'teachersCount', 'staffCount', 'staff'));
     }
 
 }

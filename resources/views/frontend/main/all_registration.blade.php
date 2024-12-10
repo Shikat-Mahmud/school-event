@@ -109,7 +109,7 @@
     @if (isset($registrationsByBatch))
         @foreach ($registrationsByBatch as $batch => $students)
             <div id="{{ $batch }}" class="tabcontent">
-                <h3 class="text-[24px] py-[16px]">Registered Students Of {{ $batch }} Batch</h3>
+                <h3 class="text-[24px] py-[16px]">Registered Students Of {{ $batch }} Batch (Total {{ $registrationsByBatchCount[$batch] }})</h3>
                 <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
                     @if ($students->isNotEmpty())
                         @foreach ($students as $student)
@@ -145,7 +145,7 @@
 
     @if (isset($teachers))
         <div id="teachers" class="tabcontent">
-            <h3 class="text-[24px] py-[16px]">Registered Teachers</h3>
+            <h3 class="text-[24px] py-[16px]">Registered Teachers (Total {{$teachersCount}})</h3>
             <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
                 @if ($teachers->isNotEmpty())
                     @foreach ($teachers as $teacher)
@@ -180,7 +180,7 @@
 
     @if (isset($staff))
         <div id="staff" class="tabcontent">
-            <h3 class="text-[24px] py-[16px]">Registered Staff</h3>
+            <h3 class="text-[24px] py-[16px]">Registered Staff (Total {{$staffCount}})</h3>
             <div class="p-[20px] lg:p-[20px] flex flex-wrap justify-start sm:justify-center gap-x-[30px] gap-y-[20px] mb-[30px]">
                 @if ($staff->isNotEmpty())
                     @foreach ($staff as $person)
