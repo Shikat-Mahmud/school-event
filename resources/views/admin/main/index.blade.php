@@ -155,6 +155,23 @@
                     </div>
                 </div>
 
+                <div class="col-md-6 col-xl-3 col-sm-6">
+                    <div class="card statistics-card-1" style="background-color: #65467a;">
+                        <div class="card-body">
+                            <img src="{{ asset('/')}}images/widget/img-status-6.svg"
+                                alt="img" class="img-fluid img-bg">
+                            <div class="d-flex align-items-center">
+                                <h4 class="text-white f-w-300 d-flex align-items-center">Paid Registrations</h4>
+                            </div>
+                            <h6 class="mt-3 text-white mb-3">Ex Students<span class="float-end text-white">{{ $totalPaidExStd }}</span></h6>
+                            <h6 class="text-white mb-3">Present Students<span class="float-end text-white">{{ $totalPaidPreStd }}</span></h6>
+                            <h6 class="text-white mb-3">Teachers<span class="float-end text-white">{{ $totalPaidTchr }}</span></h6>
+                            <h6 class="text-white mb-3">Staffs<span class="float-end text-white">{{ $totalPaidStf }}</span></h6>
+                            <h6 class="text-white mb-3">Guests<span class="float-end text-white">{{ $totalPaidGst }}</span></h6>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-sm-12">
                     <div class="card table-card">
                         <div class="card-header">

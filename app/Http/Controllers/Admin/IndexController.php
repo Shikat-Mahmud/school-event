@@ -56,11 +56,34 @@ class IndexController extends Controller
             $totalInvestment = Invest::sum('amount');
             $totalInHand = $totalAmountReceived - $totalInvestment;
 
+            // PAID COUNT START
+
+            $totalPaidExStd = EventRegister::where('status', 1)
+                ->whereNotNull('batch')
+                ->whereBetween('batch', [2000, 2023])
+                ->count();
+            $totalPaidPreStd = EventRegister::where('status', 1)
+                ->whereNotNull('batch')
+                ->whereBetween('batch', [2024, 2026])
+                ->count();
+            $totalPaidTchr = EventRegister::where('status', 1)
+                ->whereNull('batch')
+                ->whereNull('suggestion')
+                ->count();
+            $totalPaidStf = EventRegister::where('status', 1)
+                ->whereNull('batch')
+                ->where('suggestion', 'LIKE', '%staff%')
+                ->count();
+            $totalPaidGst = EventRegister::where('status', 1)
+                ->sum('guest');
+
+            // PAID COUNT END
+
             $event = Event::first();
             $totalReviewrs = Review::count();
             $totalTeamMembers = Team::count();
 
-            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalTeachers', 'totalStaffs', 'totalExStudent', 'totalPresentStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalRegAmountExStd', 'totalRegAmountCurStd', 'totalDonAmount', 'totalSponAmount', 'totalAmountReceived', 'totalInvestment', 'totalInHand'));
+            return view('admin.main.index', compact('registrations', 'totalRegistration', 'totalPayment', 'event', 'totalReviewrs', 'totalTeamMembers', 'totalStudent', 'totalTeachers', 'totalStaffs', 'totalExStudent', 'totalPresentStudent', 'totalGuest', 'totalAttendee', 'totalRegAmount', 'totalRegAmountExStd', 'totalRegAmountCurStd', 'totalDonAmount', 'totalSponAmount', 'totalAmountReceived', 'totalInvestment', 'totalInHand', 'totalPaidExStd', 'totalPaidPreStd', 'totalPaidTchr', 'totalPaidStf', 'totalPaidGst'));
         } else {
             return redirect()->back()->with('error', 'You do not have permission to go to admin panel.');
         }
